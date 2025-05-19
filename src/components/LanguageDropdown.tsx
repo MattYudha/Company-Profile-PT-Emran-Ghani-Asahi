@@ -12,6 +12,7 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({ onClose, isMobile =
   const t = translations[language];
 
   const languages = [
+    { code: 'id', name: 'Bahasa Indonesia' },
     { code: 'en', name: 'English' },
     { code: 'ja', name: '日本語' },
     { code: 'zh', name: '中文' },

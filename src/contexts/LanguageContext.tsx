@@ -8,13 +8,13 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Check local storage for saved language preference
+  // Check local storage for saved language preference, default to Indonesian
   const [language, setLanguage] = useState(() => {
     if (typeof window !== 'undefined') {
       const savedLanguage = localStorage.getItem('language');
-      return savedLanguage || 'en'; // Default to English
+      return savedLanguage || 'id'; // Default to Indonesian
     }
-    return 'en';
+    return 'id';
   });
 
   useEffect(() => {
