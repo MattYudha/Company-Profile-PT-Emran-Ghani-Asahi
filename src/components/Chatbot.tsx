@@ -3,6 +3,7 @@ import { MessageCircle, X, Send } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../utils/translations';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getChatbotResponse } from '../utils/openai';
 
 interface Message {
   id: string;
@@ -25,6 +26,7 @@ const Chatbot: React.FC = () => {
   ]);
   const [userInput, setUserInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -37,6 +39,7 @@ const Chatbot: React.FC = () => {
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
+    setError(null);
   };
 
   const handleSendMessage = async (e: React.FormEvent) => {
@@ -54,21 +57,22 @@ const Chatbot: React.FC = () => {
     setMessages(prev => [...prev, userMessage]);
     setUserInput('');
     setIsTyping(true);
+    setError(null);
 
     try {
-      // Here you would typically make an API call to your AI service
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await getChatbotResponse(userInput, language);
       
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         sender: 'bot',
-        text: t.chatbotResponse,
+        text: response,
         timestamp: new Date()
       };
       
       setMessages(prev => [...prev, botMessage]);
     } catch (error) {
       console.error('Error getting bot response:', error);
+      setError(t.chatError || 'Sorry, I encountered an error. Please try again.');
     } finally {
       setIsTyping(false);
     }
@@ -149,6 +153,17 @@ const Chatbot: React.FC = () => {
                   </div>
                 </motion.div>
               )}
+
+              {error && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="mb-4 p-3 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-lg text-sm"
+                >
+                  {error}
+                </motion.div>
+              )}
+
               <div ref={messagesEndRef} />
             </div>
 
@@ -161,10 +176,14 @@ const Chatbot: React.FC = () => {
                   onChange={(e) => setUserInput(e.target.value)}
                   placeholder={t.typeMessage}
                   className="flex-1 py-2 px-3 border border-gray-300 dark:border-gray-600 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white"
+                  disabled={isTyping}
                 />
                 <button
                   type="submit"
-                  className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-r-lg transition-colors"
+                  className={`bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-r-lg transition-colors ${
+                    isTyping ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
+                  disabled={isTyping}
                 >
                   <Send className="h-5 w-5" />
                 </button>
