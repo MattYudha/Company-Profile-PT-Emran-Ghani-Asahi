@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
-import { translations } from '../utils/translations';
-import { motion, AnimatePresence } from 'framer-motion';
-import { getChatbotResponse } from '../utils/openai';
+import React, { useState, useEffect, useRef } from "react";
+import { MessageCircle, X, Send } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../utils/translations";
+import { motion, AnimatePresence } from "framer-motion";
+import { getChatbotResponse } from "../utils/openai";
+import { v4 as uuidv4 } from "uuid";
 
 interface Message {
   id: string;
-  sender: 'user' | 'bot';
+  sender: "user" | "bot";
   text: string;
   timestamp: Date;
 }
@@ -18,19 +19,19 @@ const Chatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
-      id: '1',
-      sender: 'bot',
+      id: uuidv4(),
+      sender: "bot",
       text: t.chatbotWelcome,
-      timestamp: new Date()
-    }
+      timestamp: new Date(),
+    },
   ]);
-  const [userInput, setUserInput] = useState('');
+  const [userInput, setUserInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -47,32 +48,34 @@ const Chatbot: React.FC = () => {
 
     if (!userInput.trim()) return;
 
-    // Add user message
     const userMessage: Message = {
-      id: Date.now().toString(),
-      sender: 'user',
+      id: uuidv4(),
+      sender: "user",
       text: userInput,
-      timestamp: new Date()
+      timestamp: new Date(),
     };
-    setMessages(prev => [...prev, userMessage]);
-    setUserInput('');
+    setMessages((prev) => [...prev, userMessage]);
+    setUserInput("");
     setIsTyping(true);
     setError(null);
 
     try {
       const response = await getChatbotResponse(userInput, language);
-      
       const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        sender: 'bot',
+        id: uuidv4(),
+        sender: "bot",
         text: response,
-        timestamp: new Date()
+        timestamp: new Date(),
       };
-      
-      setMessages(prev => [...prev, botMessage]);
-    } catch (error) {
-      console.error('Error getting bot response:', error);
-      setError(t.chatError || 'Sorry, I encountered an error. Please try again.');
+      setMessages((prev) => [...prev, botMessage]);
+    } catch (error: any) {
+      console.error("Error getting bot response:", error);
+      setError(
+        error.message.includes("429")
+          ? t.rateLimitError ||
+              "Terlalu banyak permintaan. Silakan coba lagi nanti."
+          : t.chatError || "Maaf, terjadi kesalahan. Silakan coba lagi."
+      );
     } finally {
       setIsTyping(false);
     }
@@ -82,25 +85,29 @@ const Chatbot: React.FC = () => {
     <div className="fixed bottom-6 right-6 z-50">
       <AnimatePresence>
         {/* Chat button */}
-        <motion.button
-          initial={{ scale: 0 }}
-          animate={{ scale: isOpen ? 0 : 1 }}
-          exit={{ scale: 0 }}
-          onClick={toggleChat}
-          className="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg"
-          aria-label="Open chatbot"
-        >
-          <MessageCircle className="h-6 w-6" />
-        </motion.button>
+        {!isOpen && (
+          <motion.button
+            key="chat-button"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            onClick={toggleChat}
+            className="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg"
+            aria-label="Open chatbot"
+          >
+            <MessageCircle className="h-6 w-6" />
+          </motion.button>
+        )}
 
         {/* Chat window */}
         {isOpen && (
           <motion.div
+            key="chat-window"
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             className="absolute bottom-0 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-80 sm:w-96"
-            style={{ minHeight: '400px', maxHeight: '600px', bottom: '5rem' }}
+            style={{ minHeight: "400px", maxHeight: "600px", bottom: "5rem" }}
           >
             {/* Chat header */}
             <div className="bg-green-600 text-white p-4 rounded-t-lg flex justify-between items-center">
@@ -124,13 +131,15 @@ const Chatbot: React.FC = () => {
                   key={message.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`mb-4 ${message.sender === 'user' ? 'text-right' : 'text-left'}`}
+                  className={`mb-4 ${
+                    message.sender === "user" ? "text-right" : "text-left"
+                  }`}
                 >
                   <div
                     className={`inline-block px-4 py-2 rounded-lg ${
-                      message.sender === 'user'
-                        ? 'bg-green-600 text-white rounded-tr-none'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-tl-none'
+                      message.sender === "user"
+                        ? "bg-green-600 text-white rounded-tr-none"
+                        : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-tl-none"
                     }`}
                   >
                     {message.text}
@@ -140,6 +149,7 @@ const Chatbot: React.FC = () => {
 
               {isTyping && (
                 <motion.div
+                  key="typing-indicator"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mb-4 text-left"
@@ -147,8 +157,14 @@ const Chatbot: React.FC = () => {
                   <div className="inline-block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-tl-none">
                     <div className="flex space-x-1">
                       <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                      <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+                      <div
+                        className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
+                        style={{ animationDelay: "0.2s" }}
+                      ></div>
+                      <div
+                        className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
+                        style={{ animationDelay: "0.4s" }}
+                      ></div>
                     </div>
                   </div>
                 </motion.div>
@@ -156,6 +172,7 @@ const Chatbot: React.FC = () => {
 
               {error && (
                 <motion.div
+                  key="error-message"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   className="mb-4 p-3 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-lg text-sm"
@@ -181,7 +198,7 @@ const Chatbot: React.FC = () => {
                 <button
                   type="submit"
                   className={`bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-r-lg transition-colors ${
-                    isTyping ? 'opacity-50 cursor-not-allowed' : ''
+                    isTyping ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                   disabled={isTyping}
                 >
