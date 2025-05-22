@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Moon, Sun, Globe } from "lucide-react";
-import { Link } from "react-router-dom"; // Impor Link untuk navigasi
+import {
+  Menu,
+  X,
+  Moon,
+  Sun,
+  Globe,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
+import { Link } from "react-router-dom"; // Import Link untuk navigasi
 import { useTheme } from "../contexts/ThemeContext";
 import { useLanguage } from "../contexts/LanguageContext";
 import { translations } from "../utils/translations";
@@ -11,6 +19,7 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
+  const [showMobileMegaMenu, setShowMobileMegaMenu] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
   const { language } = useLanguage();
   const t = translations[language];
@@ -28,9 +37,20 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    // Reset mega menu ketika main menu ditutup
+    if (isOpen) {
+      setShowMobileMegaMenu(false);
+    }
+  };
+
   const toggleLanguageDropdown = () =>
     setShowLanguageDropdown(!showLanguageDropdown);
+
+  const toggleMobileMegaMenu = () => {
+    setShowMobileMegaMenu(!showMobileMegaMenu);
+  };
 
   const navLinks = [
     { name: t.home, href: "/#home" },
@@ -197,6 +217,7 @@ const Navbar: React.FC = () => {
         } md:hidden bg-green-800 dark:bg-gray-900`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          {/* Regular nav links */}
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -207,17 +228,60 @@ const Navbar: React.FC = () => {
               {link.name}
             </a>
           ))}
+
+          {/* Mobile Services Mega Menu Button */}
+          <button
+            onClick={toggleMobileMegaMenu}
+            className="w-full flex items-center justify-between px-3 py-2 text-white hover:bg-green-700 dark:hover:bg-gray-700 rounded-md"
+          >
+            <span>{t.allServices}</span>
+            {showMobileMegaMenu ? (
+              <ChevronUp className="h-4 w-4" />
+            ) : (
+              <ChevronDown className="h-4 w-4" />
+            )}
+          </button>
+
+          {/* Mobile Mega Menu Content */}
+          {showMobileMegaMenu && (
+            <div className="bg-green-700 dark:bg-gray-800 rounded-md mt-1 overflow-hidden">
+              {megaMenuCategories.map((category, idx) => (
+                <div
+                  key={idx}
+                  className="border-b border-green-600 dark:border-gray-700 last:border-b-0"
+                >
+                  <h3 className="px-4 py-3 text-sm font-semibold text-green-200 dark:text-gray-300 bg-green-600 dark:bg-gray-700">
+                    {category.title}
+                  </h3>
+                  <div className="py-2">
+                    {category.items.map((item, i) => (
+                      <Link
+                        key={i}
+                        to={item.route}
+                        className="block px-6 py-2 text-sm text-white hover:bg-green-600 dark:hover:bg-gray-700 transition-colors"
+                        onClick={toggleMenu}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
-        <div className="flex justify-center space-x-4 pt-2 pb-4">
+
+        {/* Mobile action buttons */}
+        <div className="flex justify-center space-x-4 pt-2 pb-4 border-t border-green-700 dark:border-gray-700">
           <button
             onClick={toggleLanguageDropdown}
-            className="flex items-center text-white p-1 rounded-full hover:bg-green-700 dark:hover:bg-gray-700 transition-colors"
+            className="flex items-center text-white p-2 rounded-full hover:bg-green-700 dark:hover:bg-gray-700 transition-colors"
           >
             <Globe className="h-5 w-5" />
           </button>
           <button
             onClick={toggleTheme}
-            className="text-white p-1 rounded-full hover:bg-green-700 dark:hover:bg-gray-700 transition-colors"
+            className="text-white p-2 rounded-full hover:bg-green-700 dark:hover:bg-gray-700 transition-colors"
           >
             {isDarkMode ? (
               <Sun className="h-5 w-5" />
@@ -226,8 +290,10 @@ const Navbar: React.FC = () => {
             )}
           </button>
         </div>
+
+        {/* Mobile Language Dropdown */}
         {showLanguageDropdown && (
-          <div className="px-4 pb-4">
+          <div className="px-4 pb-4 border-t border-green-700 dark:border-gray-700">
             <LanguageDropdown onClose={toggleLanguageDropdown} isMobile />
           </div>
         )}

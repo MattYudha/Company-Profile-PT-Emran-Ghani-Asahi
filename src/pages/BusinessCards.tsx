@@ -1,103 +1,77 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Chatbot from "../components/Chatbot";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../utils/translations";
+import { IdCard, CheckCircle } from "lucide-react";
 
 const BusinessCards: React.FC = () => {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const businessCardFeatures = [
+    t.premiumMaterials || "Premium materials for durability",
+    t.customDesigns || "Fully customizable designs",
+    t.fastDelivery || "Fast and reliable delivery",
+    t.professionalFinish || "Professional finishing options",
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-blue-900 text-white py-6">
-        <div className="container mx-auto flex justify-between items-center">
-          <h1 className="text-3xl font-semibold">PT Emran Ghani Asahi</h1>
-          <nav>
-            <ul className="flex space-x-6">
-              <li>
-                <Link to="/" className="hover:text-gray-300">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/business-cards" className="hover:text-gray-300">
-                  Business Cards
-                </Link>
-              </li>
-              <li>
-                <Link to="/brochures" className="hover:text-gray-300">
-                  Brochures
-                </Link>
-              </li>
-              <li>
-                <Link to="/flyers" className="hover:text-gray-300">
-                  Flyers
-                </Link>
-              </li>
-              <li>
-                <Link to="/banners" className="hover:text-gray-300">
-                  Banners
-                </Link>
-              </li>
-              <li>
-                <Link to="/posters" className="hover:text-gray-300">
-                  Posters
-                </Link>
-              </li>
-              <li>
-                <Link to="/logo-design" className="hover:text-gray-300">
-                  Logo Design
-                </Link>
-              </li>
-              <li>
-                <Link to="/brand-identity" className="hover:text-gray-300">
-                  Brand Identity
-                </Link>
-              </li>
-              <li>
-                <Link to="/packaging" className="hover:text-gray-300">
-                  Packaging
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/illustration-services"
-                  className="hover:text-gray-300"
+    <div className="relative min-h-screen bg-gray-50 dark:bg-gray-900">
+      <Navbar />
+      <main>
+        <div className="relative h-[300px] mb-12">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "url('https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+            }}
+          >
+            <div className="absolute inset-0 bg-green-900/60 dark:bg-gray-900/80 backdrop-blur-sm" />
+          </div>
+          <div className="container mx-auto px-4 h-full flex items-center relative">
+            <h1 className="text-4xl md:text-5xl font-bold text-white">
+              {t.businessCards || "Business Card Printing Services"}
+            </h1>
+          </div>
+        </div>
+
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
+              {t.businessCardDesc ||
+                "Make a lasting impression with our high-quality business card printing services. Customize your cards with unique designs and premium finishes to reflect your professional identity."}
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              {businessCardFeatures.map((feature, index) => (
+                <div
+                  key={index}
+                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
                 >
-                  Illustration Services
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+                  <div className="flex items-center mb-4">
+                    <CheckCircle className="h-5 w-5 text-green-500 mr-2" />
+                    <p className="text-gray-800 dark:text-white font-medium">
+                      {feature}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-      {/* Main Content */}
-      <main className="container mx-auto py-12 px-4">
-        <section className="bg-white shadow-lg rounded-lg p-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            Business Cards
-          </h2>
-          <p className="text-gray-600 mb-6">
-            Our business card design and printing services offer a professional
-            and impactful way to introduce yourself to clients and partners. We
-            provide high-quality materials and customizable designs to ensure
-            your business card reflects your brand identity.
-          </p>
-          <p className="text-gray-600">
-            Whether you're a startup or an established company, our team is
-            dedicated to delivering business cards that make a lasting
-            impression.
-          </p>
-        </section>
+            <div className="text-center">
+              <a
+                href="#contact"
+                className="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-8 rounded-lg transition-colors duration-300"
+              >
+                {t.orderNow || "Order Now"}
+              </a>
+            </div>
+          </div>
+        </div>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-blue-900 text-white py-6">
-        <div className="container mx-auto text-center">
-          <p>&copy; 2025 PT Emran Ghani Asahi. All rights reserved.</p>
-          <p>
-            Jl. Raya Cikarang No. 123, Cikarang, Bekasi, Jawa Barat, Indonesia
-          </p>
-          <p>Email: info@emranghani.com | Phone: +62 21 1234 5678</p>
-        </div>
-      </footer>
+      <Chatbot />
     </div>
   );
 };

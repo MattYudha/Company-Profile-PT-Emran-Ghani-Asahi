@@ -31,7 +31,9 @@ const Chatbot: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
@@ -61,6 +63,9 @@ const Chatbot: React.FC = () => {
 
     try {
       const response = await getChatbotResponse(userInput, language);
+      if (typeof response !== "string" || !response.trim()) {
+        throw new Error("Invalid response from chatbot API");
+      }
       const botMessage: Message = {
         id: uuidv4(),
         sender: "bot",
@@ -70,10 +75,10 @@ const Chatbot: React.FC = () => {
       setMessages((prev) => [...prev, botMessage]);
     } catch (error: any) {
       console.error("Error getting bot response:", error);
+      const errorMessage = error.message || "An unexpected error occurred.";
       setError(
-        error.message.includes("429")
-          ? t.rateLimitError ||
-              "Too many requests. Please try again later."
+        errorMessage.includes("429")
+          ? t.rateLimitError || "Too many requests. Please try again later."
           : t.chatError || "Sorry, an error occurred. Please try again."
       );
     } finally {
@@ -91,6 +96,7 @@ const Chatbot: React.FC = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0 }}
+            transition={{ duration: 0.3 }}
             onClick={toggleChat}
             className="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg"
             aria-label="Open chatbot"
@@ -106,8 +112,8 @@ const Chatbot: React.FC = () => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="absolute bottom-0 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-80 sm:w-96"
-            style={{ minHeight: "400px", maxHeight: "600px", bottom: "5rem" }}
+            transition={{ duration: 0.3 }}
+            className="absolute bottom-20 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-80 sm:w-96 min-h-[400px] max-h-[600px]"
           >
             {/* Chat header */}
             <div className="bg-green-600 text-white p-4 rounded-t-lg flex justify-between items-center">
@@ -146,7 +152,6 @@ const Chatbot: React.FC = () => {
                   </div>
                 </motion.div>
               ))}
-
               {isTyping && (
                 <motion.div
                   key="typing-indicator"
@@ -169,7 +174,6 @@ const Chatbot: React.FC = () => {
                   </div>
                 </motion.div>
               )}
-
               {error && (
                 <motion.div
                   key="error-message"
@@ -180,7 +184,6 @@ const Chatbot: React.FC = () => {
                   {error}
                 </motion.div>
               )}
-
               <div ref={messagesEndRef} />
             </div>
 
@@ -194,6 +197,7 @@ const Chatbot: React.FC = () => {
                   placeholder={t.typeMessage}
                   className="flex-1 py-2 px-3 border border-gray-300 dark:border-gray-600 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white"
                   disabled={isTyping}
+                  aria-label={t.typeMessage}
                 />
                 <button
                   type="submit"
@@ -201,6 +205,7 @@ const Chatbot: React.FC = () => {
                     isTyping ? "opacity-50 cursor-not-allowed" : ""
                   }`}
                   disabled={isTyping}
+                  aria-label={t.sendMessage || "Send message"}
                 >
                   <Send className="h-5 w-5" />
                 </button>
@@ -213,4 +218,4 @@ const Chatbot: React.FC = () => {
   );
 };
 
-export default Chatbot;
+export default React.memo(Chatbot);
