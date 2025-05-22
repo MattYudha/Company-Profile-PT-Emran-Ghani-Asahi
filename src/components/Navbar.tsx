@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, Globe } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
-import { useLanguage } from '../contexts/LanguageContext';
-import { translations } from '../utils/translations';
-import Logo from './Logo';
-import LanguageDropdown from './LanguageDropdown';
+import React, { useState, useEffect } from "react";
+import { Menu, X, Moon, Sun, Globe } from "lucide-react";
+import { Link } from "react-router-dom"; // Impor Link untuk navigasi
+import { useTheme } from "../contexts/ThemeContext";
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../utils/translations";
+import Logo from "./Logo";
+import LanguageDropdown from "./LanguageDropdown";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,44 +24,61 @@ const Navbar: React.FC = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  const toggleLanguageDropdown = () => setShowLanguageDropdown(!showLanguageDropdown);
+  const toggleLanguageDropdown = () =>
+    setShowLanguageDropdown(!showLanguageDropdown);
 
   const navLinks = [
-    { name: t.home, href: '#home' },
-    { name: t.services, href: '#services' },
-    { name: t.about, href: '#about' },
-    { name: t.team, href: '#team' },
-    { name: t.portfolio, href: '#portfolio' },
-    { name: t.contact, href: '#contact' },
+    { name: t.home, href: "/#home" },
+    { name: t.services, href: "/#services" },
+    { name: t.about, href: "/#about" },
+    { name: t.team, href: "/#team" },
+    { name: t.portfolio, href: "/#portfolio" },
+    { name: t.contact, href: "/#contact" },
   ];
 
-  // Define mega menu categories
+  // Define mega menu categories with routes
   const megaMenuCategories = [
     {
       title: t.printingServices,
-      items: [t.businessCards, t.brochures, t.flyers, t.banners, t.posters]
+      items: [
+        { name: t.businessCards, route: "/business-cards" },
+        { name: t.brochures, route: "/brochures" },
+        { name: t.flyers, route: "/flyers" },
+        { name: t.banners, route: "/banners" },
+        { name: t.posters, route: "/posters" },
+      ],
     },
     {
       title: t.designServices,
-      items: [t.logoDesign, t.brandIdentity, t.packaging, t.illustrationService]
+      items: [
+        { name: t.logoDesign, route: "/logo-design" },
+        { name: t.brandIdentity, route: "/brand-identity" },
+        { name: t.packaging, route: "/packaging" },
+        { name: t.illustrationService, route: "/illustration-service" },
+      ],
     },
     {
-      title: t.finishingServices,
-      items: [t.binding, t.lamination, t.embossing, t.foiling]
-    }
+      title: t.finishing, // Ganti finishingServices dengan finishing (sesuaikan dengan translations.ts)
+      items: [
+        { name: t.binding, route: "/binding" },
+        { name: t.lamination, route: "/lamination" },
+        { name: t.embossing, route: "/embossing" },
+        { name: t.foiling, route: "/foiling" },
+      ],
+    },
   ];
 
   return (
-    <nav 
+    <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-green-800/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-sm' 
-          : 'bg-transparent'
+        isScrolled
+          ? "bg-green-800/95 dark:bg-gray-900/95 shadow-lg backdrop-blur-sm"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,18 +99,26 @@ const Navbar: React.FC = () => {
                 {link.name}
               </a>
             ))}
-            
+
             {/* Services mega menu trigger */}
             <div className="relative group">
-              <button 
-                className="text-white hover:text-green-200 transition-colors duration-200 text-sm font-medium flex items-center"
-              >
+              <button className="text-white hover:text-green-200 transition-colors duration-200 text-sm font-medium flex items-center">
                 {t.allServices}
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
-              
+
               {/* Mega menu */}
               <div className="absolute left-0 mt-2 w-screen max-w-4xl bg-white dark:bg-gray-800 shadow-xl rounded-lg p-6 hidden group-hover:block transform origin-top transition duration-200 ease-out">
                 <div className="grid grid-cols-3 gap-8">
@@ -104,12 +130,12 @@ const Navbar: React.FC = () => {
                       <ul className="mt-3 space-y-2">
                         {category.items.map((item, i) => (
                           <li key={i}>
-                            <a 
-                              href="#" 
+                            <Link
+                              to={item.route}
                               className="text-sm text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400"
                             >
-                              {item}
-                            </a>
+                              {item.name}
+                            </Link>
                           </li>
                         ))}
                       </ul>
@@ -124,18 +150,20 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-4">
             {/* Language selector */}
             <div className="relative">
-              <button 
+              <button
                 onClick={toggleLanguageDropdown}
                 className="flex items-center text-white p-1 rounded-full hover:bg-green-700 dark:hover:bg-gray-700 transition-colors"
               >
                 <Globe className="h-5 w-5" />
               </button>
-              {showLanguageDropdown && <LanguageDropdown onClose={toggleLanguageDropdown} />}
+              {showLanguageDropdown && (
+                <LanguageDropdown onClose={toggleLanguageDropdown} />
+              )}
             </div>
-            
+
             {/* Theme toggle */}
-            <button 
-              onClick={toggleTheme} 
+            <button
+              onClick={toggleTheme}
               className="text-white p-1 rounded-full hover:bg-green-700 dark:hover:bg-gray-700 transition-colors"
             >
               {isDarkMode ? (
@@ -152,7 +180,11 @@ const Navbar: React.FC = () => {
               onClick={toggleMenu}
               className="text-white hover:text-green-200 focus:outline-none"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </button>
           </div>
         </div>
@@ -161,7 +193,7 @@ const Navbar: React.FC = () => {
       {/* Mobile menu */}
       <div
         className={`${
-          isOpen ? 'block' : 'hidden'
+          isOpen ? "block" : "hidden"
         } md:hidden bg-green-800 dark:bg-gray-900`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -177,14 +209,14 @@ const Navbar: React.FC = () => {
           ))}
         </div>
         <div className="flex justify-center space-x-4 pt-2 pb-4">
-          <button 
+          <button
             onClick={toggleLanguageDropdown}
             className="flex items-center text-white p-1 rounded-full hover:bg-green-700 dark:hover:bg-gray-700 transition-colors"
           >
             <Globe className="h-5 w-5" />
           </button>
-          <button 
-            onClick={toggleTheme} 
+          <button
+            onClick={toggleTheme}
             className="text-white p-1 rounded-full hover:bg-green-700 dark:hover:bg-gray-700 transition-colors"
           >
             {isDarkMode ? (
