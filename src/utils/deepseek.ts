@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const DEEPSEEK_API_KEY = 'sk-3592566451454be68fca030269ef92d5';
+const DEEPSEEK_API_KEY = import.meta.env.VITE_DEEPSEEK_API_KEY;
 const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
 
 // Function to delay execution
@@ -19,6 +19,10 @@ export async function getChatbotResponse(
     ar: "Arabic"
   };
   const languageInstruction = languageMap[language] || "English";
+
+  if (!DEEPSEEK_API_KEY) {
+    throw new Error("DeepSeek API key is not configured. Please set the VITE_DEEPSEEK_API_KEY environment variable.");
+  }
 
   try {
     console.log(`Sending request to DeepSeek: ${new Date().toISOString()}`);
@@ -63,10 +67,16 @@ export async function getChatbotResponse(
       return getChatbotResponse(message, language, retries - 1);
     }
 
-    // Throw specific error messages
+    // Handle specific error cases
+    if (error.response?.status === 402) {
+      throw new Error("DeepSeek API payment required. Please check your account status and billing information.");
+    }
+    if (error.response?.status === 401) {
+      throw new Error("Invalid DeepSeek API key. Please check your API key configuration.");
+    }
     if (error.response?.status === 429) {
       throw new Error("429: Too many requests. Please try again later.");
     }
-    throw new Error("Sorry, there was an error connecting to the AI server.");
+    throw new Error("Sorry, there was an error connecting to the AI server. Please try again later.");
   }
 }
