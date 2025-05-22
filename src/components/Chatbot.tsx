@@ -3,7 +3,7 @@ import { MessageCircle, X, Send } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { translations } from "../utils/translations";
 import { motion, AnimatePresence } from "framer-motion";
-import { getChatbotResponse } from "../utils/openai";
+import { getChatbotResponse } from "../utils/deepseek";
 import { v4 as uuidv4 } from "uuid";
 
 interface Message {
@@ -73,8 +73,8 @@ const Chatbot: React.FC = () => {
       setError(
         error.message.includes("429")
           ? t.rateLimitError ||
-              "Terlalu banyak permintaan. Silakan coba lagi nanti."
-          : t.chatError || "Maaf, terjadi kesalahan. Silakan coba lagi."
+              "Too many requests. Please try again later."
+          : t.chatError || "Sorry, an error occurred. Please try again."
       );
     } finally {
       setIsTyping(false);
