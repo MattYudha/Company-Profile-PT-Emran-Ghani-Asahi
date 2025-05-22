@@ -1,35 +1,46 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import About from './components/About';
-import Team from './components/Team';
-import Portfolio from './components/Portfolio';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
+import Home from './pages/Home';
+import BusinessCards from './pages/BusinessCards';
+import Brochures from './pages/Brochures';
+import Flyers from './pages/Flyers';
+import Banners from './pages/Banners';
+import Posters from './pages/Posters';
+import LogoDesign from './pages/LogoDesign';
+import BrandIdentity from './pages/BrandIdentity';
+import Packaging from './pages/Packaging';
+import Illustration from './pages/Illustration';
 
 function App() {
   return (
-    <LanguageProvider>
-      <ThemeProvider>
-        <div className="min-h-screen bg-white dark:bg-gray-900 overflow-x-hidden">
-          <Navbar />
-          <Hero />
-          <Services />
-          <About />
-          <Team />
-          <Portfolio />
-          <Testimonials />
-          <Contact />
-          <Footer />
-          <Chatbot />
-        </div>
-      </ThemeProvider>
-    </LanguageProvider>
+    <Router>
+      <LanguageProvider>
+        <ThemeProvider>
+          <div className="min-h-screen bg-white dark:bg-gray-900 overflow-x-hidden">
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/business-cards" element={<BusinessCards />} />
+              <Route path="/brochures" element={<Brochures />} />
+              <Route path="/flyers" element={<Flyers />} />
+              <Route path="/banners" element={<Banners />} />
+              <Route path="/posters" element={<Posters />} />
+              <Route path="/logo-design" element={<LogoDesign />} />
+              <Route path="/brand-identity" element={<BrandIdentity />} />
+              <Route path="/packaging" element={<Packaging />} />
+              <Route path="/illustration" element={<Illustration />} />
+            </Routes>
+            <Footer />
+            <Chatbot />
+          </div>
+        </ThemeProvider>
+      </LanguageProvider>
+    </Router>
   );
 }
 
