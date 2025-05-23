@@ -6,7 +6,6 @@ import About from "../components/About";
 import Team from "../components/Team";
 import Portfolio from "../components/Portfolio";
 import Contact from "../components/Contact";
-import Footer from "../components/Footer";
 import Chatbot from "../components/Chatbot";
 import { useLanguage } from "../contexts/LanguageContext";
 import { translations } from "../utils/translations";
@@ -27,7 +26,6 @@ const Home: React.FC = () => {
         <Contact />
       </main>
       <Chatbot />
-      <Footer />
     </div>
   );
 };

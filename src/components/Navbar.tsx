@@ -79,16 +79,7 @@ const Navbar: React.FC = () => {
         { name: t.logoDesign, route: "/logo-design" },
         { name: t.brandIdentity, route: "/brand-identity" },
         { name: t.packaging, route: "/packaging" },
-        { name: t.illustrationService, route: "/illustration-service" },
-      ],
-    },
-    {
-      title: t.finishing, // Ganti finishingServices dengan finishing (sesuaikan dengan translations.ts)
-      items: [
-        { name: t.binding, route: "/binding" },
-        { name: t.lamination, route: "/lamination" },
-        { name: t.embossing, route: "/embossing" },
-        { name: t.foiling, route: "/foiling" },
+        { name: t.illustrationService, route: "/illustration" },
       ],
     },
   ];
@@ -214,7 +205,7 @@ const Navbar: React.FC = () => {
       <div
         className={`${
           isOpen ? "block" : "hidden"
-        } md:hidden bg-green-800 dark:bg-gray-900`}
+        } md:hidden bg-green-800 dark:bg-gray-900 max-h-screen overflow-y-auto`}
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
           {/* Regular nav links */}
@@ -244,13 +235,13 @@ const Navbar: React.FC = () => {
 
           {/* Mobile Mega Menu Content */}
           {showMobileMegaMenu && (
-            <div className="bg-green-700 dark:bg-gray-800 rounded-md mt-1 overflow-hidden">
+            <div className="bg-green-700 dark:bg-gray-800 rounded-md mt-1 max-h-[50vh] overflow-y-auto">
               {megaMenuCategories.map((category, idx) => (
                 <div
                   key={idx}
                   className="border-b border-green-600 dark:border-gray-700 last:border-b-0"
                 >
-                  <h3 className="px-4 py-3 text-sm font-semibold text-green-200 dark:text-gray-300 bg-green-600 dark:bg-gray-700">
+                  <h3 className="px-4 py-3 text-sm font-semibold text-green-200 dark:text-gray-300 bg-green-600 dark:bg-gray-700 sticky top-0">
                     {category.title}
                   </h3>
                   <div className="py-2">

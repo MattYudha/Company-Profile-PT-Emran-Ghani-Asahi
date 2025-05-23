@@ -1,34 +1,433 @@
 import React, { useState, useEffect, useRef } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { v4 as uuidv4 } from "uuid";
+import {
+  MessageCircle,
+  X,
+  Globe,
+  Send,
+  Paperclip,
+  Printer,
+  CheckCheck,
+  Check,
+  AlertCircle,
+} from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { translations } from "../utils/translations";
-import { motion, AnimatePresence } from "framer-motion";
-import { getChatbotResponse } from "../utils/deepseek";
-import { v4 as uuidv4 } from "uuid";
 
+// Interfaces
 interface Message {
   id: string;
   sender: "user" | "bot";
   text: string;
   timestamp: Date;
+  status?: "sending" | "sent" | "delivered" | "read";
 }
 
+interface SuggestedResponse {
+  id: string;
+  text: string;
+}
+
+// ChatbotAvatar Component
+interface ChatbotAvatarProps {
+  isBotMessage: boolean;
+}
+
+const ChatbotAvatar: React.FC<ChatbotAvatarProps> = ({ isBotMessage }) => {
+  return (
+    <motion.div
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      className={`flex-shrink-0 w-8 h-8 rounded-full overflow-hidden bg-gradient-to-br ${
+        isBotMessage
+          ? "from-green-500 to-green-800"
+          : "from-gray-500 to-gray-700"
+      }`}
+    >
+      {isBotMessage ? (
+        <div className="h-full w-full flex items-center justify-center text-white text-xs font-bold">
+          <Printer className="h-4 w-4" />
+        </div>
+      ) : (
+        <div className="h-full w-full flex items-center justify-center text-white text-xs font-bold">
+          You
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+// ChatbotButton Component
+interface ChatbotButtonProps {
+  onClick: () => void;
+}
+
+const ChatbotButton: React.FC<ChatbotButtonProps> = ({ onClick }) => {
+  return (
+    <motion.button
+      initial={{ scale: 0, rotate: -15 }}
+      animate={{ scale: 1, rotate: 0 }}
+      whileHover={{ scale: 1.1, rotate: 5 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      onClick={onClick}
+      className="bg-gradient-to-br from-green-500 to-green-800 hover:from-green-600 hover:to-green-900 text-white p-3 rounded-full shadow-lg fixed bottom-4 right-4 z-50 flex items-center justify-center w-12 h-12"
+      aria-label="Open PT Emran Ghanim Asahi Chatbot"
+    >
+      <MessageCircle className="h-6 w-6 animate-pulse" />
+    </motion.button>
+  );
+};
+
+// ChatbotError Component
+interface ChatbotErrorProps {
+  message: string;
+  onRetry?: () => void;
+}
+
+const ChatbotError: React.FC<ChatbotErrorProps> = ({ message, onRetry }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      className="mb-3 p-2 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 rounded-lg text-xs flex items-center justify-between"
+    >
+      <div className="flex items-center">
+        <AlertCircle className="h-4 w-4 mr-1 flex-shrink-0" />
+        <span>{message}</span>
+      </div>
+      {onRetry && (
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          onClick={onRetry}
+          className="ml-3 text-xs font-semibold py-1 px-2 bg-red-100 dark:bg-red-800 hover:bg-red-200 dark:hover:bg-red-700 rounded-md transition-colors"
+        >
+          Retry
+        </motion.button>
+      )}
+    </motion.div>
+  );
+};
+
+// ChatbotHeader Component
+interface ChatbotHeaderProps {
+  title: string;
+  onClose: () => void;
+}
+
+const ChatbotHeader: React.FC<ChatbotHeaderProps> = ({ title, onClose }) => {
+  const { language, setLanguage } = useLanguage();
+
+  const toggleLanguage = () => {
+    setLanguage(language === "en" ? "id" : "en");
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="bg-gradient-to-r from-green-500 to-green-800 text-white p-3 rounded-t-xl flex justify-between items-center shadow-md"
+    >
+      <div className="flex items-center">
+        <Printer className="h-5 w-5 mr-2 text-white" />
+        <h3 className="text-base font-semibold">PT Emran Ghanim Asahi</h3>
+      </div>
+      <div className="flex items-center space-x-3">
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={toggleLanguage}
+          className="text-white/80 hover:text-white transition-colors p-1"
+          aria-label="Toggle language"
+        >
+          <Globe className="h-4 w-4" />
+        </motion.button>
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={onClose}
+          className="text-white/80 hover:text-white transition-colors p-1"
+          aria-label="Close chatbot"
+        >
+          <X className="h-5 w-5" />
+        </motion.button>
+      </div>
+    </motion.div>
+  );
+};
+
+// ChatbotInput Component
+interface ChatbotInputProps {
+  value: string;
+  onChange: (value: string) => void;
+  onSend: (e: React.FormEvent) => void;
+  isDisabled: boolean;
+  placeholder: string;
+}
+
+const ChatbotInput: React.FC<ChatbotInputProps> = ({
+  value,
+  onChange,
+  onSend,
+  isDisabled,
+  placeholder,
+}) => {
+  const [isFocused, setIsFocused] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ y: 20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.2 }}
+      className="border-t border-gray-200 dark:border-gray-700 p-3 bg-white dark:bg-gray-800"
+    >
+      <form onSubmit={onSend} className="flex items-center space-x-2">
+        <div className="flex-1 relative">
+          <input
+            type="text"
+            value={value}
+            onChange={(e) => onChange(e.target.value)}
+            onFocus={() => setIsFocused(true)}
+            onBlur={() => setIsFocused(false)}
+            placeholder={placeholder}
+            className={`w-full py-2 px-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-300 text-sm ${
+              isFocused
+                ? "border-green-300"
+                : "border-gray-300 dark:border-gray-600"
+            } bg-gray-50 dark:bg-gray-700 dark:text-white text-gray-800`}
+            disabled={isDisabled}
+            aria-label={placeholder}
+          />
+          <motion.button
+            type="button"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="absolute right-10 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-300"
+            aria-label="Attach file"
+            onClick={(e) => e.preventDefault()}
+            disabled={isDisabled}
+          >
+            <Paperclip className="h-4 w-4" />
+          </motion.button>
+        </div>
+        <motion.button
+          type="submit"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          disabled={isDisabled || !value.trim()}
+          className={`bg-gradient-to-br from-green-500 to-green-800 hover:from-green-600 hover:to-green-900 text-white p-2 rounded-lg transition-colors flex items-center justify-center ${
+            isDisabled || !value.trim() ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          aria-label="Send message"
+        >
+          <Send className="h-4 w-4" />
+        </motion.button>
+      </form>
+    </motion.div>
+  );
+};
+
+// ChatbotMessage Component
+interface ChatbotMessageProps {
+  message: Message;
+  isLastMessage: boolean;
+}
+
+const ChatbotMessage: React.FC<ChatbotMessageProps> = ({
+  message,
+  isLastMessage,
+}) => {
+  const isUserMessage = message.sender === "user";
+
+  const formatTime = (date: Date): string => {
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.3,
+        type: "spring",
+        stiffness: 300,
+        damping: 24,
+      }}
+      className={`mb-3 flex ${isUserMessage ? "justify-end" : "justify-start"}`}
+    >
+      {!isUserMessage && (
+        <div className="mr-2 mt-1">
+          <ChatbotAvatar isBotMessage={true} />
+        </div>
+      )}
+      <div
+        className={`max-w-[75%] flex flex-col ${
+          isUserMessage ? "items-end" : "items-start"
+        }`}
+      >
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className={`px-3 py-2 rounded-lg shadow-sm ${
+            isUserMessage
+              ? "bg-blue-600 text-white rounded-br-none"
+              : "bg-gradient-to-br from-green-100 to-green-200 dark:from-green-800 dark:to-green-900 text-gray-800 dark:text-white rounded-bl-none"
+          }`}
+        >
+          <p className="text-xs break-words">{message.text}</p>
+        </motion.div>
+        <div className="flex items-center mt-1 text-xs text-gray-500 dark:text-gray-400">
+          <span className="mr-1">{formatTime(message.timestamp)}</span>
+          {isUserMessage && isLastMessage && (
+            <span className="flex items-center">
+              <motion.span
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.3 }}
+              >
+                <CheckCheck className="h-3 w-3 text-blue-500" />
+              </motion.span>
+            </span>
+          )}
+          {isUserMessage && !isLastMessage && (
+            <Check className="h-3 w-3 text-gray-400" />
+          )}
+        </div>
+      </div>
+      {isUserMessage && (
+        <div className="ml-2 mt-1">
+          <ChatbotAvatar isBotMessage={false} />
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+// ChatbotSuggestions Component
+interface ChatbotSuggestionsProps {
+  suggestions: SuggestedResponse[];
+  onSelect: (suggestion: string) => void;
+}
+
+const ChatbotSuggestions: React.FC<ChatbotSuggestionsProps> = ({
+  suggestions,
+  onSelect,
+}) => {
+  if (!suggestions.length) return null;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ delay: 0.3 }}
+      className="mb-3 flex flex-wrap gap-2"
+    >
+      {suggestions.map((suggestion) => (
+        <motion.button
+          key={suggestion.id}
+          whileHover={{ scale: 1.05, backgroundColor: "#34D399" }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => onSelect(suggestion.text)}
+          className="text-xs py-1 px-3 bg-green-100 hover:bg-green-200 text-green-800 font-medium rounded-lg border border-green-300 transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          {suggestion.text}
+        </motion.button>
+      ))}
+    </motion.div>
+  );
+};
+
+// ChatbotTypingIndicator Component
+const ChatbotTypingIndicator: React.FC = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      className="flex items-start mb-3"
+    >
+      <div className="mr-2 mt-1 w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-green-800 flex items-center justify-center text-white font-bold">
+        <Printer className="h-4 w-4" />
+      </div>
+      <div className="px-3 py-2 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-800 dark:to-green-900 rounded-lg rounded-bl-none shadow-sm">
+        <div className="flex space-x-1">
+          <motion.div
+            animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1.5 h-1.5 bg-green-500 rounded-full"
+          />
+          <motion.div
+            animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.5, 1, 0.5] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.2,
+            }}
+            className="w-1.5 h-1.5 bg-green-500 rounded-full"
+          />
+          <motion.div
+            animate={{ scale: [0.8, 1.2, 0.8], opacity: [0.5, 1, 0.5] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.4,
+            }}
+            className="w-1.5 h-1.5 bg-green-500 rounded-full"
+          />
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// Main Chatbot Component
 const Chatbot: React.FC = () => {
   const { language } = useLanguage();
   const t = translations[language];
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: uuidv4(),
       sender: "bot",
-      text: t.chatbotWelcome,
+      text:
+        language === "id"
+          ? "Selamat datang! Saya asisten percetakan PT Emran Ghanim Asahi. Bagaimana saya bisa membantu Anda hari ini?"
+          : "Welcome! I am the printing assistant for PT Emran Ghanim Asahi. How can I assist you today?",
       timestamp: new Date(),
     },
   ]);
   const [userInput, setUserInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [suggestions, setSuggestions] = useState<SuggestedResponse[]>([]);
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messageContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (language === "en") {
+      setSuggestions([
+        { id: "1", text: "Tell me about your printing services" },
+        { id: "2", text: "What types of printing do you offer?" },
+        { id: "3", text: "Can you provide a quote?" },
+        { id: "4", text: "How can I place an order?" },
+      ]);
+    } else {
+      setSuggestions([
+        { id: "1", text: "Ceritakan tentang layanan percetakan Anda" },
+        { id: "2", text: "Jenis percetakan apa yang Anda tawarkan?" },
+        { id: "3", text: "Bisakah Anda memberikan penawaran harga?" },
+        { id: "4", text: "Bagaimana cara memesan?" },
+      ]);
+    }
+  }, [language]);
 
   const scrollToBottom = () => {
     if (messagesEndRef.current) {
@@ -38,184 +437,246 @@ const Chatbot: React.FC = () => {
 
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [messages, isTyping]);
+
+  useEffect(() => {
+    setMessages((prevMessages) => {
+      const newMessages = [...prevMessages];
+      if (newMessages.length > 0 && newMessages[0].sender === "bot") {
+        newMessages[0] = {
+          ...newMessages[0],
+          text:
+            language === "id"
+              ? "Selamat datang! Saya asisten percetakan PT Emran Ghanim Asahi. Bagaimana saya bisa membantu Anda hari ini?"
+              : "Welcome! I am the printing assistant for PT Emran Ghanim Asahi. How can I assist you today?",
+        };
+      }
+      return newMessages;
+    });
+  }, [language]);
 
   const toggleChat = () => {
     setIsOpen(!isOpen);
     setError(null);
+    if (!isOpen) {
+      setTimeout(scrollToBottom, 300);
+    }
   };
 
-  const handleSendMessage = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!userInput.trim()) return;
+  const processUserMessage = async (text: string) => {
+    if (!text.trim()) return;
 
     const userMessage: Message = {
       id: uuidv4(),
       sender: "user",
-      text: userInput,
+      text: text,
       timestamp: new Date(),
     };
+
     setMessages((prev) => [...prev, userMessage]);
     setUserInput("");
     setIsTyping(true);
     setError(null);
+    setSuggestions([]);
 
-    try {
-      const response = await getChatbotResponse(userInput, language);
-      if (typeof response !== "string" || !response.trim()) {
-        throw new Error("Invalid response from chatbot API");
-      }
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+
+    // Define responses in both languages
+    const responses = {
+      en: {
+        officeStatus: "Our office is open from 8 AM to 5 PM WIB.",
+        officeOpen: "Contact us now!",
+        officeClosed: "Our office is closed. Please email us tomorrow.",
+        officeAssist: "We’re available to assist!",
+        officeAssistClosed: "Our office is closed. Please try again tomorrow.",
+        service:
+          "PT Emran Ghanim Asahi specializes in high-quality printing services, including offset printing, digital printing, and large-format printing for brochures, banners, and more.",
+        type: "We offer offset printing for high-volume jobs, digital printing for quick turnarounds, and large-format printing for banners and posters.",
+        quote:
+          "Please provide details (e.g., quantity, size), and we’ll send a tailored quote to info@emranghanimasahi.com.",
+        order:
+          "To place an order, email orders@emranghanimasahi.com with your requirements or visit www.emranghanimasahi.com.",
+        default:
+          "I can assist with PT Emran Ghanim Asahi’s printing services. Try asking about our services, types of printing, quotes, or orders!",
+      },
+      id: {
+        officeStatus: "Kantor kami buka dari pukul 08.00 hingga 17.00 WIB.",
+        officeOpen: "Hubungi kami sekarang!",
+        officeClosed: "Kantor kami tutup. Silakan email kami besok.",
+        officeAssist: "Kami siap membantu!",
+        officeAssistClosed: "Kantor kami tutup. Silakan coba lagi besok.",
+        service:
+          "PT Emran Ghanim Asahi mengkhususkan diri dalam layanan percetakan berkualitas tinggi, termasuk percetakan offset, digital, dan format besar untuk brosur, spanduk, dan lainnya.",
+        type: "Kami menawarkan percetakan offset untuk pekerjaan volume tinggi, percetakan digital untuk waktu penyelesaian cepat, dan percetakan format besar untuk spanduk dan poster.",
+        quote:
+          "Silakan berikan detail (misalnya, jumlah, ukuran), dan kami akan mengirimkan penawaran khusus ke info@emranghanimasahi.com.",
+        order:
+          "Untuk memesan, email orders@emranghanimasahi.com dengan kebutuhan Anda atau kunjungi www.emranghanimasahi.com.",
+        default:
+          "Saya bisa membantu dengan layanan percetakan PT Emran Ghanim Asahi. Coba tanyakan tentang layanan kami, jenis percetakan, penawaran, atau pemesanan!",
+      },
+    };
+
+    // Select the appropriate language for responses
+    const r = responses[language];
+
+    // Simulate bot response based on user input
+    let botResponse = "";
+    if (
+      text.toLowerCase().includes("service") ||
+      text.toLowerCase().includes("layanan")
+    ) {
+      botResponse = `${r.service} ${r.officeStatus}`;
+    } else if (
+      text.toLowerCase().includes("type") ||
+      text.toLowerCase().includes("jenis")
+    ) {
+      botResponse = `${r.type} ${r.officeStatus}`;
+    } else if (
+      text.toLowerCase().includes("quote") ||
+      text.toLowerCase().includes("penawaran")
+    ) {
+      botResponse = `${r.quote} ${
+        hours >= 8 && hours < 17 ? r.officeOpen : r.officeClosed
+      }`;
+    } else if (
+      text.toLowerCase().includes("order") ||
+      text.toLowerCase().includes("pesan")
+    ) {
+      botResponse = `${r.order} ${
+        hours >= 8 && hours < 17 ? r.officeAssist : r.officeAssistClosed
+      }`;
+    } else {
+      botResponse = `${r.default} ${r.officeStatus}`;
+    }
+
+    setTimeout(() => {
       const botMessage: Message = {
         id: uuidv4(),
         sender: "bot",
-        text: response,
-        timestamp: new Date(),
+        text: botResponse,
+        timestamp: currentTime,
       };
       setMessages((prev) => [...prev, botMessage]);
-    } catch (error: any) {
-      console.error("Error getting bot response:", error);
-      const errorMessage = error.message || "An unexpected error occurred.";
-      setError(
-        errorMessage.includes("429")
-          ? t.rateLimitError || "Too many requests. Please try again later."
-          : t.chatError || "Sorry, an error occurred. Please try again."
-      );
-    } finally {
       setIsTyping(false);
-    }
+
+      // Update suggestions based on response and language
+      if (language === "en") {
+        setSuggestions([
+          { id: uuidv4(), text: "Tell me more about your printing process" },
+          { id: uuidv4(), text: "What materials do you use?" },
+          { id: uuidv4(), text: "Can I see samples?" },
+          { id: uuidv4(), text: "How fast can you deliver?" },
+        ]);
+      } else {
+        setSuggestions([
+          {
+            id: uuidv4(),
+            text: "Ceritakan lebih detail proses percetakan Anda",
+          },
+          { id: uuidv4(), text: "Bahan apa yang Anda gunakan?" },
+          { id: uuidv4(), text: "Bisakah saya melihat sampel?" },
+          { id: uuidv4(), text: "Seberapa cepat Anda bisa mengirim?" },
+        ]);
+      }
+    }, 1000); // Simulate typing delay
+  };
+
+  const handleSendMessage = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await processUserMessage(userInput);
+  };
+
+  const handleSuggestionSelect = async (text: string) => {
+    await processUserMessage(text);
+  };
+
+  const handleRetry = () => {
+    setError(null);
+  };
+
+  const chatWindowVariants = {
+    hidden: { opacity: 0, scale: 0.9, y: 20 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 300,
+        damping: 25,
+        duration: 0.3,
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
+    exit: { opacity: 0, scale: 0.9, y: 20, transition: { duration: 0.2 } },
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <AnimatePresence>
-        {/* Chat button */}
-        {!isOpen && (
-          <motion.button
-            key="chat-button"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
-            transition={{ duration: 0.3 }}
-            onClick={toggleChat}
-            className="bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg"
-            aria-label="Open chatbot"
-          >
-            <MessageCircle className="h-6 w-6" />
-          </motion.button>
-        )}
-
-        {/* Chat window */}
-        {isOpen && (
+    <div className="fixed bottom-4 right-4 z-50">
+      <AnimatePresence mode="wait">
+        {isOpen ? (
           <motion.div
             key="chat-window"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute bottom-20 right-0 bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-80 sm:w-96 min-h-[400px] max-h-[600px]"
+            variants={chatWindowVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="absolute bottom-0 right-0 bg-white dark:bg-gray-900 rounded-xl shadow-lg w-80 max-h-[500px] flex flex-col overflow-hidden border border-gray-200 dark:border-gray-800 sm:w-72"
           >
-            {/* Chat header */}
-            <div className="bg-green-600 text-white p-4 rounded-t-lg flex justify-between items-center">
-              <div className="flex items-center">
-                <MessageCircle className="h-5 w-5 mr-2" />
-                <h3 className="font-medium">{t.chatWithUs}</h3>
-              </div>
-              <button
-                onClick={toggleChat}
-                className="text-white/80 hover:text-white transition-colors"
-                aria-label="Close chatbot"
-              >
-                <X className="h-5 w-5" />
-              </button>
-            </div>
-
-            {/* Chat messages */}
-            <div className="p-4 h-80 overflow-y-auto">
-              {messages.map((message) => (
-                <motion.div
+            <ChatbotHeader
+              title="PT Emran Ghanim Asahi Chatbot"
+              onClose={toggleChat}
+            />
+            <div
+              ref={messageContainerRef}
+              className="flex-1 p-4 overflow-y-auto scroll-smooth bg-gradient-to-br from-green-50 to-white dark:from-green-900 dark:to-green-800"
+              style={{ minHeight: "300px" }}
+            >
+              {messages.map((message, index) => (
+                <ChatbotMessage
                   key={message.id}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className={`mb-4 ${
-                    message.sender === "user" ? "text-right" : "text-left"
-                  }`}
-                >
-                  <div
-                    className={`inline-block px-4 py-2 rounded-lg ${
-                      message.sender === "user"
-                        ? "bg-green-600 text-white rounded-tr-none"
-                        : "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-tl-none"
-                    }`}
-                  >
-                    {message.text}
-                  </div>
-                </motion.div>
+                  message={message}
+                  isLastMessage={
+                    index === messages.length - 1 && message.sender === "user"
+                  }
+                />
               ))}
-              {isTyping && (
-                <motion.div
-                  key="typing-indicator"
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-4 text-left"
-                >
-                  <div className="inline-block px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-white rounded-tl-none">
-                    <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"></div>
-                      <div
-                        className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
-                        style={{ animationDelay: "0.2s" }}
-                      ></div>
-                      <div
-                        className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce"
-                        style={{ animationDelay: "0.4s" }}
-                      ></div>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-              {error && (
-                <motion.div
-                  key="error-message"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="mb-4 p-3 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-lg text-sm"
-                >
-                  {error}
-                </motion.div>
-              )}
+              <AnimatePresence>
+                {isTyping && <ChatbotTypingIndicator />}
+              </AnimatePresence>
+              <AnimatePresence>
+                {error && (
+                  <ChatbotError message={error} onRetry={handleRetry} />
+                )}
+              </AnimatePresence>
+              <ChatbotSuggestions
+                suggestions={suggestions}
+                onSelect={handleSuggestionSelect}
+              />
               <div ref={messagesEndRef} />
             </div>
-
-            {/* Chat input */}
-            <div className="border-t border-gray-200 dark:border-gray-700 p-4">
-              <form onSubmit={handleSendMessage} className="flex">
-                <input
-                  type="text"
-                  value={userInput}
-                  onChange={(e) => setUserInput(e.target.value)}
-                  placeholder={t.typeMessage}
-                  className="flex-1 py-2 px-3 border border-gray-300 dark:border-gray-600 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:text-white"
-                  disabled={isTyping}
-                  aria-label={t.typeMessage}
-                />
-                <button
-                  type="submit"
-                  className={`bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-r-lg transition-colors ${
-                    isTyping ? "opacity-50 cursor-not-allowed" : ""
-                  }`}
-                  disabled={isTyping}
-                  aria-label={t.sendMessage || "Send message"}
-                >
-                  <Send className="h-5 w-5" />
-                </button>
-              </form>
-            </div>
+            <ChatbotInput
+              value={userInput}
+              onChange={setUserInput}
+              onSend={handleSendMessage}
+              isDisabled={isTyping}
+              placeholder={
+                t.typeMessage ||
+                (language === "id"
+                  ? "Ketik pesan Anda..."
+                  : "Type your message...")
+              }
+            />
           </motion.div>
+        ) : (
+          <ChatbotButton onClick={toggleChat} />
         )}
       </AnimatePresence>
     </div>
   );
 };
 
-export default React.memo(Chatbot);
+export default Chatbot;
