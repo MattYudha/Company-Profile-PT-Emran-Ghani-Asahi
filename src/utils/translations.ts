@@ -146,38 +146,29 @@ export const translations: { [key: string]: Translation } = {
     // Hero Section
     heroTitle: "Solusi Cetak Premium untuk",
     printing: "Bisnis Anda",
-    heroSubtitle:
-      "Kami menyediakan layanan cetak berkualitas tinggi dengan teknologi modern untuk memenuhi kebutuhan bisnis Anda",
+    heroSubtitle: "Kami menyediakan layanan cetak berkualitas tinggi dengan teknologi modern untuk memenuhi kebutuhan bisnis Anda",
     exploreServices: "Jelajahi Layanan",
     contactUs: "Hubungi Kami",
     scrollDown: "Gulir ke bawah",
 
     // Services Section
     ourServices: "Layanan Kami",
-    servicesSubtitle:
-      "Kami menawarkan berbagai layanan cetak dan desain untuk memenuhi kebutuhan bisnis Anda",
+    servicesSubtitle: "Kami menawarkan berbagai layanan cetak dan desain untuk memenuhi kebutuhan bisnis Anda",
     digitalPrinting: "Cetak Digital",
-    digitalPrintingDesc:
-      "Solusi cetak digital berkualitas tinggi untuk proyek dengan tenggat waktu singkat",
+    digitalPrintingDesc: "Solusi cetak digital berkualitas tinggi untuk proyek dengan tenggat waktu singkat",
     offsetPrinting: "Cetak Offset",
-    offsetPrintingDesc:
-      "Cetak offset berkualitas tinggi untuk volume besar dengan hasil yang konsisten",
+    offsetPrintingDesc: "Cetak offset berkualitas tinggi untuk volume besar dengan hasil yang konsisten",
     largeFormat: "Format Besar",
-    largeFormatDesc:
-      "Cetak format besar untuk banner, poster, dan display dengan kualitas premium",
+    largeFormatDesc: "Cetak format besar untuk banner, poster, dan display dengan kualitas premium",
     packagingSolutions: "Solusi Kemasan",
-    packagingSolutionsDesc:
-      "Desain dan produksi kemasan yang inovatif untuk produk Anda",
+    packagingSolutionsDesc: "Desain dan produksi kemasan yang inovatif untuk produk Anda",
     designServices: "Layanan Desain",
-    designServicesDesc:
-      "Layanan desain kreatif untuk branding dan materi pemasaran",
+    designServicesDesc: "Layanan desain kreatif untuk branding dan materi pemasaran",
 
     // About Section
     aboutTitle: "Tentang Emran Ghani Asahi",
-    aboutDescription1:
-      "Sejak 1995, kami telah menjadi mitra terpercaya dalam industri percetakan, menghadirkan solusi cetak berkualitas tinggi untuk berbagai kebutuhan bisnis.",
-    aboutDescription2:
-      "Dengan teknologi modern dan tim ahli, kami berkomitmen untuk memberikan hasil terbaik bagi setiap proyek.",
+    aboutDescription1: "Sejak 1995, kami telah menjadi mitra terpercaya dalam industri percetakan, menghadirkan solusi cetak berkualitas tinggi untuk berbagai kebutuhan bisnis.",
+    aboutDescription2: "Dengan teknologi modern dan tim ahli, kami berkomitmen untuk memberikan hasil terbaik bagi setiap proyek.",
     feature1: "Teknologi Cetak Modern",
     feature2: "Tim Profesional",
     feature3: "Kualitas Premium",
@@ -215,12 +206,9 @@ export const translations: { [key: string]: Translation } = {
     // Testimonials Section
     ourClients: "Klien Kami",
     clientsSubtitle: "Apa yang dikatakan klien tentang layanan kami",
-    testimonial1:
-      "Kualitas cetak dan layanan pelanggan mereka luar biasa. Sangat merekomendasikan untuk semua kebutuhan cetak bisnis.",
-    testimonial2:
-      "Tim desain mereka sangat kreatif dan profesional. Hasil akhirnya melampaui ekspektasi kami.",
-    testimonial3:
-      "Pengiriman tepat waktu dan kualitas yang konsisten membuat mereka menjadi mitra yang dapat diandalkan.",
+    testimonial1: "Kualitas cetak dan layanan pelanggan mereka luar biasa. Sangat merekomendasikan untuk semua kebutuhan cetak bisnis.",
+    testimonial2: "Tim desain mereka sangat kreatif dan profesional. Hasil akhirnya melampaui ekspektasi kami.",
+    testimonial3: "Pengiriman tepat waktu dan kualitas yang konsisten membuat mereka menjadi mitra yang dapat diandalkan.",
 
     // Contact Section
     getInTouch: "Hubungi Kami",
@@ -245,12 +233,10 @@ export const translations: { [key: string]: Translation } = {
     sendMessage: "Kirim Pesan",
     sending: "Mengirim...",
     messageSent: "Pesan Terkirim!",
-    messageConfirmation:
-      "Terima kasih telah menghubungi kami. Kami akan segera merespons.",
+    messageConfirmation: "Terima kasih telah menghubungi kami. Kami akan segera merespons.",
 
     // Footer
-    footerAbout:
-      "Emran Ghani Asahi adalah perusahaan percetakan terkemuka yang menyediakan solusi cetak berkualitas tinggi untuk bisnis.",
+    footerAbout: "Emran Ghani Asahi adalah perusahaan percetakan terkemuka yang menyediakan solusi cetak berkualitas tinggi untuk bisnis.",
     quickLinks: "Tautan Cepat",
     printingServices: "Layanan Cetak",
     businessCards: "Kartu Nama",
@@ -266,8 +252,7 @@ export const translations: { [key: string]: Translation } = {
     embossing: "Emboss",
     foiling: "Foil",
     newsletter: "Newsletter",
-    newsletterText:
-      "Berlangganan newsletter kami untuk mendapatkan update terbaru",
+    newsletterText: "Berlangganan newsletter kami untuk mendapatkan update terbaru",
     allRightsReserved: "Hak Cipta Dilindungi",
     privacyPolicy: "Kebijakan Privasi",
     termsOfService: "Syarat & Ketentuan",
@@ -277,8 +262,7 @@ export const translations: { [key: string]: Translation } = {
     chatWithUs: "Chat dengan Kami",
     typeMessage: "Ketik pesan Anda...",
     chatbotWelcome: "Halo! Ada yang bisa kami bantu?",
-    chatbotResponse:
-      "Terima kasih atas pesan Anda. Tim kami akan segera menghubungi Anda.",
+    chatbotResponse: "Terima kasih atas pesan Anda. Tim kami akan segera menghubungi Anda.",
   },
   en: {
     // Navbar
@@ -311,37 +295,28 @@ export const translations: { [key: string]: Translation } = {
     // Hero
     heroTitle: "Premium Quality Commercial",
     printing: "Printing",
-    heroSubtitle:
-      "Expert printing solutions for businesses of all sizes, delivering exceptional quality and innovation.",
+    heroSubtitle: "Expert printing solutions for businesses of all sizes, delivering exceptional quality and innovation.",
     exploreServices: "Explore Services",
     contactUs: "Contact Us",
     scrollDown: "Scroll Down",
 
     // Services
     ourServices: "Our Services",
-    servicesSubtitle:
-      "We offer a comprehensive range of printing and design services to meet your business needs.",
+    servicesSubtitle: "We offer a comprehensive range of printing and design services to meet your business needs.",
     digitalPrinting: "Digital Printing",
-    digitalPrintingDesc:
-      "High-quality, on-demand printing with quick turnaround times for short to medium runs.",
+    digitalPrintingDesc: "High-quality, on-demand printing with quick turnaround times for short to medium runs.",
     offsetPrinting: "Offset Printing",
-    offsetPrintingDesc:
-      "Traditional printing method delivering superior quality and color accuracy for larger quantities.",
+    offsetPrintingDesc: "Traditional printing method delivering superior quality and color accuracy for larger quantities.",
     largeFormat: "Large Format Printing",
-    largeFormatDesc:
-      "Eye-catching banners, posters, and displays for maximum visual impact at events and promotions.",
+    largeFormatDesc: "Eye-catching banners, posters, and displays for maximum visual impact at events and promotions.",
     packagingSolutions: "Packaging Solutions",
-    packagingSolutionsDesc:
-      "Custom packaging design and production to showcase and protect your products.",
-    designServicesDesc:
-      "Creative design services from concept to completion, including branding and marketing materials.",
+    packagingSolutionsDesc: "Custom packaging design and production to showcase and protect your products.",
+    designServicesDesc: "Creative design services from concept to completion, including branding and marketing materials.",
 
     // About
     aboutTitle: "Emran Ghani Asahi Printing",
-    aboutDescription1:
-      "Established in 2005, Emran Ghani Asahi Printing has grown to become a leading provider of premium printing solutions in Tokyo and across Japan.",
-    aboutDescription2:
-      "We combine traditional Japanese craftsmanship with cutting-edge technology to deliver exceptional quality and service to our clients.",
+    aboutDescription1: "Established in 2005, Emran Ghani Asahi Printing has grown to become a leading provider of premium printing solutions in Tokyo and across Japan.",
+    aboutDescription2: "We combine traditional Japanese craftsmanship with cutting-edge technology to deliver exceptional quality and service to our clients.",
     yearsExperience: "20+ Years",
     inPrinting: "in printing excellence",
     feature1: "Eco-friendly printing options",
@@ -354,22 +329,17 @@ export const translations: { [key: string]: Translation } = {
     ourTeam: "Our Expert Team",
     teamSubtitle: "Meet the talented professionals behind our success.",
     founderCEO: "Founder & CEO",
-    founderBio:
-      "With over 20 years of experience in the printing industry, Emran leads our team with vision and passion.",
+    founderBio: "With over 20 years of experience in the printing industry, Emran leads our team with vision and passion.",
     designDirector: "Design Director",
-    designDirectorBio:
-      "Sarah brings her creative expertise to every project, ensuring visually stunning results for our clients.",
+    designDirectorBio: "Sarah brings her creative expertise to every project, ensuring visually stunning results for our clients.",
     productionManager: "Production Manager",
-    productionManagerBio:
-      "Akira oversees all production processes, ensuring the highest quality standards are maintained.",
+    productionManagerBio: "Akira oversees all production processes, ensuring the highest quality standards are maintained.",
     salesDirector: "Sales Director",
-    salesDirectorBio:
-      "Michael builds lasting relationships with our clients, understanding their needs and providing tailored solutions.",
+    salesDirectorBio: "Michael builds lasting relationships with our clients, understanding their needs and providing tailored solutions.",
 
     // Portfolio
     ourPortfolio: "Our Portfolio",
-    portfolioSubtitle:
-      "Explore some of our finest work for clients across various industries.",
+    portfolioSubtitle: "Explore some of our finest work for clients across various industries.",
     all: "All",
     branding: "Branding",
     print: "Print",
@@ -383,14 +353,10 @@ export const translations: { [key: string]: Translation } = {
 
     // Testimonials
     ourClients: "What Our Clients Say",
-    clientsSubtitle:
-      "Hear from some of our satisfied customers about their experience working with us.",
-    testimonial1:
-      "Emran Ghani Asahi Printing delivered exceptional quality print materials for our corporate rebrand. Their attention to detail and professional service exceeded our expectations.",
-    testimonial2:
-      "We've worked with many printing companies before, but none match the quality and service provided by Emran Ghani Asahi. They are now our exclusive printing partner.",
-    testimonial3:
-      "The team at Emran Ghani Asahi helped us bring our packaging vision to life. Their innovative approach and commitment to quality sets them apart.",
+    clientsSubtitle: "Hear from some of our satisfied customers about their experience working with us.",
+    testimonial1: "Emran Ghani Asahi Printing delivered exceptional quality print materials for our corporate rebrand. Their attention to detail and professional service exceeded our expectations.",
+    testimonial2: "We've worked with many printing companies before, but none match the quality and service provided by Emran Ghani Asahi. They are now our exclusive printing partner.",
+    testimonial3: "The team at Emran Ghani Asahi helped us bring our packaging vision to life. Their innovative approach and commitment to quality sets them apart.",
 
     // Contact
     getInTouch: "Get In Touch",
@@ -415,16 +381,13 @@ export const translations: { [key: string]: Translation } = {
     sendMessage: "Send Message",
     sending: "Sending...",
     messageSent: "Message Sent!",
-    messageConfirmation:
-      "Thank you for your message. We will get back to you shortly.",
+    messageConfirmation: "Thank you for your message. We will get back to you shortly.",
 
     // Footer
-    footerAbout:
-      "Emran Ghani Asahi Printing is committed to delivering exceptional quality printing services with innovation and excellence.",
+    footerAbout: "Emran Ghani Asahi Printing is committed to delivering exceptional quality printing services with innovation and excellence.",
     quickLinks: "Quick Links",
     newsletter: "Newsletter",
-    newsletterText:
-      "Subscribe to our newsletter for the latest updates and offers.",
+    newsletterText: "Subscribe to our newsletter for the latest updates and offers.",
     allRightsReserved: "All Rights Reserved",
     privacyPolicy: "Privacy Policy",
     termsOfService: "Terms of Service",
@@ -436,10 +399,8 @@ export const translations: { [key: string]: Translation } = {
     // Chatbot
     chatWithUs: "Chat with Us",
     typeMessage: "Type your message...",
-    chatbotWelcome:
-      "Hello! Welcome to Emran Ghani Asahi Printing. How can I assist you today?",
-    chatbotResponse:
-      "Thank you for your message. One of our representatives will get back to you shortly. For immediate assistance, please call our customer service line.",
+    chatbotWelcome: "Hello! Welcome to Emran Ghani Asahi Printing. How can I assist you today?",
+    chatbotResponse: "Thank you for your message. One of our representatives will get back to you shortly. For immediate assistance, please call our customer service line.",
   },
 
   ja: {
@@ -473,37 +434,28 @@ export const translations: { [key: string]: Translation } = {
     // Hero
     heroTitle: "高品質な商業",
     printing: "印刷",
-    heroSubtitle:
-      "あらゆる規模のビジネスに対応する専門的な印刷ソリューション。卓越した品質と革新をお届けします。",
+    heroSubtitle: "あらゆる規模のビジネスに対応する専門的な印刷ソリューション。卓越した品質と革新をお届けします。",
     exploreServices: "サービスを見る",
     contactUs: "お問い合わせ",
     scrollDown: "スクロールダウン",
 
     // Services
     ourServices: "私たちのサービス",
-    servicesSubtitle:
-      "ビジネスニーズに応える総合的な印刷・デザインサービスを提供しています。",
+    servicesSubtitle: "ビジネスニーズに応える総合的な印刷・デザインサービスを提供しています。",
     digitalPrinting: "デジタル印刷",
-    digitalPrintingDesc:
-      "短中規模の印刷に最適な、迅速な納期と高品質のオンデマンド印刷。",
+    digitalPrintingDesc: "短中規模の印刷に最適な、迅速な納期と高品質のオンデマンド印刷。",
     offsetPrinting: "オフセット印刷",
-    offsetPrintingDesc:
-      "大量印刷に優れた品質と色精度を提供する伝統的な印刷方法。",
+    offsetPrintingDesc: "大量印刷に優れた品質と色精度を提供する伝統的な印刷方法。",
     largeFormat: "大判印刷",
-    largeFormatDesc:
-      "イベントやプロモーションで最大の視覚的効果を発揮する、目を引くバナー、ポスター、ディスプレイ。",
+    largeFormatDesc: "イベントやプロモーションで最大の視覚的効果を発揮する、目を引くバナー、ポスター、ディスプレイ。",
     packagingSolutions: "パッケージソリューション",
-    packagingSolutionsDesc:
-      "製品を魅せ、保護するためのカスタムパッケージデザインと製造。",
-    designServicesDesc:
-      "ブランディングやマーケティング資料など、コンセプトから完成までのクリエイティブなデザインサービス。",
+    packagingSolutionsDesc: "製品を魅せ、保護するためのカスタムパッケージデザインと製造。",
+    designServicesDesc: "ブランディングやマーケティング資料など、コンセプトから完成までのクリエイティブなデザインサービス。",
 
     // About
     aboutTitle: "エムラン・ガニ旭印刷",
-    aboutDescription1:
-      "2005年に設立されたエムラン・ガニ旭印刷は、東京を中心に日本全国でプレミアム印刷ソリューションを提供するリーディングカンパニーに成長しました。",
-    aboutDescription2:
-      "日本の伝統的な職人技と最先端の技術を組み合わせ、お客様に卓越した品質とサービスを提供しています。",
+    aboutDescription1: "2005年に設立されたエムラン・ガニ旭印刷は、東京を中心に日本全国でプレミアム印刷ソリューションを提供するリーディングカンパニーに成長しました。",
+    aboutDescription2: "日本の伝統的な職人技と最先端の技術を組み合わせ、お客様に卓越した品質とサービスを提供しています。",
     yearsExperience: "20年以上",
     inPrinting: "の印刷業界での実績",
     feature1: "環境に優しい印刷オプション",
@@ -514,25 +466,19 @@ export const translations: { [key: string]: Translation } = {
 
     // Team
     ourTeam: "専門家チーム",
-    teamSubtitle:
-      "私たちの成功を支える talented professionals をご紹介します。",
+    teamSubtitle: "私たちの成功を支える talented professionals をご紹介します。",
     founderCEO: "創業者 & CEO",
-    founderBio:
-      "印刷業界で20年以上の経験を持つエムランは、ビジョンと情熱をもってチームを率いています。",
+    founderBio: "印刷業界で20年以上の経験を持つエムランは、ビジョンと情熱をもってチームを率いています。",
     designDirector: "デザインディレクター",
-    designDirectorBio:
-      "サラは全てのプロジェクトに創造的な専門知識を活かし、クライアントに視覚的に魅力的な結果を提供します。",
+    designDirectorBio: "サラは全てのプロジェクトに創造的な専門知識を活かし、クライアントに視覚的に魅力的な結果を提供します。",
     productionManager: "製作マネージャーー",
-    productionManagerBio:
-      "アキラは全ての製作プロセスを監督し、最高品質の基準が維持されるよう確保しています。",
+    productionManagerBio: "アキラは全ての製作プロセスを監督し、最高品質の基準が維持されるよう確保しています。",
     salesDirector: "営業ディレクター",
-    salesDirectorBio:
-      "マイケルはクライアントとの永続的な関係を構築し、ニーズを理解して適切なソリューションを提供します。",
+    salesDirectorBio: "マイケルはクライアントとの永続的な関係を構築し、ニーズを理解して適切なソリューションを提供します。",
 
     // Portfolio
     ourPortfolio: "作品集",
-    portfolioSubtitle:
-      "様々な業界のクライアントのために手がけた最高の作品をご覧ください。",
+    portfolioSubtitle: "様々な業界のクライアントのために手がけた最高の作品をご覧ください。",
     all: "全て",
     branding: "ブランディング",
     print: "印刷",
@@ -546,19 +492,14 @@ export const translations: { [key: string]: Translation } = {
 
     // Testimonials
     ourClients: "お客様の声",
-    clientsSubtitle:
-      "私たちとの仕事の経験について、満足いただいているお客様からの声をご紹介します。",
-    testimonial1:
-      "エムラン・ガニ旭印刷は、弊社の企業リブランディングに際し、卓越した品質の印刷物を提供してくれました。細部へのこだわりとプロフェッショナルなサービスは、期待を上回るものでした。",
-    testimonial2:
-      "私たちは過去に多くの印刷会社と仕事をしてきましたが、エムラン・ガニ旭印刷の品質とサービスに匹敵する会社はありません。現在は独占的な印刷パートナーとして協力しています。",
-    testimonial3:
-      "エムラン・ガニ旭印刷のチームは、私たちのパッケージングビジョンを実現するのを手伝ってくれました。彼らの革新的なアプローチと品質へのこだわりが他社と一線を画しています。",
+    clientsSubtitle: "私たちとの仕事の経験について、満足いただいているお客様からの声をご紹介します。",
+    testimonial1: "エムラン・ガニ旭印刷は、弊社の企業リブランディングに際し、卓越した品質の印刷物を提供してくれました。細部へのこだわりとプロフェッショナルなサービスは、期待を上回るものでした。",
+    testimonial2: "私たちは過去に多くの印刷会社と仕事をしてきましたが、エムラン・ガニ旭印刷の品質とサービスに匹敵する会社はありません。現在は独占的な印刷パートナーとして協力しています。",
+    testimonial3: "エムラン・ガニ旭印刷のチームは、私たちのパッケージングビジョンを実現するのを手伝ってくれました。彼らの革新的なアプローチと品質へのこだわりが他社と一線を画しています。",
 
     // Contact
     getInTouch: "お問い合わせ",
-    contactSubtitle:
-      "ご質問やプロジェクトについてお気軽にお問い合わせください。",
+    contactSubtitle: "ご質問やプロジェクトについてお気軽にお問い合わせください。",
     address: "住所",
     phone: "電話",
     email: "メール",
@@ -579,16 +520,13 @@ export const translations: { [key: string]: Translation } = {
     sendMessage: "メッセージを送信",
     sending: "送信中...",
     messageSent: "メッセージを送信しました！",
-    messageConfirmation:
-      "お問い合わせありがとうございます。速やかにご連絡いたします。",
+    messageConfirmation: "お問い合わせありがとうございます。速やかにご連絡いたします。",
 
     // Footer
-    footerAbout:
-      "エムラン・ガニ旭印刷は、革新と卓越性を持って例外的な品質の印刷サービスを提供することに取り組んでいます。",
+    footerAbout: "エムラン・ガニ旭印刷は、革新と卓越性を持って例外的な品質の印刷サービスを提供することに取り組んでいます。",
     quickLinks: "クイックリンク",
     newsletter: "ニュースレター",
-    newsletterText:
-      "最新情報やお得な情報を受け取るには、ニュースレターにご登録ください。",
+    newsletterText: "最新情報やお得な情報を受け取るには、ニュースレターにご登録ください。",
     allRightsReserved: "全権利所有",
     privacyPolicy: "プライバシーポリシー",
     termsOfService: "利用規約",
@@ -600,10 +538,8 @@ export const translations: { [key: string]: Translation } = {
     // Chatbot
     chatWithUs: "チャットでお問い合わせ",
     typeMessage: "メッセージを入力...",
-    chatbotWelcome:
-      "こんにちは！エムラン・ガニ旭印刷へようこそ。どのようにお手伝いできますか？",
-    chatbotResponse:
-      "メッセージをいただきありがとうございます。担当者が速やかにご連絡いたします。緊急のご用件は、カスタマーサービスまでお電話ください。",
+    chatbotWelcome: "こんにちは！エムラン・ガニ旭印刷へようこそ。どのようにお手伝いできますか？",
+    chatbotResponse: "メッセージをいただきありがとうございます。担当者が速やかにご連絡いたします。緊急のご用件は、カスタマーサービスまでお電話ください。",
   },
 
   zh: {
@@ -637,8 +573,7 @@ export const translations: { [key: string]: Translation } = {
     // Hero
     heroTitle: "高品质商业",
     printing: "印刷",
-    heroSubtitle:
-      "适用于各种规模企业的专业印刷解决方案，提供卓越品质和创新服务。",
+    heroSubtitle: "适用于各种规模企业的专业印刷解决方案，提供卓越品质和创新服务。",
     exploreServices: "探索服务",
     contactUs: "联系我们",
     scrollDown: "向下滚动",
@@ -651,18 +586,15 @@ export const translations: { [key: string]: Translation } = {
     offsetPrinting: "胶印",
     offsetPrintingDesc: "为大批量印刷提供卓越品质和色彩精准度的传统印刷方法。",
     largeFormat: "大幅面印刷",
-    largeFormatDesc:
-      "引人注目的横幅、海报和展示物，为活动和促销提供最大的视觉冲击力。",
+    largeFormatDesc: "引人注目的横幅、海报和展示物，为活动和促销提供最大的视觉冲击力。",
     packagingSolutions: "包装解决方案",
     packagingSolutionsDesc: "定制包装设计和生产，以展示和保护您的产品。",
     designServicesDesc: "从概念到完成的创意设计服务，包括品牌和营销材料。",
 
     // About
     aboutTitle: "艾姆兰·加尼旭日印刷",
-    aboutDescription1:
-      "成立于2005年，艾姆兰·加尼旭日印刷已发展成为东京及全日本领先的高端印刷解决方案提供商。",
-    aboutDescription2:
-      "我们结合传统日本工艺与尖端技术，为客户提供卓越的品质和服务。",
+    aboutDescription1: "成立于2005年，艾姆兰·加尼旭日印刷已发展成为东京及全日本领先的高端印刷解决方案提供商。",
+    aboutDescription2: "我们结合传统日本工艺与尖端技术，为客户提供卓越的品质和服务。",
     yearsExperience: "20多年",
     inPrinting: "印刷行业经验",
     feature1: "环保印刷选项",
@@ -677,13 +609,11 @@ export const translations: { [key: string]: Translation } = {
     founderCEO: "创始人兼首席执行官",
     founderBio: "拥有20多年印刷行业经验，艾姆兰以远见和热情领导我们的团队。",
     designDirector: "设计总监",
-    designDirectorBio:
-      "莎拉为每个项目带来创意专长，确保为客户提供视觉上惊艳的成果。",
+    designDirectorBio: "莎拉为每个项目带来创意专长，确保为客户提供视觉上惊艳的成果。",
     productionManager: "生产经理",
     productionManagerBio: "明监督所有生产流程，确保维持最高质量标准。",
     salesDirector: "销售总监",
-    salesDirectorBio:
-      "迈克尔与客户建立持久关系，了解他们的需求并提供量身定制的解决方案。",
+    salesDirectorBio: "迈克尔与客户建立持久关系，了解他们的需求并提供量身定制的解决方案。",
 
     // Portfolio
     ourPortfolio: "作品集",
@@ -702,12 +632,9 @@ export const translations: { [key: string]: Translation } = {
     // Testimonials
     ourClients: "客户评价",
     clientsSubtitle: "听听一些满意客户分享他们与我们合作的经验。",
-    testimonial1:
-      "艾姆兰·加尼旭日印刷为我们的企业品牌重塑提供了卓越品质的印刷材料。他们对细节的关注和专业服务超出了我们的期望。",
-    testimonial2:
-      "我们曾与多家印刷公司合作，但没有一家能与艾姆兰·加尼旭日提供的质量和服务相媲美。他们现在是我们的独家印刷合作伙伴。",
-    testimonial3:
-      "艾姆兰·加尼旭日的团队帮助我们实现了包装愿景。他们创新的方法和对质量的承诺使他们脱颖而出。",
+    testimonial1: "艾姆兰·加尼旭日印刷为我们的企业品牌重塑提供了卓越品质的印刷材料。他们对细节的关注和专业服务超出了我们的期望。",
+    testimonial2: "我们曾与多家印刷公司合作，但没有一家能与艾姆兰·加尼旭日提供的质量和服务相媲美。他们现在是我们的独家印刷合作伙伴。",
+    testimonial3: "艾姆兰·加尼旭日的团队帮助我们实现了包装愿景。他们创新的方法和对质量的承诺使他们脱颖而出。",
 
     // Contact
     getInTouch: "联系我们",
@@ -751,8 +678,7 @@ export const translations: { [key: string]: Translation } = {
     chatWithUs: "与我们聊天",
     typeMessage: "输入您的消息...",
     chatbotWelcome: "您好！欢迎来到艾姆兰·加尼旭日印刷。今天我能帮您什么？",
-    chatbotResponse:
-      "感谢您的留言。我们的代表将很快与您联系。如需立即协助，请致电我们的客户服务热线。",
+    chatbotResponse: "感谢您的留言。我们的代表将很快与您联系。如需立即协助，请致电我们的客户服务热线。",
   },
 
   ar: {
@@ -786,36 +712,28 @@ export const translations: { [key: string]: Translation } = {
     // Hero
     heroTitle: "طباعة تجارية",
     printing: "عالية الجودة",
-    heroSubtitle:
-      "حلول طباعة متخصصة للشركات بجميع أحجامها، تقدم جودة استثنائية وابتكار.",
+    heroSubtitle: "حلول طباعة متخصصة للشركات بجميع أحجامها، تقدم جودة استثنائية وابتكار.",
     exploreServices: "استكشاف الخدمات",
     contactUs: "اتصل بنا",
     scrollDown: "مرر لأسفل",
 
     // Services
     ourServices: "خدماتنا",
-    servicesSubtitle:
-      "نقدم مجموعة شاملة من خدمات الطباعة والتصميم لتلبية احتياجات عملك.",
+    servicesSubtitle: "نقدم مجموعة شاملة من خدمات الطباعة والتصميم لتلبية احتياجات عملك.",
     digitalPrinting: "الطباعة الرقمية",
-    digitalPrintingDesc:
-      "طباعة عالية الجودة حسب الطلب مع أوقات إنجاز سريعة للطبعات القصيرة إلى المتوسطة.",
+    digitalPrintingDesc: "طباعة عالية الجودة حسب الطلب مع أوقات إنجاز سريعة للطبعات القصيرة إلى المتوسطة.",
     offsetPrinting: "الطباعة الأوفست",
-    offsetPrintingDesc:
-      "طريقة طباعة تقليدية توفر جودة فائقة ودقة في الألوان للكميات الكبيرة.",
+    offsetPrintingDesc: "طريقة طباعة تقليدية توفر جودة فائقة ودقة في الألوان للكميات الكبيرة.",
     largeFormat: "طباعة الحجم الكبير",
-    largeFormatDesc:
-      "لافتات وملصقات وعروض ملفتة للنظر لتحقيق أقصى تأثير مرئي في الفعاليات والعروض الترويجية.",
+    largeFormatDesc: "لافتات وملصقات وعروض ملفتة للنظر لتحقيق أقصى تأثير مرئي في الفعاليات والعروض الترويجية.",
     packagingSolutions: "حلول التعبئة والتغليف",
     packagingSolutionsDesc: "تصميم وإنتاج عبوات مخصصة لعرض منتجاتك وحمايتها.",
-    designServicesDesc:
-      "خدمات تصميم إبداعية من المفهوم إلى الإنجاز، بما في ذلك العلامات التجارية ومواد التسويق.",
+    designServicesDesc: "خدمات تصميم إبداعية من المفهوم إلى الإنجاز، بما في ذلك العلامات التجارية ومواد التسويق.",
 
     // About
     aboutTitle: "إمران غاني أساهي للطباعة",
-    aboutDescription1:
-      "تأسست شركة إمران غاني أساهي للطباعة في عام 2005، ونمت لتصبح مزودًا رائدًا لحلول الطباعة المتميزة في طوكيو وجميع أنحاء اليابان.",
-    aboutDescription2:
-      "نحن نجمع بين الحرفية اليابانية التقليدية والتكنولوجيا المتطورة لتقديم جودة وخدمة استثنائية لعملائنا.",
+    aboutDescription1: "تأسست شركة إمران غاني أساهي للطباعة في عام 2005، ونمت لتصبح مزودًا رائدًا لحلول الطباعة المتميزة في طوكيو وجميع أنحاء اليابان.",
+    aboutDescription2: "نحن نجمع بين الحرفية اليابانية التقليدية والتكنولوجيا المتطورة لتقديم جودة وخدمة استثنائية لعملائنا.",
     yearsExperience: "+20 عامًا",
     inPrinting: "من التميز في الطباعة",
     feature1: "خيارات طباعة صديقة للبيئة",
@@ -828,22 +746,17 @@ export const translations: { [key: string]: Translation } = {
     ourTeam: "فريقنا من الخبراء",
     teamSubtitle: "تعرف على المحترفين الموهوبين وراء نجاحنا.",
     founderCEO: "المؤسس والرئيس التنفيذي",
-    founderBio:
-      "مع أكثر من 20 عامًا من الخبرة في صناعة الطباعة، يقود إمران فريقنا برؤية وشغف.",
+    founderBio: "مع أكثر من 20 عامًا من الخبرة في صناعة الطباعة، يقود إمران فريقنا برؤية وشغف.",
     designDirector: "مدير التصميم",
-    designDirectorBio:
-      "تجلب سارة خبرتها الإبداعية لكل مشروع، مما يضمن نتائج بصرية مذهلة لعملائنا.",
+    designDirectorBio: "تجلب سارة خبرتها الإبداعية لكل مشروع، مما يضمن نتائج بصرية مذهلة لعملائنا.",
     productionManager: "مدير الإنتاج",
-    productionManagerBio:
-      "يشرف أكيرا على جميع عمليات الإنتاج، مما يضمن الحفاظ على أعلى معايير الجودة.",
+    productionManagerBio: "يشرف أكيرا على جميع عمليات الإنتاج، مما يضمن الحفاظ على أعلى معايير الجودة.",
     salesDirector: "مدير المبيعات",
-    salesDirectorBio:
-      "يبني مايكل علاقات دائمة مع عملائنا، ويفهم احتياجاتهم ويقدم حلولاً مخصصة.",
+    salesDirectorBio: "يبني مايكل علاقات دائمة مع عملائنا، ويفهم احتياجاتهم ويقدم حلولاً مخصصة.",
 
     // Portfolio
     ourPortfolio: "أعمالنا",
-    portfolioSubtitle:
-      "استكشف بعضًا من أفضل أعمالنا للعملاء عبر مختلف الصناعات.",
+    portfolioSubtitle: "استكشف بعضًا من أفضل أعمالنا للعملاء عبر مختلف الصناعات.",
     all: "الكل",
     branding: "العلامات التجارية",
     print: "الطباعة",
@@ -858,12 +771,9 @@ export const translations: { [key: string]: Translation } = {
     // Testimonials
     ourClients: "ما يقوله عملاؤنا",
     clientsSubtitle: "اسمع من بعض عملائنا الراضين عن تجربتهم في العمل معنا.",
-    testimonial1:
-      "قدمت شركة إمران غاني أساهي للطباعة مواد طباعة استثنائية الجودة لإعادة تصميم العلامة التجارية لشركتنا. تجاوز اهتمامهم بالتفاصيل وخدمتهم المهنية توقعاتنا.",
-    testimonial2:
-      "لقد عملنا مع العديد من شركات الطباعة من قبل، ولكن لا أحد يضاهي الجودة والخدمة التي تقدمها إمران غاني أساهي. هم الآن شريكنا الحصري في الطباعة.",
-    testimonial3:
-      "ساعدنا فريق إمران غاني أساهي في تحقيق رؤيتنا للتعبئة والتغليف. نهجهم المبتكر والتزامهم بالجودة يميزهم عن غيرهم.",
+    testimonial1: "قدمت شركة إمران غاني أساهي للطباعة مواد طباعة استثنائية الجودة لإعادة تصميم العلامة التجارية لشركتنا. تجاوز اهتمامهم بالتفاصيل وخدمتهم المهنية توقعاتنا.",
+    testimonial2: "لقد عملنا مع العديد من شركات الطباعة من قبل، ولكن لا أحد يضاهي الجودة والخدمة التي تقدمها إمران غاني أساهي. هم الآن شريكنا الحصري في الطباعة.",
+    testimonial3: "ساعدنا فريق إمران غاني أساهي في تحقيق رؤيتنا للتعبئة والتغليف. نهجهم المبتكر والتزامهم بالجودة يميزهم عن غيرهم.",
 
     // Contact
     getInTouch: "تواصل معنا",
@@ -891,12 +801,10 @@ export const translations: { [key: string]: Translation } = {
     messageConfirmation: "شكرًا لرسالتك. سنرد عليك في أقرب وقت ممكن.",
 
     // Footer
-    footerAbout:
-      "تلتزم شركة إمران غاني أساهي للطباعة بتقديم خدمات طباعة استثنائية الجودة مع الابتكار والتميز.",
+    footerAbout: "تلتزم شركة إمران غاني أساهي للطباعة بتقديم خدمات طباعة استثنائية الجودة مع الابتكار والتميز.",
     quickLinks: "روابط سريعة",
     newsletter: "النشرة الإخبارية",
-    newsletterText:
-      "اشترك في نشرتنا الإخبارية للحصول على أحدث التحديثات والعروض.",
+    newsletterText: "اشترك في نشرتنا الإخبارية للحصول على أحدث التحديثات والعروض.",
     allRightsReserved: "جميع الحقوق محفوظة",
     privacyPolicy: "سياسة الخصوصية",
     termsOfService: "شروط الخدمة",
@@ -908,9 +816,7 @@ export const translations: { [key: string]: Translation } = {
     // Chatbot
     chatWithUs: "تحدث معنا",
     typeMessage: "اكتب رسالتك...",
-    chatbotWelcome:
-      "مرحبًا! أهلاً بك في إمران غاني أساهي للطباعة. كيف يمكنني مساعدتك اليوم؟",
-    chatbotResponse:
-      "شكرًا لرسالتك. سيرد عليك أحد ممثلينا قريبًا. للحصول على مساعدة فورية، يرجى الاتصال بخط خدمة العملاء.",
+    chatbotWelcome: "مرحبًا! أهلاً بك في إمران غاني أساهي للطباعة. كيف يمكنني مساعدتك اليوم؟",
+    chatbotResponse: "شكرًا لرسالتك. سيرد عليك أحد ممثلينا قريبًا. للحصول على مساعدة فورية، يرجى الاتصال بخط خدمة العملاء.",
   },
 };
