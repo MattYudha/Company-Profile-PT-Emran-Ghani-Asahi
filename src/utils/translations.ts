@@ -129,6 +129,152 @@ interface Translation {
   typeMessage: string;
   chatbotWelcome: string;
   chatbotResponse: string;
+
+  // Business Cards Page
+  businessCardsTitle: string;
+  businessCardsDesc: string;
+  premiumMaterials: string;
+  customDesigns: string;
+  fastDelivery: string;
+  professionalFinish: string;
+
+  // Brochures Page
+  brochuresTitle: string;
+  brochuresDesc: string;
+  customDesign: string;
+  customDesignDesc: string;
+  highQualityPrint: string;
+  highQualityPrintDesc: string;
+  variousSizes: string;
+  variousSizesDesc: string;
+  finishingOptions: string;
+  finishingOptionsDesc: string;
+
+  // Flyers Page
+  flyersTitle: string;
+  flyersDesc: string;
+  eyeCatchingDesign: string;
+  eyeCatchingDesignDesc: string;
+  quickPrinting: string;
+  quickPrintingDesc: string;
+  affordablePricing: string;
+  affordablePricingDesc: string;
+  easyDistribution: string;
+  easyDistributionDesc: string;
+
+  // Banners Page
+  bannersTitle: string;
+  bannersDesc: string;
+  highQualityPrinting: string;
+  highQualityPrintingDesc: string;
+  customSizes: string;
+  customSizesDesc: string;
+  durableMaterials: string;
+  durableMaterialsDesc: string;
+  fastTurnaround: string;
+  fastTurnaroundDesc: string;
+  weatherResistant: string;
+  weatherResistantDesc: string;
+  fullDesignSupport: string;
+  fullDesignSupportDesc: string;
+  ecoFriendlyOptions: string;
+  ecoFriendlyOptionsDesc: string;
+  bulkDiscounts: string;
+  bulkDiscountsDesc: string;
+
+  // Posters Page
+  postersTitle: string;
+  postersDesc: string;
+  vibrantColors: string;
+  vibrantColorsDesc: string;
+  creativeDesign: string;
+  creativeDesignDesc: string;
+  customFormats: string;
+  customFormatsDesc: string;
+  quickTurnaround: string;
+  quickTurnaroundDesc: string;
+
+  // Logo Design Page
+  logoDesignTitle: string;
+  logoDesignDesc: string;
+  customLogo: string;
+  unlimitedRevisions: string;
+  vectorFiles: string;
+  freeConsultation: string;
+  multipleFormats: string;
+  fullOwnership: string;
+  consultation: string;
+  consultationDesc: string;
+  conceptDevelopment: string;
+  conceptDesc: string;
+  revisionRound: string;
+  revisionDesc: string;
+  finalDelivery: string;
+  deliveryDesc: string;
+
+  // Brand Identity Page
+  brandIdentityTitle: string;
+  brandIdentityDesc: string;
+  brandStrategy: string;
+  brandStrategyDesc: string;
+  visualIdentity: string;
+  visualIdentityDesc: string;
+  brandGuidelines: string;
+  brandGuidelinesDesc: string;
+  brandCollateral: string;
+  brandCollateralDesc: string;
+  discovery: string;
+  discoveryDesc: string;
+  strategy: string;
+  strategyDesc: string;
+  design: string;
+  designDesc: string;
+  implementation: string;
+  implementationDesc: string;
+
+  // Packaging Page
+  packagingTitle: string;
+  packagingDesc: string;
+  packagingFeatures: string;
+  materialOptions: string;
+  customSolutions: string;
+  qualityPrinting: string;
+  ecoFriendly: string;
+  readyToOrder: string;
+  ctaDesc: string;
+
+  // Illustration Page
+  illustrationTitle: string;
+  illustrationDesc: string;
+  handDrawn: string;
+  handDrawnDesc: string;
+  customStyles: string;
+  customStylesDesc: string;
+  multiPurpose: string;
+  multiPurposeDesc: string;
+  freeRevisions: string;
+  freeRevisionsDesc: string;
+  editorialDesc: string;
+  bookDesc: string;
+  productDesc: string;
+  readyToStart: string;
+
+  // Common
+  orderNow: string;
+  getStarted: string;
+  startProject: string;
+  readyToTransform: string;
+  whyChooseUs: string;
+  ourWork: string;
+  getQuote: string;
+  viewOptions: string;
+  callUs: string;
+  emailUs: string;
+  popular: string;
+  basic: string;
+  premium: string;
+  enterprise: string;
+  seePortfolio: string;
 }
 
 export const translations: { [key: string]: Translation } = {
@@ -263,6 +409,152 @@ export const translations: { [key: string]: Translation } = {
     typeMessage: "Ketik pesan Anda...",
     chatbotWelcome: "Halo! Ada yang bisa kami bantu?",
     chatbotResponse: "Terima kasih atas pesan Anda. Tim kami akan segera menghubungi Anda.",
+
+    // Business Cards Page
+    businessCardsTitle: "Kartu Nama Profesional",
+    businessCardsDesc: "Buat kesan pertama yang tak terlupakan dengan kartu nama berkualitas tinggi",
+    premiumMaterials: "Bahan Premium",
+    customDesigns: "Desain Kustom",
+    fastDelivery: "Pengiriman Cepat",
+    professionalFinish: "Hasil Profesional",
+
+    // Brochures Page
+    brochuresTitle: "Brosur Berkualitas",
+    brochuresDesc: "Sampaikan pesan Anda dengan brosur yang menarik dan informatif",
+    customDesign: "Desain Kustom",
+    customDesignDesc: "Desain yang disesuaikan dengan kebutuhan brand Anda",
+    highQualityPrint: "Cetak Berkualitas",
+    highQualityPrintDesc: "Hasil cetak premium dengan warna yang akurat",
+    variousSizes: "Berbagai Ukuran",
+    variousSizesDesc: "Pilihan ukuran yang fleksibel sesuai kebutuhan",
+    finishingOptions: "Pilihan Finishing",
+    finishingOptionsDesc: "Berbagai opsi finishing untuk hasil yang sempurna",
+
+    // Flyers Page
+    flyersTitle: "Flyer Menarik",
+    flyersDesc: "Promosikan bisnis Anda dengan flyer yang eye-catching",
+    eyeCatchingDesign: "Desain Menarik",
+    eyeCatchingDesignDesc: "Desain yang menarik perhatian target audiens",
+    quickPrinting: "Cetak Cepat",
+    quickPrintingDesc: "Proses cetak cepat untuk kebutuhan mendesak",
+    affordablePricing: "Harga Terjangkau",
+    affordablePricingDesc: "Solusi cetak dengan harga yang kompetitif",
+    easyDistribution: "Mudah Didistribusikan",
+    easyDistributionDesc: "Format yang praktis untuk distribusi massal",
+
+    // Banners Page
+    bannersTitle: "Banner Berkualitas",
+    bannersDesc: "Banner yang membuat brand Anda menonjol",
+    highQualityPrinting: "Cetak Berkualitas",
+    highQualityPrintingDesc: "Hasil cetak tajam dengan warna yang hidup",
+    customSizes: "Ukuran Kustom",
+    customSizesDesc: "Fleksibilitas dalam pemilihan ukuran",
+    durableMaterials: "Bahan Tahan Lama",
+    durableMaterialsDesc: "Material berkualitas untuk penggunaan jangka panjang",
+    fastTurnaround: "Pengerjaan Cepat",
+    fastTurnaroundDesc: "Waktu produksi yang efisien",
+    weatherResistant: "Tahan Cuaca",
+    weatherResistantDesc: "Cocok untuk penggunaan indoor dan outdoor",
+    fullDesignSupport: "Dukungan Desain",
+    fullDesignSupportDesc: "Tim desain profesional siap membantu",
+    ecoFriendlyOptions: "Opsi Ramah Lingkungan",
+    ecoFriendlyOptionsDesc: "Pilihan material yang berkelanjutan",
+    bulkDiscounts: "Diskon Jumlah Besar",
+    bulkDiscountsDesc: "Harga spesial untuk pemesanan dalam jumlah besar",
+
+    // Posters Page
+    postersTitle: "Poster Impresif",
+    postersDesc: "Poster yang membuat pesan Anda tersampaikan dengan efektif",
+    vibrantColors: "Warna Hidup",
+    vibrantColorsDesc: "Reproduksi warna yang akurat dan mencolok",
+    creativeDesign: "Desain Kreatif",
+    creativeDesignDesc: "Desain yang mengekspresikan pesan dengan kreatif",
+    customFormats: "Format Kustom",
+    customFormatsDesc: "Berbagai pilihan ukuran dan format",
+    quickTurnaround: "Pengerjaan Cepat",
+    quickTurnaroundDesc: "Waktu produksi yang efisien",
+
+    // Logo Design Page
+    logoDesignTitle: "Desain Logo Profesional",
+    logoDesignDesc: "Ciptakan identitas visual yang kuat untuk brand Anda",
+    customLogo: "Logo Kustom",
+    unlimitedRevisions: "Revisi Tak Terbatas",
+    vectorFiles: "File Vector",
+    freeConsultation: "Konsultasi Gratis",
+    multipleFormats: "Multiple Format",
+    fullOwnership: "Kepemilikan Penuh",
+    consultation: "Konsultasi",
+    consultationDesc: "Diskusi mendalam tentang visi brand Anda",
+    conceptDevelopment: "Pengembangan Konsep",
+    conceptDesc: "Eksplorasi ide dan konsep desain",
+    revisionRound: "Tahap Revisi",
+    revisionDesc: "Penyempurnaan desain sesuai feedback",
+    finalDelivery: "Pengiriman Final",
+    deliveryDesc: "Penyerahan file dalam berbagai format",
+
+    // Brand Identity Page
+    brandIdentityTitle: "Identitas Brand",
+    brandIdentityDesc: "Bangun identitas brand yang konsisten dan memorable",
+    brandStrategy: "Strategi Brand",
+    brandStrategyDesc: "Pengembangan strategi brand yang efektif",
+    visualIdentity: "Identitas Visual",
+    visualIdentityDesc: "Desain elemen visual yang kohesif",
+    brandGuidelines: "Panduan Brand",
+    brandGuidelinesDesc: "Pedoman penggunaan elemen brand",
+    brandCollateral: "Materi Brand",
+    brandCollateralDesc: "Desain berbagai materi marketing",
+    discovery: "Discovery",
+    discoveryDesc: "Analisis mendalam tentang brand Anda",
+    strategy: "Strategi",
+    strategyDesc: "Pengembangan strategi brand",
+    design: "Desain",
+    designDesc: "Kreasi elemen visual brand",
+    implementation: "Implementasi",
+    implementationDesc: "Penerapan identitas brand",
+
+    // Packaging Page
+    packagingTitle: "Desain Kemasan",
+    packagingDesc: "Kemasan yang menarik dan fungsional untuk produk Anda",
+    packagingFeatures: "Fitur Kemasan",
+    materialOptions: "Pilihan Material",
+    customSolutions: "Solusi Kustom",
+    qualityPrinting: "Cetak Berkualitas",
+    ecoFriendly: "Ramah Lingkungan",
+    readyToOrder: "Siap Memesan",
+    ctaDesc: "Mulai wujudkan kemasan impian Anda",
+
+    // Illustration Page
+    illustrationTitle: "Layanan Ilustrasi",
+    illustrationDesc: "Ilustrasi kustom untuk berbagai kebutuhan",
+    handDrawn: "Gambar Tangan",
+    handDrawnDesc: "Ilustrasi detail dengan sentuhan personal",
+    customStyles: "Gaya Kustom",
+    customStylesDesc: "Berbagai pilihan gaya ilustrasi",
+    multiPurpose: "Multi Guna",
+    multiPurposeDesc: "Cocok untuk berbagai aplikasi",
+    freeRevisions: "Revisi Gratis",
+    freeRevisionsDesc: "Penyempurnaan hingga sesuai keinginan",
+    editorialDesc: "Ilustrasi untuk kebutuhan editorial",
+    bookDesc: "Ilustrasi untuk buku",
+    productDesc: "Ilustrasi produk",
+    readyToStart: "Siap Memulai",
+
+    // Common
+    orderNow: "Pesan Sekarang",
+    getStarted: "Mulai",
+    startProject: "Mulai Proyek",
+    readyToTransform: "Siap Mengubah Brand Anda?",
+    whyChooseUs: "Mengapa Memilih Kami",
+    ourWork: "Karya Kami",
+    getQuote: "Dapatkan Penawaran",
+    viewOptions: "Lihat Pilihan",
+    callUs: "Hubungi Kami",
+    emailUs: "Email Kami",
+    popular: "Populer",
+    basic: "Basic",
+    premium: "Premium",
+    enterprise: "Enterprise",
+    seePortfolio: "Lihat Portofolio"
   },
   en: {
     // Navbar
@@ -273,26 +565,9 @@ export const translations: { [key: string]: Translation } = {
     portfolio: "Portfolio",
     contact: "Contact",
     allServices: "All Services",
+    selectLanguage: "Select Language",
 
-    // Mega menu
-    printingServices: "Printing Services",
-    businessCards: "Business Cards",
-    brochures: "Brochures",
-    flyers: "Flyers",
-    banners: "Banners",
-    posters: "Posters",
-    designServices: "Design Services",
-    logoDesign: "Logo Design",
-    brandIdentity: "Brand Identity",
-    packaging: "Packaging Design",
-    illustrationService: "Illustration",
-    finishingServices: "Finishing Services",
-    binding: "Binding",
-    lamination: "Lamination",
-    embossing: "Embossing",
-    foiling: "Foiling",
-
-    // Hero
+    // Hero Section
     heroTitle: "Premium Quality Commercial",
     printing: "Printing",
     heroSubtitle: "Expert printing solutions for businesses of all sizes, delivering exceptional quality and innovation.",
@@ -300,7 +575,7 @@ export const translations: { [key: string]: Translation } = {
     contactUs: "Contact Us",
     scrollDown: "Scroll Down",
 
-    // Services
+    // Services Section
     ourServices: "Our Services",
     servicesSubtitle: "We offer a comprehensive range of printing and design services to meet your business needs.",
     digitalPrinting: "Digital Printing",
@@ -311,135 +586,274 @@ export const translations: { [key: string]: Translation } = {
     largeFormatDesc: "Eye-catching banners, posters, and displays for maximum visual impact at events and promotions.",
     packagingSolutions: "Packaging Solutions",
     packagingSolutionsDesc: "Custom packaging design and production to showcase and protect your products.",
+    designServices: "Design Services",
     designServicesDesc: "Creative design services from concept to completion, including branding and marketing materials.",
 
-    // About
-    aboutTitle: "Emran Ghani Asahi Printing",
-    aboutDescription1: "Established in 2005, Emran Ghani Asahi Printing has grown to become a leading provider of premium printing solutions in Tokyo and across Japan.",
-    aboutDescription2: "We combine traditional Japanese craftsmanship with cutting-edge technology to deliver exceptional quality and service to our clients.",
-    yearsExperience: "20+ Years",
-    inPrinting: "in printing excellence",
-    feature1: "Eco-friendly printing options",
-    feature2: "State-of-the-art technology",
-    feature3: "Expert design consultants",
-    feature4: "On-time delivery guarantee",
+    // About Section
+    aboutTitle: "About Emran Ghani Asahi",
+    aboutDescription1: "Since 1995, we've been a trusted partner in the printing industry, delivering high-quality printing solutions for various business needs.",
+    aboutDescription2: "With modern technology and expert team, we are committed to delivering the best results for every project.",
+    feature1: "Modern Printing Technology",
+    feature2: "Professional Team",
+    feature3: "Premium Quality",
+    feature4: "On-time Delivery",
+    yearsExperience: "25+ Years",
+    inPrinting: "Experience",
     learnMore: "Learn More",
 
-    // Team
-    ourTeam: "Our Expert Team",
-    teamSubtitle: "Meet the talented professionals behind our success.",
+    // Team Section
+    ourTeam: "Our Team",
+    teamSubtitle: "Meet the professionals behind our services",
     founderCEO: "Founder & CEO",
-    founderBio: "With over 20 years of experience in the printing industry, Emran leads our team with vision and passion.",
+    founderBio: "Over 25 years of experience in the printing industry",
     designDirector: "Design Director",
-    designDirectorBio: "Sarah brings her creative expertise to every project, ensuring visually stunning results for our clients.",
+    designDirectorBio: "Design expert with international experience",
     productionManager: "Production Manager",
-    productionManagerBio: "Akira oversees all production processes, ensuring the highest quality standards are maintained.",
+    productionManagerBio: "Oversees all aspects of production and quality",
     salesDirector: "Sales Director",
-    salesDirectorBio: "Michael builds lasting relationships with our clients, understanding their needs and providing tailored solutions.",
+    salesDirectorBio: "Leads the sales and customer service team",
 
-    // Portfolio
+    // Portfolio Section
     ourPortfolio: "Our Portfolio",
-    portfolioSubtitle: "Explore some of our finest work for clients across various industries.",
+    portfolioSubtitle: "See some of our best projects",
     all: "All",
     branding: "Branding",
     print: "Print",
     packaging: "Packaging",
-    brandIdentityProject: "Corporate Brand Identity",
-    annualReport: "Annual Report Design",
-    packagingDesign: "Product Packaging",
+    brandIdentityProject: "Brand Identity Project",
+    annualReport: "Annual Report",
+    packagingDesign: "Packaging Design",
     marketingMaterials: "Marketing Materials",
     corporateBrochure: "Corporate Brochure",
-    brandStationery: "Brand Stationery Set",
+    brandStationery: "Brand Stationery",
 
-    // Testimonials
-    ourClients: "What Our Clients Say",
-    clientsSubtitle: "Hear from some of our satisfied customers about their experience working with us.",
-    testimonial1: "Emran Ghani Asahi Printing delivered exceptional quality print materials for our corporate rebrand. Their attention to detail and professional service exceeded our expectations.",
-    testimonial2: "We've worked with many printing companies before, but none match the quality and service provided by Emran Ghani Asahi. They are now our exclusive printing partner.",
-    testimonial3: "The team at Emran Ghani Asahi helped us bring our packaging vision to life. Their innovative approach and commitment to quality sets them apart.",
+    // Testimonials Section
+    ourClients: "Our Clients",
+    clientsSubtitle: "What clients say about our services",
+    testimonial1: "Their print quality and customer service are exceptional. Highly recommended for all business printing needs.",
+    testimonial2: "Their design team is creative and professional. The final results exceeded our expectations.",
+    testimonial3: "On-time delivery and consistent quality make them a reliable partner.",
 
-    // Contact
-    getInTouch: "Get In Touch",
-    contactSubtitle: "Have a question or project in mind? Reach out to us.",
+    // Contact Section
+    getInTouch: "Get in Touch",
+    contactSubtitle: "We're ready to help bring your project to life",
     address: "Address",
     phone: "Phone",
     email: "Email",
-    hours: "Business Hours",
-    businessHours: "Mon-Fri: 9AM-6PM, Sat: 10AM-2PM",
+    hours: "Hours",
+    businessHours: "Monday - Friday: 09:00 - 17:00",
     yourName: "Your Name",
-    namePlaceholder: "Enter your name",
     yourEmail: "Your Email",
-    emailPlaceholder: "Enter your email",
     subject: "Subject",
-    selectSubject: "Select a subject",
-    requestQuote: "Request a Quote",
+    message: "Message",
+    namePlaceholder: "Enter your name",
+    emailPlaceholder: "Enter your email",
+    selectSubject: "Select subject",
+    requestQuote: "Request Quote",
     generalInquiry: "General Inquiry",
     supportRequest: "Support Request",
-    partnership: "Partnership Opportunity",
-    message: "Message",
-    messagePlaceholder: "How can we help you?",
+    partnership: "Partnership",
+    messagePlaceholder: "Write your message here...",
     sendMessage: "Send Message",
     sending: "Sending...",
     messageSent: "Message Sent!",
-    messageConfirmation: "Thank you for your message. We will get back to you shortly.",
+    messageConfirmation: "Thank you for contacting us. We will respond shortly.",
 
     // Footer
-    footerAbout: "Emran Ghani Asahi Printing is committed to delivering exceptional quality printing services with innovation and excellence.",
+    footerAbout: "Emran Ghani Asahi is a leading printing company providing high-quality printing solutions for businesses.",
     quickLinks: "Quick Links",
+    printingServices: "Printing Services",
+    businessCards: "Business Cards",
+    brochures: "Brochures",
+    flyers: "Flyers",
+    banners: "Banners",
+    posters: "Posters",
+    logoDesign: "Logo Design",
+    brandIdentity: "Brand Identity",
+    illustrationService: "Illustration Service",
+    binding: "Binding",
+    lamination: "Lamination",
+    embossing: "Embossing",
+    foiling: "Foiling",
     newsletter: "Newsletter",
-    newsletterText: "Subscribe to our newsletter for the latest updates and offers.",
+    newsletterText: "Subscribe to our newsletter for latest updates",
     allRightsReserved: "All Rights Reserved",
     privacyPolicy: "Privacy Policy",
     termsOfService: "Terms of Service",
     cookiePolicy: "Cookie Policy",
 
-    // Language
-    selectLanguage: "Select Language",
-
     // Chatbot
     chatWithUs: "Chat with Us",
     typeMessage: "Type your message...",
-    chatbotWelcome: "Hello! Welcome to Emran Ghani Asahi Printing. How can I assist you today?",
-    chatbotResponse: "Thank you for your message. One of our representatives will get back to you shortly. For immediate assistance, please call our customer service line.",
-  },
+    chatbotWelcome: "Hello! How can we help?",
+    chatbotResponse: "Thank you for your message. Our team will contact you soon.",
 
+    // Business Cards Page
+    businessCardsTitle: "Professional Business Cards",
+    businessCardsDesc: "Make a memorable first impression with high-quality business cards",
+    premiumMaterials: "Premium Materials",
+    customDesigns: "Custom Designs",
+    fastDelivery: "Fast Delivery",
+    professionalFinish: "Professional Finish",
+
+    // Brochures Page
+    brochuresTitle: "Quality Brochures",
+    brochuresDesc: "Communicate your message with attractive and informative brochures",
+    customDesign: "Custom Design",
+    customDesignDesc: "Designs tailored to your brand needs",
+    highQualityPrint: "High Quality Print",
+    highQualityPrintDesc: "Premium print results with accurate colors",
+    variousSizes: "Various Sizes",
+    variousSizesDesc: "Flexible size options to suit your needs",
+    finishingOptions: "Finishing Options",
+    finishingOptionsDesc: "Various finishing options for perfect results",
+
+    // Flyers Page
+    flyersTitle: "Attractive Flyers",
+    flyersDesc: "Promote your business with eye-catching flyers",
+    eyeCatchingDesign: "Eye-catching Design",
+    eyeCatchingDesignDesc: "Designs that capture target audience attention",
+    quickPrinting: "Quick Printing",
+    quickPrintingDesc: "Fast printing process for urgent needs",
+    affordablePricing: "Affordable Pricing",
+    affordablePricingDesc: "Competitive pricing solutions",
+    easyDistribution: "Easy Distribution",
+    easyDistributionDesc: "Practical format for mass distribution",
+
+    // Banners Page
+    bannersTitle: "Quality Banners",
+    bannersDesc: "Banners that make your brand stand out",
+    highQualityPrinting: "High Quality Printing",
+    highQualityPrintingDesc: "Sharp print results with vibrant colors",
+    customSizes: "Custom Sizes",
+    customSizesDesc: "Flexibility in size selection",
+    durableMaterials: "Durable Materials",
+    durableMaterialsDesc: "Quality materials for long-term use",
+    fastTurnaround: "Fast Turnaround",
+    fastTurnaroundDesc: "Efficient production time",
+    weatherResistant: "Weather Resistant",
+    weatherResistantDesc: "Suitable for indoor and outdoor use",
+    fullDesignSupport: "Design Support",
+    fullDesignSupportDesc: "Professional design team ready to help",
+    ecoFriendlyOptions: "Eco-friendly Options",
+    ecoFriendlyOptionsDesc: "Sustainable material options",
+    bulkDiscounts: "Bulk Discounts",
+    bulkDiscountsDesc: "Special pricing for large orders",
+
+    // Posters Page
+    postersTitle: "Impressive Posters",
+    postersDesc: "Posters that effectively convey your message",
+    vibrantColors: "Vibrant Colors",
+    vibrantColorsDesc: "Accurate and striking color reproduction",
+    creativeDesign: "Creative Design",
+    creativeDesignDesc: "Designs that creatively express messages",
+    customFormats: "Custom Formats",
+    customFormatsDesc: "Various size and format options",
+    quickTurnaround: "Quick Turnaround",
+    quickTurnaroundDesc: "Efficient production time",
+
+    // Logo Design Page
+    logoDesignTitle: "Professional Logo Design",
+    logoDesignDesc: "Create a strong visual identity for your brand",
+    customLogo: "Custom Logo",
+    unlimitedRevisions: "Unlimited Revisions",
+    vectorFiles: "Vector Files",
+    freeConsultation: "Free Consultation",
+    multipleFormats: "Multiple Formats",
+    fullOwnership: "Full Ownership",
+    consultation: "Consultation",
+    consultationDesc: "In-depth discussion about your brand vision",
+    conceptDevelopment: "Concept Development",
+    conceptDesc: "Exploration of design ideas and concepts",
+    revisionRound: "Revision Round",
+    revisionDesc: "Design refinement based on feedback",
+    finalDelivery: "Final Delivery",
+    deliveryDesc: "File delivery in various formats",
+
+    // Brand Identity Page
+    brandIdentityTitle: "Brand Identity",
+    brandIdentityDesc: "Build a consistent and memorable brand identity",
+    brandStrategy: "Brand Strategy",
+    brandStrategyDesc: "Development of effective brand strategy",
+    visualIdentity: "Visual Identity",
+    visualIdentityDesc: "Design of cohesive visual elements",
+    brandGuidelines: "Brand Guidelines",
+    brandGuidelinesDesc: "Guidelines for brand element usage",
+    brandCollateral: "Brand Collateral",
+    brandCollateralDesc: "Design of various marketing materials",
+    discovery: "Discovery",
+    discoveryDesc: "In-depth analysis of your brand",
+    strategy: "Strategy",
+    strategyDesc: "Brand strategy development",
+    design: "Design",
+    designDesc: "Creation of brand visual elements",
+    implementation: "Implementation",
+    implementationDesc: "Brand identity implementation",
+
+    // Packaging Page
+    packagingTitle: "Packaging Design",
+    packagingDesc: "Attractive and functional packaging for your products",
+    packagingFeatures: "Packaging Features",
+    materialOptions: "Material Options",
+    customSolutions: "Custom Solutions",
+    qualityPrinting: "Quality Printing",
+    ecoFriendly: "Eco-friendly",
+    readyToOrder: "Ready to Order",
+    ctaDesc: "Start realizing your dream packaging",
+
+    // Illustration Page
+    illustrationTitle: "Illustration Service",
+    illustrationDesc: "Custom illustrations for various needs",
+    handDrawn: "Hand Drawn",
+    handDrawnDesc: "Detailed illustrations with personal touch",
+    customStyles: "Custom Styles",
+    customStylesDesc: "Various illustration style options",
+    multiPurpose: "Multi-purpose",
+    multiPurposeDesc: "Suitable for various applications",
+    freeRevisions: "Free Revisions",
+    freeRevisionsDesc: "Refinements until satisfaction",
+    editorialDesc: "Illustrations for editorial needs",
+    bookDesc: "Book illustrations",
+    productDesc: "Product illustrations",
+    readyToStart: "Ready to Start",
+
+    // Common
+    orderNow: "Order Now",
+    getStarted: "Get Started",
+    startProject: "Start Project",
+    readyToTransform: "Ready to Transform Your Brand?",
+    whyChooseUs: "Why Choose Us",
+    ourWork: "Our Work",
+    getQuote: "Get Quote",
+    viewOptions: "View Options",
+    callUs: "Call Us",
+    emailUs: "Email Us",
+    popular: "Popular",
+    basic: "Basic",
+    premium: "Premium",
+    enterprise: "Enterprise",
+    seePortfolio: "See Portfolio"
+  },
   ja: {
-    // Navbar
+    // Navigation
     home: "ホーム",
-    about: "会社概要",
     services: "サービス",
+    about: "会社概要",
     team: "チーム",
-    portfolio: "作品集",
+    portfolio: "ポートフォリオ",
     contact: "お問い合わせ",
     allServices: "全てのサービス",
+    selectLanguage: "言語選択",
 
-    // Mega menu
-    printingServices: "印刷サービス",
-    businessCards: "名刺",
-    brochures: "パンフレット",
-    flyers: "チラシ",
-    banners: "バナー",
-    posters: "ポスター",
-    designServices: "デザインサービス",
-    logoDesign: "ロゴデザイン",
-    brandIdentity: "ブランドアイデンティティ",
-    packaging: "パッケージデザイン",
-    illustrationService: "イラスト",
-    finishingServices: "仕上げサービス",
-    binding: "製本",
-    lamination: "ラミネート加工",
-    embossing: "エンボス加工",
-    foiling: "箔押し",
-
-    // Hero
-    heroTitle: "高品質な商業",
+    // Hero Section
+    heroTitle: "プレミアム品質の商業",
     printing: "印刷",
     heroSubtitle: "あらゆる規模のビジネスに対応する専門的な印刷ソリューション。卓越した品質と革新をお届けします。",
     exploreServices: "サービスを見る",
     contactUs: "お問い合わせ",
     scrollDown: "スクロールダウン",
 
-    // Services
+    // Services Section
     ourServices: "私たちのサービス",
     servicesSubtitle: "ビジネスニーズに応える総合的な印刷・デザインサービスを提供しています。",
     digitalPrinting: "デジタル印刷",
@@ -450,135 +864,274 @@ export const translations: { [key: string]: Translation } = {
     largeFormatDesc: "イベントやプロモーションで最大の視覚的効果を発揮する、目を引くバナー、ポスター、ディスプレイ。",
     packagingSolutions: "パッケージソリューション",
     packagingSolutionsDesc: "製品を魅せ、保護するためのカスタムパッケージデザインと製造。",
+    designServices: "デザインサービス",
     designServicesDesc: "ブランディングやマーケティング資料など、コンセプトから完成までのクリエイティブなデザインサービス。",
 
-    // About
-    aboutTitle: "エムラン・ガニ旭印刷",
-    aboutDescription1: "2005年に設立されたエムラン・ガニ旭印刷は、東京を中心に日本全国でプレミアム印刷ソリューションを提供するリーディングカンパニーに成長しました。",
-    aboutDescription2: "日本の伝統的な職人技と最先端の技術を組み合わせ、お客様に卓越した品質とサービスを提供しています。",
-    yearsExperience: "20年以上",
-    inPrinting: "の印刷業界での実績",
-    feature1: "環境に優しい印刷オプション",
-    feature2: "最先端の技術",
-    feature3: "専門デザインコンサルタント",
-    feature4: "納期保証",
+    // About Section
+    aboutTitle: "エムラン・ガニ旭印刷について",
+    aboutDescription1: "1995年以来、私たちは印刷業界の信頼できるパートナーとして、様々なビジネスニーズに対応する高品質な印刷ソリューションを提供してきました。",
+    aboutDescription2: "最新の技術と専門家チームにより、すべてのプロジェクトで最高の結果をお届けすることをお約束します。",
+    feature1: "最新の印刷技術",
+    feature2: "プロフェッショナルチーム",
+    feature3: "プレミアム品質",
+    feature4: "納期厳守",
+    yearsExperience: "25年以上",
+    inPrinting: "の経験",
     learnMore: "詳細を見る",
 
-    // Team
-    ourTeam: "専門家チーム",
-    teamSubtitle: "私たちの成功を支える talented professionals をご紹介します。",
+    // Team Section
+    ourTeam: "私たちのチーム",
+    teamSubtitle: "サービスを支えるプロフェッショナルをご紹介します",
     founderCEO: "創業者 & CEO",
-    founderBio: "印刷業界で20年以上の経験を持つエムランは、ビジョンと情熱をもってチームを率いています。",
+    founderBio: "印刷業界で25年以上の経験を持つ",
     designDirector: "デザインディレクター",
-    designDirectorBio: "サラは全てのプロジェクトに創造的な専門知識を活かし、クライアントに視覚的に魅力的な結果を提供します。",
-    productionManager: "製作マネージャーー",
-    productionManagerBio: "アキラは全ての製作プロセスを監督し、最高品質の基準が維持されるよう確保しています。",
+    designDirectorBio: "国際的な経験を持つデザインの専門家",
+    productionManager: "製造マネージャー",
+    productionManagerBio: "製造と品質の全側面を監督",
     salesDirector: "営業ディレクター",
-    salesDirectorBio: "マイケルはクライアントとの永続的な関係を構築し、ニーズを理解して適切なソリューションを提供します。",
+    salesDirectorBio: "営業とカスタマーサービスチームを統括",
 
-    // Portfolio
-    ourPortfolio: "作品集",
-    portfolioSubtitle: "様々な業界のクライアントのために手がけた最高の作品をご覧ください。",
-    all: "全て",
+    // Portfolio Section
+    ourPortfolio: "ポートフォリオ",
+    portfolioSubtitle: "私たちの最高のプロジェクトをご覧ください",
+    all: "すべて",
     branding: "ブランディング",
     print: "印刷",
     packaging: "パッケージ",
-    brandIdentityProject: "企業ブランドアイデンティティ",
-    annualReport: "年次報告書デザイン",
-    packagingDesign: "製品パッケージ",
+    brandIdentityProject: "ブランドアイデンティティプロジェクト",
+    annualReport: "年次報告書",
+    packagingDesign: "パッケージデザイン",
     marketingMaterials: "マーケティング資料",
     corporateBrochure: "企業パンフレット",
-    brandStationery: "ブランド文具セット",
+    brandStationery: "ブランド文具",
 
-    // Testimonials
+    // Testimonials Section
     ourClients: "お客様の声",
-    clientsSubtitle: "私たちとの仕事の経験について、満足いただいているお客様からの声をご紹介します。",
-    testimonial1: "エムラン・ガニ旭印刷は、弊社の企業リブランディングに際し、卓越した品質の印刷物を提供してくれました。細部へのこだわりとプロフェッショナルなサービスは、期待を上回るものでした。",
-    testimonial2: "私たちは過去に多くの印刷会社と仕事をしてきましたが、エムラン・ガニ旭印刷の品質とサービスに匹敵する会社はありません。現在は独占的な印刷パートナーとして協力しています。",
-    testimonial3: "エムラン・ガニ旭印刷のチームは、私たちのパッケージングビジョンを実現するのを手伝ってくれました。彼らの革新的なアプローチと品質へのこだわりが他社と一線を画しています。",
+    clientsSubtitle: "私たちのサービスについてお客様が語る声",
+    testimonial1: "印刷品質とカスタマーサービスは卓越しています。ビジネス印刷のニーズには強くお勧めです。",
+    testimonial2: "デザインチームは創造的でプロフェッショナルです。最終結果は期待を上回りました。",
+    testimonial3: "納期厳守と一貫した品質で、信頼できるパートナーとなっています。",
 
-    // Contact
+    // Contact Section
     getInTouch: "お問い合わせ",
-    contactSubtitle: "ご質問やプロジェクトについてお気軽にお問い合わせください。",
+    contactSubtitle: "プロジェクトの実現をお手伝いする準備ができています",
     address: "住所",
     phone: "電話",
     email: "メール",
     hours: "営業時間",
-    businessHours: "月-金: 9時-18時, 土: 10時-14時",
+    businessHours: "月曜 - 金曜: 09:00 - 17:00",
     yourName: "お名前",
-    namePlaceholder: "お名前を入力してください",
     yourEmail: "メールアドレス",
-    emailPlaceholder: "メールアドレスを入力してください",
     subject: "件名",
-    selectSubject: "件名を選択してください",
-    requestQuote: "お見積り依頼",
-    generalInquiry: "一般的なお問い合わせ",
-    supportRequest: "サポートリクエスト",
-    partnership: "パートナーシップ機会",
     message: "メッセージ",
-    messagePlaceholder: "どのようにお手伝いできますか？",
-    sendMessage: "メッセージを送信",
+    namePlaceholder: "お名前を入力してください",
+    emailPlaceholder: "メールアドレスを入力してください",
+    selectSubject: "件名を選択してください",
+    requestQuote: "見積依頼",
+    generalInquiry: "一般的なお問い合わせ",
+    supportRequest: "サポート依頼",
+    partnership: "パートナーシップ",
+    messagePlaceholder: "メッセージを入力してください...",
+    sendMessage: "送信",
     sending: "送信中...",
-    messageSent: "メッセージを送信しました！",
-    messageConfirmation: "お問い合わせありがとうございます。速やかにご連絡いたします。",
+    messageSent: "送信完了！",
+    messageConfirmation: "お問い合わせありがとうございます。まもなくご返信いたします。",
 
     // Footer
-    footerAbout: "エムラン・ガニ旭印刷は、革新と卓越性を持って例外的な品質の印刷サービスを提供することに取り組んでいます。",
+    footerAbout: "エムラン・ガニ旭印刷は、ビジネス向けの高品質な印刷ソリューションを提供する先進的な印刷会社です。",
     quickLinks: "クイックリンク",
+    printingServices: "印刷サービス",
+    businessCards: "名刺",
+    brochures: "パンフレット",
+    flyers: "チラシ",
+    banners: "バナー",
+    posters: "ポスター",
+    logoDesign: "ロゴデザイン",
+    brandIdentity: "ブランドアイデンティティ",
+    illustrationService: "イラストレーションサービス",
+    binding: "製本",
+    lamination: "ラミネート",
+    embossing: "エンボス加工",
+    foiling: "箔押し",
     newsletter: "ニュースレター",
-    newsletterText: "最新情報やお得な情報を受け取るには、ニュースレターにご登録ください。",
-    allRightsReserved: "全権利所有",
+    newsletterText: "最新情報を受け取るにはニュースレターにご登録ください",
+    allRightsReserved: "All Rights Reserved",
     privacyPolicy: "プライバシーポリシー",
     termsOfService: "利用規約",
-    cookiePolicy: "クッキーポリシー",
-
-    // Language
-    selectLanguage: "言語を選択",
+    cookiePolicy: "Cookieポリシー",
 
     // Chatbot
     chatWithUs: "チャットでお問い合わせ",
     typeMessage: "メッセージを入力...",
-    chatbotWelcome: "こんにちは！エムラン・ガニ旭印刷へようこそ。どのようにお手伝いできますか？",
-    chatbotResponse: "メッセージをいただきありがとうございます。担当者が速やかにご連絡いたします。緊急のご用件は、カスタマーサービスまでお電話ください。",
-  },
+    chatbotWelcome: "こんにちは！ご用件をお聞かせください。",
+    chatbotResponse: "メッセージありがとうございます。まもなくチームからご連絡いたします。",
 
+    // Business Cards Page
+    businessCardsTitle: "プロフェッショナルな名刺",
+    businessCardsDesc: "高品質な名刺で印象的な第一印象を",
+    premiumMaterials: "プレミアム素材",
+    customDesigns: "カスタムデザイン",
+    fastDelivery: "迅速な納品",
+    professionalFinish: "プロフェッショナルな仕上がり",
+
+    // Brochures Page
+    brochuresTitle: "高品質パンフレット",
+    brochuresDesc: "魅力的で情報豊富なパンフレットでメッセージを伝える",
+    customDesign: "カスタムデザイン",
+    customDesignDesc: "ブランドニーズに合わせたデザイン",
+    highQualityPrint: "高品質印刷",
+    highQualityPrintDesc: "正確な色再現のプレミアム印刷",
+    variousSizes: "様々なサイズ",
+    variousSizesDesc: "ニーズに合わせた柔軟なサイズオプション",
+    finishingOptions: "仕上げオプション",
+    finishingOptionsDesc: "完璧な結果のための様々な仕上げオプション",
+
+    // Flyers Page
+    flyersTitle: "魅力的なチラシ",
+    flyersDesc: "目を引くチラシでビジネスを宣伝",
+    eyeCatchingDesign: "目を引くデザイン",
+    eyeCatchingDesignDesc: "ターゲット層の注目を集めるデザイン",
+    quickPrinting: "迅速な印刷",
+    quickPrintingDesc: "緊急ニーズに対応する迅速な印刷プロセス",
+    affordablePricing: "手頃な価格",
+    affordablePricingDesc: "競争力のある価格ソリューション",
+    easyDistribution: "簡単な配布",
+    easyDistributionDesc: "大量配布に適した実用的なフォーマット",
+
+    // Banners Page
+    bannersTitle: "高品質バナー",
+    bannersDesc: "ブランドを際立たせるバナー",
+    highQualityPrinting: "高品質印刷",
+    highQualityPrintingDesc: "鮮やかな色彩の鮮明な印刷結果",
+    customSizes: "カスタムサイズ",
+    customSizesDesc: "サイズ選択の柔軟性",
+    durableMaterials: "耐久性のある素材",
+    durableMaterialsDesc: "長期使用に適した品質素材",
+    fastTurnaround: "迅速な納品",
+    fastTurnaroundDesc: "効率的な製作時間",
+    weatherResistant: "耐候性",
+    weatherResistantDesc: "屋内外での使用に適合",
+    fullDesignSupport: "デザインサポート",
+    fullDesignSupportDesc: "プロのデザインチームがサポート",
+    ecoFriendlyOptions: "環境に優しいオプション",
+    ecoFriendlyOptionsDesc: "持続可能な素材オプション",
+    bulkDiscounts: "大量注文割引",
+    bulkDiscountsDesc: "大量注文の特別価格",
+
+    // Posters Page
+    postersTitle: "印象的なポスター",
+    postersDesc: "メッセージを効果的に伝えるポスター",
+    vibrantColors: "鮮やかな色彩",
+    vibrantColorsDesc: "正確で印象的な色再現",
+    creativeDesign: "創造的なデザイン",
+    creativeDesignDesc: "メッセージを創造的に表現するデザイン",
+    customFormats: "カスタムフォーマット",
+    customFormatsDesc: "様々なサイズとフォーマットのオプション",
+    quickTurnaround: "迅速な納品",
+    quickTurnaroundDesc: "効率的な製作時間",
+
+    // Logo Design Page
+    logoDesignTitle: "プロフェッショナルなロゴデザイン",
+    logoDesignDesc: "ブランドの強力な視覚的アイデンティティを作成",
+    customLogo: "カスタムロゴ",
+    unlimitedRevisions: "無制限の修正",
+    vectorFiles: "ベクターファイル",
+    freeConsultation: "無料相談",
+    multipleFormats: "複数フォーマット",
+    fullOwnership: "完全な所有権",
+    consultation: "相談",
+    consultationDesc: "ブランドビジョンについての詳細な討議",
+    conceptDevelopment: "コンセプト開発",
+    conceptDesc: "デザインアイデアとコンセプトの探求",
+    revisionRound: "修正ラウンド",
+    revisionDesc: "フィードバックに基づくデザインの改良",
+    finalDelivery: "最終納品",
+    deliveryDesc: "様々なフォーマットでのファイル納品",
+
+    // Brand Identity Page
+    brandIdentityTitle: "ブランドアイデンティティ",
+    brandIdentityDesc: "一貫性のある記憶に残るブランドアイデンティティを構築",
+    brandStrategy: "ブランド戦略",
+    brandStrategyDesc: "効果的なブランド戦略の開発",
+    visualIdentity: "ビジュアルアイデンティティ",
+    visualIdentityDesc: "一貫性のあるビジュアル要素のデザイン",
+    brandGuidelines: "ブランドガイドライン",
+    brandGuidelinesDesc: "ブランド要素使用のガイドライン",
+    brandCollateral: "ブランドコラテラル",
+    brandCollateralDesc: "様々なマーケティング資料のデザイン",
+    discovery: "ディスカバリー",
+    discoveryDesc: "ブランドの詳細な分析",
+    strategy: "戦略",
+    strategyDesc: "ブランド戦略の開発",
+    design: "デザイン",
+    designDesc: "ブランドビジュアル要素の作成",
+    implementation: "実装",
+    implementationDesc: "ブランドアイデンティティの実装",
+
+    // Packaging Page
+    packagingTitle: "パッケージデザイン",
+    packagingDesc: "製品のための魅力的で機能的なパッケージ",
+    packagingFeatures: "パッケージの特徴",
+    materialOptions: "素材オプション",
+    customSolutions: "カスタムソリューション",
+    qualityPrinting: "高品質印刷",
+    ecoFriendly: "環境に優しい",
+    readyToOrder: "注文準備完了",
+    ctaDesc: "理想のパッケージを実現しましょう",
+
+    // Illustration Page
+    illustrationTitle: "イラストレーションサービス",
+    illustrationDesc: "様々なニーズに対応するカスタムイラストレーション",
+    handDrawn: "手描き",
+    handDrawnDesc: "個性的なタッチの詳細なイラストレーション",
+    customStyles: "カスタムスタイル",
+    customStylesDesc: "様々なイラストレーションスタイルのオプション",
+    multiPurpose: "多目的",
+    multiPurposeDesc: "様々な用途に適合",
+    freeRevisions: "無料修正",
+    freeRevisionsDesc: "満足いただけるまでの改良",
+    editorialDesc: "編集用イラストレーション",
+    bookDesc: "書籍イラストレーション",
+    productDesc: "製品イラストレーション",
+    readyToStart: "開始準備完了",
+
+    // Common
+    orderNow: "今すぐ注文",
+    getStarted: "始める",
+    startProject: "プロジェクトを開始",
+    readyToTransform: "ブランドを変革する準備はできていますか？",
+    whyChooseUs: "当社を選ぶ理由",
+    ourWork: "私たちの仕事",
+    getQuote: "見積を取得",
+    viewOptions: "オプションを見る",
+    callUs: "お電話ください",
+    emailUs: "メールを送る",
+    popular: "人気",
+    basic: "ベーシック",
+    premium: "プレミアム",
+    enterprise: "エンタープライズ",
+    seePortfolio: "ポートフォリオを見る"
+  },
   zh: {
-    // Navbar
+    // Navigation
     home: "首页",
-    about: "关于我们",
     services: "服务",
+    about: "关于我们",
     team: "团队",
     portfolio: "作品集",
     contact: "联系我们",
     allServices: "所有服务",
+    selectLanguage: "选择语言",
 
-    // Mega menu
-    printingServices: "印刷服务",
-    businessCards: "名片",
-    brochures: "宣传册",
-    flyers: "传单",
-    banners: "横幅",
-    posters: "海报",
-    designServices: "设计服务",
-    logoDesign: "标志设计",
-    brandIdentity: "品牌标识",
-    packaging: "包装设计",
-    illustrationService: "插图",
-    finishingServices: "后期加工服务",
-    binding: "装订",
-    lamination: "覆膜",
-    embossing: "压纹",
-    foiling: "烫金",
-
-    // Hero
-    heroTitle: "高品质商业",
+    // Hero Section
+    heroTitle: "优质商业",
     printing: "印刷",
-    heroSubtitle: "适用于各种规模企业的专业印刷解决方案，提供卓越品质和创新服务。",
+    heroSubtitle: "为各种规模的企业提供专业印刷解决方案，提供卓越品质和创新。",
     exploreServices: "探索服务",
     contactUs: "联系我们",
     scrollDown: "向下滚动",
 
-    // Services
+    // Services Section
     ourServices: "我们的服务",
     servicesSubtitle: "我们提供全面的印刷和设计服务，以满足您的业务需求。",
     digitalPrinting: "数字印刷",
@@ -589,135 +1142,276 @@ export const translations: { [key: string]: Translation } = {
     largeFormatDesc: "引人注目的横幅、海报和展示物，为活动和促销提供最大的视觉冲击力。",
     packagingSolutions: "包装解决方案",
     packagingSolutionsDesc: "定制包装设计和生产，以展示和保护您的产品。",
+    designServices: "设计服务",
     designServicesDesc: "从概念到完成的创意设计服务，包括品牌和营销材料。",
 
-    // About
-    aboutTitle: "艾姆兰·加尼旭日印刷",
-    aboutDescription1: "成立于2005年，艾姆兰·加尼旭日印刷已发展成为东京及全日本领先的高端印刷解决方案提供商。",
-    aboutDescription2: "我们结合传统日本工艺与尖端技术，为客户提供卓越的品质和服务。",
-    yearsExperience: "20多年",
-    inPrinting: "印刷行业经验",
-    feature1: "环保印刷选项",
-    feature2: "最先进的技术",
-    feature3: "专业设计顾问",
-    feature4: "准时交付保证",
+    // About Section
+    aboutTitle: "关于艾姆兰·加尼旭日印刷",
+    aboutDescription1: "自1995年以来，我们一直是印刷行业的可信赖合作伙伴，为各种业务需求提供高质量印刷解决方案。",
+    aboutDescription2: "凭借现代技术和专业团队，我们致力于为每个项目提供最佳结果。",
+    feature1: "现代印刷技术",
+    feature2: "专业团队",
+    feature3: "优质品质",
+    feature4: "准时交付",
+    yearsExperience: "25+年",
+    inPrinting: "经验",
     learnMore: "了解更多",
 
-    // Team
-    ourTeam: "专家团队",
-    teamSubtitle: "认识支持我们成功的才华横溢的专业人士。",
+    // Team Section
+    ourTeam: "我们的团队",
+    teamSubtitle: "认识我们服务背后的专业人士",
     founderCEO: "创始人兼首席执行官",
-    founderBio: "拥有20多年印刷行业经验，艾姆兰以远见和热情领导我们的团队。",
+    founderBio: "在印刷行业拥有超过25年经验",
     designDirector: "设计总监",
-    designDirectorBio: "莎拉为每个项目带来创意专长，确保为客户提供视觉上惊艳的成果。",
+    designDirectorBio: "具有国际经验的设计专家",
     productionManager: "生产经理",
-    productionManagerBio: "明监督所有生产流程，确保维持最高质量标准。",
+    productionManagerBio: "监督所有生产和质量方面",
     salesDirector: "销售总监",
-    salesDirectorBio: "迈克尔与客户建立持久关系，了解他们的需求并提供量身定制的解决方案。",
+    salesDirectorBio: "领导销售和客户服务团队",
 
-    // Portfolio
-    ourPortfolio: "作品集",
-    portfolioSubtitle: "探索我们为各行业客户完成的精美作品。",
+    // Portfolio Section
+    ourPortfolio: "我们的作品集",
+    portfolioSubtitle: "查看我们的一些最佳项目",
     all: "全部",
     branding: "品牌",
     print: "印刷",
     packaging: "包装",
-    brandIdentityProject: "企业品牌标识",
-    annualReport: "年报设计",
-    packagingDesign: "产品包装",
+    brandIdentityProject: "品牌标识项目",
+    annualReport: "年度报告",
+    packagingDesign: "包装设计",
     marketingMaterials: "营销材料",
     corporateBrochure: "企业宣传册",
-    brandStationery: "品牌文具套装",
+    brandStationery: "品牌文具",
 
-    // Testimonials
-    ourClients: "客户评价",
-    clientsSubtitle: "听听一些满意客户分享他们与我们合作的经验。",
-    testimonial1: "艾姆兰·加尼旭日印刷为我们的企业品牌重塑提供了卓越品质的印刷材料。他们对细节的关注和专业服务超出了我们的期望。",
-    testimonial2: "我们曾与多家印刷公司合作，但没有一家能与艾姆兰·加尼旭日提供的质量和服务相媲美。他们现在是我们的独家印刷合作伙伴。",
-    testimonial3: "艾姆兰·加尼旭日的团队帮助我们实现了包装愿景。他们创新的方法和对质量的承诺使他们脱颖而出。",
+    // Testimonials Section
+    ourClients: "我们的客户",
+    clientsSubtitle: "客户对我们服务的评价",
+    testimonial1: "他们的印刷质量和客户服务都很出色。强烈推荐用于所有商业印刷需求。",
+    testimonial2: "他们的设计团队富有创意且专业。最终结果超出了我们的期望。",
+    testimonial3: "准时交付和一致的质量使他们成为可靠的合作伙伴。",
 
-    // Contact
+    // Contact Section
     getInTouch: "联系我们",
-    contactSubtitle: "有问题或项目想法？请与我们联系。",
+    contactSubtitle: "我们准备好帮助实现您的项目",
     address: "地址",
     phone: "电话",
     email: "电子邮件",
     hours: "营业时间",
-    businessHours: "周一至周五: 9点-18点, 周六: 10点-14点",
+    businessHours: "周一至周五：09:00 - 17:00",
     yourName: "您的姓名",
-    namePlaceholder: "输入您的姓名",
     yourEmail: "您的电子邮件",
-    emailPlaceholder: "输入您的电子邮件",
     subject: "主题",
+    message: "留言",
+    namePlaceholder: "输入您的姓名",
+    emailPlaceholder: "输入您的电子邮件",
     selectSubject: "选择主题",
     requestQuote: "请求报价",
     generalInquiry: "一般咨询",
     supportRequest: "支持请求",
     partnership: "合作机会",
-    message: "留言",
-    messagePlaceholder: "我们如何帮助您？",
-    sendMessage: "发送消息",
+    messagePlaceholder: "在此写下您的留言...",
+    sendMessage: "发送留言",
     sending: "发送中...",
-    messageSent: "消息已发送！",
-    messageConfirmation: "感谢您的留言。我们将尽快回复您。",
+    messageSent: "留言已发送！",
+    messageConfirmation: "感谢您联系我们。我们将尽快回复。",
 
     // Footer
-    footerAbout: "艾姆兰·加尼旭日印刷致力于以创新和卓越提供优质印刷服务。",
+    footerAbout: "艾姆兰·加尼旭日印刷是一家领先的印刷公司，为企业提供高质量印刷解决方案。",
     quickLinks: "快速链接",
+    printingServices: "印刷服务",
+    businessCards: "名片",
+    brochures: "宣传册",
+    flyers: "传单",
+    banners: "横幅",
+    posters: "海报",
+    logoDesign: "标志设计",
+    brandIdentity: "品牌标识",
+    illustrationService: "插图服务",
+    binding: "装订",
+    lamination: "覆膜",
+    embossing: "压纹",
+    foiling: "烫金",
     newsletter: "新闻通讯",
-    newsletterText: "订阅我们的新闻通讯，获取最新更新和优惠。",
+    newsletterText: "订阅我们的新闻通讯获取最新更新",
     allRightsReserved: "版权所有",
     privacyPolicy: "隐私政策",
     termsOfService: "服务条款",
     cookiePolicy: "Cookie政策",
 
-    // Language
-    selectLanguage: "选择语言",
-
     // Chatbot
     chatWithUs: "与我们聊天",
-    typeMessage: "输入您的消息...",
-    chatbotWelcome: "您好！欢迎来到艾姆兰·加尼旭日印刷。今天我能帮您什么？",
-    chatbotResponse: "感谢您的留言。我们的代表将很快与您联系。如需立即协助，请致电我们的客户服务热线。",
-  },
+    typeMessage: "输入您的留言...",
+    chatbotWelcome: "您好！我们能帮您什么？",
+    chatbotResponse: "感谢您的留言。我们的团队将尽快联系您。",
 
+    // Business Cards Page
+    businessCardsTitle: "专业名片",
+    businessCardsDesc: "用高质量名片留下难忘的第一印象",
+    premiumMaterials: "优质材料",
+    customDesigns: "定制设计",
+    fastDelivery: "快速交付",
+    professionalFinish: "专业完成",
+
+    // Brochures Page
+    brochuresTitle: "优质宣传册",
+    brochuresDesc: "用吸引人且信息丰富的宣传册传达您的信息",
+    customDesign: "定制设计",
+    customDesignDesc: "根据品牌需求定制的设计",
+    highQualityPrint: "高质量印刷",
+    highQualityPrintDesc: "具有准确色彩的优质印刷效果",
+    variousSizes: "多种尺寸",
+    variousSizesDesc: "灵活的尺寸选择以满足您的需求",
+    finish
+
+ingOptions: "装订选项",
+    finishingOptionsDesc: "各种装订选项以获得完美效果",
+
+    // Flyers Page
+    flyersTitle: "吸引人的传单",
+    flyersDesc: "用引人注目的传单推广您的业务",
+    eyeCatchingDesign: "引人注目的设计",
+    eyeCatchingDesignDesc: "吸引目标受众注意力的设计",
+    quickPrinting: "快速印刷",
+    quickPrintingDesc: "紧急需求的快速印刷流程",
+    affordablePricing: "实惠价格",
+    affordablePricingDesc: "具有竞争力的价格解决方案",
+    easyDistribution: "易于分发",
+    easyDistributionDesc: "适合大规模分发的实用格式",
+
+    // Banners Page
+    bannersTitle: "优质横幅",
+    bannersDesc: "让您的品牌脱颖而出的横幅",
+    highQualityPrinting: "高质量印刷",
+    highQualityPrintingDesc: "清晰的印刷效果和鲜艳的色彩",
+    customSizes: "定制尺寸",
+    customSizesDesc: "灵活的尺寸选择",
+    durableMaterials: "耐用材料",
+    durableMaterialsDesc: "适合长期使用的优质材料",
+    fastTurnaround: "快速周转",
+    fastTurnaroundDesc: "高效的生产时间",
+    weatherResistant: "耐候性",
+    weatherResistantDesc: "适合室内外使用",
+    fullDesignSupport: "设计支持",
+    fullDesignSupportDesc: "专业设计团队随时提供帮助",
+    ecoFriendlyOptions: "环保选项",
+    ecoFriendlyOptionsDesc: "可持续材料选项",
+    bulkDiscounts: "批量折扣",
+    bulkDiscountsDesc: "大订单特别价格",
+
+    // Posters Page
+    postersTitle: "令人印象深刻的海报",
+    postersDesc: "有效传达您信息的海报",
+    vibrantColors: "鲜艳色彩",
+    vibrantColorsDesc: "准确且引人注目的色彩重现",
+    creativeDesign: "创意设计",
+    creativeDesignDesc: "创意表达信息的设计",
+    customFormats: "定制格式",
+    customFormatsDesc: "多种尺寸和格式选择",
+    quickTurnaround: "快速周转",
+    quickTurnaroundDesc: "高效的生产时间",
+
+    // Logo Design Page
+    logoDesignTitle: "专业标志设计",
+    logoDesignDesc: "为您的品牌创建强大的视觉标识",
+    customLogo: "定制标志",
+    unlimitedRevisions: "无限修改",
+    vectorFiles: "矢量文件",
+    freeConsultation: "免费咨询",
+    multipleFormats: "多种格式",
+    fullOwnership: "完全所有权",
+    consultation: "咨询",
+    consultationDesc: "关于您品牌愿景的深入讨论",
+    conceptDevelopment: "概念开发",
+    conceptDesc: "设计理念和概念的探索",
+    revisionRound: "修改轮次",
+    revisionDesc: "基于反馈的设计改进",
+    finalDelivery: "最终交付",
+    deliveryDesc: "多种格式的文件交付",
+
+    // Brand Identity Page
+    brandIdentityTitle: "品牌标识",
+    brandIdentityDesc: "建立一致且令人难忘的品牌标识",
+    brandStrategy: "品牌战略",
+    brandStrategyDesc: "有效品牌战略的开发",
+    visualIdentity: "视觉标识",
+    visualIdentityDesc: "设计连贯的视觉元素",
+    brandGuidelines: "品牌指南",
+    brandGuidelinesDesc: "品牌元素使用指南",
+    brandCollateral: "品牌附属物",
+    brandCollateralDesc: "各种营销材料的设计",
+    discovery: "发现",
+    discoveryDesc: "对您品牌的深入分析",
+    strategy: "战略",
+    strategyDesc: "品牌战略开发",
+    design: "设计",
+    designDesc: "品牌视觉元素创作",
+    implementation: "实施",
+    implementationDesc: "品牌标识实施",
+
+    // Packaging Page
+    packagingTitle: "包装设计",
+    packagingDesc: "为您的产品提供吸引人且功能性的包装",
+    packagingFeatures: "包装特点",
+    materialOptions: "材料选项",
+    customSolutions: "定制解决方案",
+    qualityPrinting: "优质印刷",
+    ecoFriendly: "环保",
+    readyToOrder: "准备订购",
+    ctaDesc: "开始实现您的理想包装",
+
+    // Illustration Page
+    illustrationTitle: "插图服务",
+    illustrationDesc: "满足各种需求的定制插图",
+    handDrawn: "手绘",
+    handDrawnDesc: "带有个人触感的详细插图",
+    customStyles: "定制风格",
+    customStylesDesc: "多种插图风格选择",
+    multiPurpose: "多用途",
+    multiPurposeDesc: "适用于各种应用",
+    freeRevisions: "免费修改",
+    freeRevisionsDesc: "直到满意为止的改进",
+    editorialDesc: "编辑用插图",
+    bookDesc: "书籍插图",
+    productDesc: "产品插图",
+    readyToStart: "准备开始",
+
+    // Common
+    orderNow: "立即订购",
+    getStarted: "开始",
+    startProject: "开始项目",
+    readyToTransform: "准备改变您的品牌？",
+    whyChooseUs: "为什么选择我们",
+    ourWork: "我们的作品",
+    getQuote: "获取报价",
+    viewOptions: "查看选项",
+    callUs: "致电我们",
+    emailUs: "发送邮件",
+    popular: "热门",
+    basic: "基础",
+    premium: "高级",
+    enterprise: "企业",
+    seePortfolio: "查看作品集"
+  },
   ar: {
-    // Navbar
+    // Navigation
     home: "الرئيسية",
-    about: "حول",
     services: "الخدمات",
+    about: "عن الشركة",
     team: "الفريق",
     portfolio: "الأعمال",
     contact: "اتصل بنا",
     allServices: "جميع الخدمات",
+    selectLanguage: "اختر اللغة",
 
-    // Mega menu
-    printingServices: "خدمات الطباعة",
-    businessCards: "بطاقات العمل",
-    brochures: "البروشورات",
-    flyers: "المنشورات",
-    banners: "اللافتات",
-    posters: "الملصقات",
-    designServices: "خدمات التصميم",
-    logoDesign: "تصميم الشعار",
-    brandIdentity: "هوية العلامة التجارية",
-    packaging: "تصميم العبوات",
-    illustrationService: "الرسوم التوضيحية",
-    finishingServices: "خدمات التشطيب",
-    binding: "التجليد",
-    lamination: "التغليف",
-    embossing: "النقش البارز",
-    foiling: "التذهيب",
-
-    // Hero
+    // Hero Section
     heroTitle: "طباعة تجارية",
     printing: "عالية الجودة",
-    heroSubtitle: "حلول طباعة متخصصة للشركات بجميع أحجامها، تقدم جودة استثنائية وابتكار.",
-    exploreServices: "استكشاف الخدمات",
+    heroSubtitle: "حلول طباعة متخصصة للشركات بجميع أحجامها، نقدم جودة استثنائية وابتكار.",
+    exploreServices: "استكشف الخدمات",
     contactUs: "اتصل بنا",
-    scrollDown: "مرر لأسفل",
+    scrollDown: "اسحب للأسفل",
 
-    // Services
+    // Services Section
     ourServices: "خدماتنا",
     servicesSubtitle: "نقدم مجموعة شاملة من خدمات الطباعة والتصميم لتلبية احتياجات عملك.",
     digitalPrinting: "الطباعة الرقمية",
@@ -728,95 +1422,252 @@ export const translations: { [key: string]: Translation } = {
     largeFormatDesc: "لافتات وملصقات وعروض ملفتة للنظر لتحقيق أقصى تأثير مرئي في الفعاليات والعروض الترويجية.",
     packagingSolutions: "حلول التعبئة والتغليف",
     packagingSolutionsDesc: "تصميم وإنتاج عبوات مخصصة لعرض منتجاتك وحمايتها.",
+    designServices: "خدمات التصميم",
     designServicesDesc: "خدمات تصميم إبداعية من المفهوم إلى الإنجاز، بما في ذلك العلامات التجارية ومواد التسويق.",
 
-    // About
-    aboutTitle: "إمران غاني أساهي للطباعة",
-    aboutDescription1: "تأسست شركة إمران غاني أساهي للطباعة في عام 2005، ونمت لتصبح مزودًا رائدًا لحلول الطباعة المتميزة في طوكيو وجميع أنحاء اليابان.",
-    aboutDescription2: "نحن نجمع بين الحرفية اليابانية التقليدية والتكنولوجيا المتطورة لتقديم جودة وخدمة استثنائية لعملائنا.",
-    yearsExperience: "+20 عامًا",
-    inPrinting: "من التميز في الطباعة",
-    feature1: "خيارات طباعة صديقة للبيئة",
-    feature2: "تكنولوجيا متطورة",
-    feature3: "مستشارو تصميم خبراء",
-    feature4: "ضمان التسليم في الموعد المحدد",
-    learnMore: "معرفة المزيد",
+    // About Section
+    aboutTitle: "عن إمران غاني أساهي",
+    aboutDescription1: "منذ عام 1995، كنا شريكًا موثوقًا به في صناعة الطباعة، نقدم حلول طباعة عالية الجودة لمختلف احتياجات الأعمال.",
+    aboutDescription2: "مع التكنولوجيا الحديثة وفريق الخبراء، نحن ملتزمون بتقديم أفضل النتائج لكل مشروع.",
+    feature1: "تكنولوجيا طباعة حديثة",
+    feature2: "فريق محترف",
+    feature3: "جودة ممتازة",
+    feature4: "تسليم في الموعد",
+    yearsExperience: "+25 عامًا",
+    inPrinting: "من الخبرة",
+    learnMore: "اعرف المزيد",
 
-    // Team
-    ourTeam: "فريقنا من الخبراء",
-    teamSubtitle: "تعرف على المحترفين الموهوبين وراء نجاحنا.",
+    // Team Section
+    ourTeam: "فريقنا",
+    teamSubtitle: "تعرف على المحترفين وراء خدماتنا",
     founderCEO: "المؤسس والرئيس التنفيذي",
-    founderBio: "مع أكثر من 20 عامًا من الخبرة في صناعة الطباعة، يقود إمران فريقنا برؤية وشغف.",
+    founderBio: "أكثر من 25 عامًا من الخبرة في صناعة الطباعة",
     designDirector: "مدير التصميم",
-    designDirectorBio: "تجلب سارة خبرتها الإبداعية لكل مشروع، مما يضمن نتائج بصرية مذهلة لعملائنا.",
+    designDirectorBio: "خبير تصميم بخبرة دولية",
     productionManager: "مدير الإنتاج",
-    productionManagerBio: "يشرف أكيرا على جميع عمليات الإنتاج، مما يضمن الحفاظ على أعلى معايير الجودة.",
+    productionManagerBio: "يشرف على جميع جوانب الإنتاج والجودة",
     salesDirector: "مدير المبيعات",
-    salesDirectorBio: "يبني مايكل علاقات دائمة مع عملائنا، ويفهم احتياجاتهم ويقدم حلولاً مخصصة.",
+    salesDirectorBio: "يقود فريق المبيعات وخدمة العملاء",
 
-    // Portfolio
+    // Portfolio Section
     ourPortfolio: "أعمالنا",
-    portfolioSubtitle: "استكشف بعضًا من أفضل أعمالنا للعملاء عبر مختلف الصناعات.",
+    portfolioSubtitle: "شاهد بعض أفضل مشاريعنا",
     all: "الكل",
     branding: "العلامات التجارية",
     print: "الطباعة",
-    packaging: "التعبئة والتغليف",
-    brandIdentityProject: "هوية العلامة التجارية للشركات",
-    annualReport: "تصميم التقرير السنوي",
-    packagingDesign: "تعبئة وتغليف المنتجات",
+    packaging: "التغليف",
+    brandIdentityProject: "مشروع هوية العلامة التجارية",
+    annualReport: "التقرير السنوي",
+    packagingDesign: "تصميم التغليف",
     marketingMaterials: "مواد تسويقية",
     corporateBrochure: "بروشور الشركة",
-    brandStationery: "مجموعة القرطاسية للعلامة التجارية",
+    brandStationery: "قرطاسية العلامة التجارية",
 
-    // Testimonials
-    ourClients: "ما يقوله عملاؤنا",
-    clientsSubtitle: "اسمع من بعض عملائنا الراضين عن تجربتهم في العمل معنا.",
-    testimonial1: "قدمت شركة إمران غاني أساهي للطباعة مواد طباعة استثنائية الجودة لإعادة تصميم العلامة التجارية لشركتنا. تجاوز اهتمامهم بالتفاصيل وخدمتهم المهنية توقعاتنا.",
-    testimonial2: "لقد عملنا مع العديد من شركات الطباعة من قبل، ولكن لا أحد يضاهي الجودة والخدمة التي تقدمها إمران غاني أساهي. هم الآن شريكنا الحصري في الطباعة.",
-    testimonial3: "ساعدنا فريق إمران غاني أساهي في تحقيق رؤيتنا للتعبئة والتغليف. نهجهم المبتكر والتزامهم بالجودة يميزهم عن غيرهم.",
+    // Testimonials Section
+    ourClients: "عملاؤنا",
+    clientsSubtitle: "ما يقوله العملاء عن خدماتنا",
+    testimonial1: "جودة الطباعة وخدمة العملاء لديهم استثنائية. نوصي بشدة لجميع احتياجات الطباعة التجارية.",
+    testimonial2: "فريق التصميم لديهم مبدع ومحترف. النتائج النهائية تجاوزت توقعاتنا.",
+    testimonial3: "التسليم في الموعد والجودة المتسقة يجعلهم شريكًا موثوقًا به.",
 
-    // Contact
+    // Contact Section
     getInTouch: "تواصل معنا",
-    contactSubtitle: "هل لديك سؤال أو مشروع في ذهنك؟ تواصل معنا.",
+    contactSubtitle: "نحن مستعدون للمساعدة في تحقيق مشروعك",
     address: "العنوان",
     phone: "الهاتف",
     email: "البريد الإلكتروني",
     hours: "ساعات العمل",
-    businessHours: "الإثنين-الجمعة: 9 صباحًا-6 مساءً، السبت: 10 صباحًا-2 ظهرًا",
+    businessHours: "الاثنين - الجمعة: 09:00 - 17:00",
     yourName: "اسمك",
-    namePlaceholder: "أدخل اسمك",
     yourEmail: "بريدك الإلكتروني",
-    emailPlaceholder: "أدخل بريدك الإلكتروني",
     subject: "الموضوع",
-    selectSubject: "اختر موضوعًا",
+    message: "الرسالة",
+    namePlaceholder: "أدخل اسمك",
+    emailPlaceholder: "أدخل بريدك الإلكتروني",
+    selectSubject: "اختر الموضوع",
     requestQuote: "طلب عرض سعر",
     generalInquiry: "استفسار عام",
-    supportRequest: "طلب الدعم",
+    supportRequest: "طلب دعم",
     partnership: "فرصة شراكة",
-    message: "الرسالة",
-    messagePlaceholder: "كيف يمكننا مساعدتك؟",
+    messagePlaceholder: "اكتب رسالتك هنا...",
     sendMessage: "إرسال الرسالة",
     sending: "جاري الإرسال...",
     messageSent: "تم إرسال الرسالة!",
-    messageConfirmation: "شكرًا لرسالتك. سنرد عليك في أقرب وقت ممكن.",
+    messageConfirmation: "شكراً لتواصلك معنا. سنرد عليك قريباً.",
 
     // Footer
-    footerAbout: "تلتزم شركة إمران غاني أساهي للطباعة بتقديم خدمات طباعة استثنائية الجودة مع الابتكار والتميز.",
+    footerAbout: "إمران غاني أساهي هي شركة طباعة رائدة تقدم حلول طباعة عالية الجودة للشركات.",
     quickLinks: "روابط سريعة",
+    printingServices: "خدمات الطباعة",
+    businessCards: "بطاقات العمل",
+    brochures: "البروشورات",
+    flyers: "المنشورات",
+    banners: "اللافتات",
+    posters: "الملصقات",
+    logoDesign: "تصميم الشعار",
+    brandIdentity: "هوية العلامة التجارية",
+    illustrationService: "خدمة الرسوم التوضيحية",
+    binding: "التجليد",
+    lamination: "التغليف",
+    embossing: "النقش البارز",
+    foiling: "التذهيب",
     newsletter: "النشرة الإخبارية",
-    newsletterText: "اشترك في نشرتنا الإخبارية للحصول على أحدث التحديثات والعروض.",
+    newsletterText: "اشترك في نشرتنا الإخبارية للحصول على آخر التحديثات",
     allRightsReserved: "جميع الحقوق محفوظة",
     privacyPolicy: "سياسة الخصوصية",
     termsOfService: "شروط الخدمة",
     cookiePolicy: "سياسة ملفات تعريف الارتباط",
 
-    // Language
-    selectLanguage: "اختر اللغة",
-
     // Chatbot
     chatWithUs: "تحدث معنا",
     typeMessage: "اكتب رسالتك...",
-    chatbotWelcome: "مرحبًا! أهلاً بك في إمران غاني أساهي للطباعة. كيف يمكنني مساعدتك اليوم؟",
-    chatbotResponse: "شكرًا لرسالتك. سيرد عليك أحد ممثلينا قريبًا. للحصول على مساعدة فورية، يرجى الاتصال بخط خدمة العملاء.",
-  },
+    chatbotWelcome: "مرحباً! كيف يمكننا المساعدة؟",
+    chatbotResponse: "شكراً لرسالتك. سيتواصل معك فريقنا قريباً.",
+
+    // Business Cards Page
+    businessCardsTitle: "بطاقات عمل احترافية",
+    businessCardsDesc: "اصنع انطباعاً أولياً لا يُنسى مع بطاقات عمل عالية الجودة",
+    premiumMaterials: "مواد ممتازة",
+    customDesigns: "تصاميم مخصصة",
+    fastDelivery: "تسليم سريع",
+    professionalFinish: "تشطيب احترافي",
+
+    // Brochures Page
+    brochuresTitle: "بروشورات عالية الجودة",
+    brochuresDesc: "وصل رسالتك مع بروشورات جذابة وغنية بالمعلومات",
+    customDesign: "تصميم مخصص",
+    customDesignDesc: "تصاميم مصممة لاحتياجات علامتك التجارية",
+    highQualityPrint: "طباعة عالية الجودة",
+    highQualityPrintDesc: "نتائج طباعة ممتازة مع ألوان دقيقة",
+    variousSizes: "أحجام متنوعة",
+    variousSizesDesc: "خيارات حجم مرنة لتناسب احتياجاتك",
+    finishingOptions: "خيارات التشطيب",
+    finishingOptionsDesc: "خيارات تشطيب متنوعة للحصول على نتائج مثالية",
+
+    // Flyers Page
+    flyersTitle: "منشورات جذابة",
+    flyersDesc: "روج لعملك مع منشورات ملفتة للنظر",
+    eyeCatchingDesign: "تصميم ملفت",
+    eyeCatchingDesignDesc: "تصاميم تجذب انتباه الجمهور المستهدف",
+    quickPrinting: "طباعة سريعة",
+    quickPrintingDesc: "عملية طباعة سريعة للاحتياجات العاجلة",
+    affordablePricing: "أسعار معقولة",
+    affordablePricingDesc: "حلول تسعير تنافسية",
+    easyDistribution: "توزيع سهل",
+    easyDistributionDesc: "تنسيق عملي للتوزيع الجماعي",
+
+    // Banners Page
+    bannersTitle: "لافتات عالية الجودة",
+    bannersDesc: "لافتات تجعل علامتك التجارية تبرز",
+    highQualityPrinting: "طباعة عالية الجودة",
+    highQualityPrintingDesc: "نتائج طباعة حادة مع ألوان نابضة بالحياة",
+    customSizes: "أحجام مخصصة",
+    customSizesDesc: "مرونة في اختيار الحجم",
+    durableMaterials: "مواد متينة",
+    durableMaterialsDesc: "مواد عالية الجودة للاستخدام طويل المدى",
+    fastTurnaround: "إنجاز سريع",
+    fastTurnaroundDesc: "وقت إنتاج فعال",
+    weatherResistant: "مقاوم للطقس",
+    weatherResistantDesc: "مناسب للاستخدام الداخلي والخارجي",
+    fullDesignSupport: "دعم التصميم",
+    fullDesignSupportDesc: "فريق تصميم محترف جاهز للمساعدة",
+    ecoFriendlyOptions: "خيارات صديقة للبيئة",
+    ecoFriendlyOptionsDesc: "خيارات مواد مستدامة",
+    bulkDiscounts: "خصومات للكميات الكبيرة",
+    bulkDiscountsDesc: "أسعار خاصة للطلبات الكبيرة",
+
+    // Posters Page
+    postersTitle: "ملصقات مؤثرة",
+    postersDesc: "ملصقات تنقل رسالتك بفعالية",
+    vibrantColors: "ألوان نابضة بالحياة",
+    vibrantColorsDesc: "إعادة إنتاج دقيقة وملفتة للألوان",
+    creativeDesign: "تصميم إبداعي",
+    creativeDesignDesc: "تصاميم تعبر عن الرسائل بشكل إبداعي",
+    customFormats: "تنسيقات مخصصة",
+    customFormatsDesc: "خيارات متنوعة للحجم والتنسيق",
+    quickTurnaround: "إنجاز سريع",
+    quickTurnaroundDesc: "وقت إنتاج فعال",
+
+    // Logo Design Page
+    logoDesignTitle: "تصميم شعار احترافي",
+    logoDesignDesc: "أنشئ هوية بصرية قوية لعلامتك التجارية",
+    customLogo: "شعار مخصص",
+    unlimitedRevisions: "تعديلات غير محدودة",
+    vectorFiles: "ملفات فيكتور",
+    freeConsultation: "استشارة مجانية",
+    multipleFormats: "تنسيقات متعددة",
+    fullOwnership: "ملكية كاملة",
+    consultation: "استشارة",
+    consultationDesc: "مناقشة معمقة حول رؤية علامتك التجارية",
+    conceptDevelopment: "تطوير المفهوم",
+    conceptDesc: "استكشاف أفكار ومفاهيم التصميم",
+    revisionRound: "جولة المراجعة",
+    revisionDesc: "تحسين التصميم بناءً على الملاحظات",
+    finalDelivery: "التسليم النهائي",
+    deliveryDesc: "تسليم الملفات بتنسيقات متنوعة",
+
+    // Brand Identity Page
+    brandIdentityTitle: "هوية العلامة التجارية",
+    brandIdentityDesc: "بناء هوية علامة تجارية متسقة وتترك انطباعاً",
+    brandStrategy: "استراتيجية العلامة التجارية",
+    brandStrategyDesc: "تطوير استراتيجية علامة تجارية فعالة",
+    visualIdentity: "الهوية البصرية",
+    visualIdentityDesc: "تصميم عناصر بصرية متماسكة",
+    brandGuidelines: "إرشادات العلامة التجارية",
+    brandGuidelinesDesc: "إرشادات لاستخدام عناصر العلامة التجارية",
+    brandCollateral: "مواد العلامة التجارية",
+    brandCollateralDesc: "تصميم مواد تسويقية متنوعة",
+    discovery: "اكتشاف",
+    discoveryDesc: "تحليل معمق لعلامتك التجارية",
+    strategy: "استراتيجية",
+    strategyDesc: "تطوير استراتيجية العلامة التجارية",
+    design: "تصميم",
+    designDesc: "إنشاء عناصر بصرية للعلامة التجارية",
+    implementation: "تنفيذ",
+    implementationDesc: "تنفيذ هوية العلامة التجارية",
+
+    // Packaging Page
+    packagingTitle: "تصميم التغليف",
+    packagingDesc: "تغليف جذاب ووظيفي لمنتجاتك",
+    packagingFeatures: "ميزات التغليف",
+    materialOptions: "خيارات المواد",
+    customSolutions: "حلول مخصصة",
+    qualityPrinting: "طباعة عالية الجودة",
+    ecoFriendly: "صديق للبيئة",
+    readyToOrder: "جاهز للطلب",
+    ctaDesc: "ابدأ في تحقيق تغليف أحلامك",
+
+    // Illustration Page
+    illustrationTitle: "خدمة الرسوم التوضيحية",
+    illustrationDesc: "رسوم توضيحية مخصصة لمختلف الاحتياجات",
+    handDrawn: "رسم يدوي",
+    handDrawnDesc: "رسوم توضيحية مفصلة بلمسة شخصية",
+    customStyles: "أنماط مخصصة",
+    customStylesDesc: "خيارات متنوعة لأنماط الرسوم التوضيحية",
+    multiPurpose: "متعدد الأغراض",
+    multiPurposeDesc: "مناسب لتطبيقات متنوعة",
+    freeRevisions: "تعديلات مجانية",
+    freeRevisionsDesc: "تحسينات حتى الرضا",
+    editorialDesc: "رسوم توضيحية للاحتياجات التحريرية",
+    bookDesc: "رسوم توضيحية للكتب",
+    productDesc: "رسوم توضيحية للمنتجات",
+    readyToStart: "جاهز للبدء",
+
+    // Common
+    orderNow: "اطلب الآن",
+    getStarted: "ابدأ",
+    startProject: "ابدأ المشروع",
+    readyToTransform: "هل أنت مستعد لتحويل علامتك التجارية؟",
+    whyChooseUs: "لماذا تختارنا",
+    ourWork: "أعمالنا",
+    getQuote: "احصل على عرض سعر",
+    viewOptions: "عرض الخيارات",
+    callUs: "اتصل بنا",
+    emailUs: "راسلنا",
+    popular: "شائع",
+    basic: "أساسي",
+    premium: "مميز",
+    enterprise: "مؤسسات",
+    seePortfolio: "مشاهدة الأعمال"
+  }
 };
