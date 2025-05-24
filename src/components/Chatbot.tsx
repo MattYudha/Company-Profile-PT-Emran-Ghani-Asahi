@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import { translations } from "../utils/translations";
+import { getChatbotResponse } from "../utils/gemini";
 
 // Interfaces
 interface Message {
@@ -414,17 +415,17 @@ const Chatbot: React.FC = () => {
   useEffect(() => {
     if (language === "en") {
       setSuggestions([
-        { id: "1", text: "Tell me about your printing services" },
-        { id: "2", text: "What types of printing do you offer?" },
-        { id: "3", text: "Can you provide a quote?" },
-        { id: "4", text: "How can I place an order?" },
+        { id: uuidv4(), text: "Tell me about your printing services" },
+        { id: uuidv4(), text: "What types of printing do you offer?" },
+        { id: uuidv4(), text: "Can you provide a quote?" },
+        { id: uuidv4(), text: "How can I place an order?" },
       ]);
     } else {
       setSuggestions([
-        { id: "1", text: "Ceritakan tentang layanan percetakan Anda" },
-        { id: "2", text: "Jenis percetakan apa yang Anda tawarkan?" },
-        { id: "3", text: "Bisakah Anda memberikan penawaran harga?" },
-        { id: "4", text: "Bagaimana cara memesan?" },
+        { id: uuidv4(), text: "Ceritakan tentang layanan percetakan Anda" },
+        { id: uuidv4(), text: "Jenis percetakan apa yang Anda tawarkan?" },
+        { id: uuidv4(), text: "Bisakah Anda memberikan penawaran harga?" },
+        { id: uuidv4(), text: "Bagaimana cara memesan?" },
       ]);
     }
   }, [language]);
@@ -471,6 +472,7 @@ const Chatbot: React.FC = () => {
       sender: "user",
       text: text,
       timestamp: new Date(),
+      status: "sending",
     };
 
     setMessages((prev) => [...prev, userMessage]);
@@ -479,89 +481,26 @@ const Chatbot: React.FC = () => {
     setError(null);
     setSuggestions([]);
 
-    const currentTime = new Date();
-    const hours = currentTime.getHours();
+    try {
+      // Call Gemini API via getChatbotResponse
+      const botResponse = await getChatbotResponse(text, language);
 
-    // Define responses in both languages
-    const responses = {
-      en: {
-        officeStatus: "Our office is open from 8 AM to 5 PM WIB.",
-        officeOpen: "Contact us now!",
-        officeClosed: "Our office is closed. Please email us tomorrow.",
-        officeAssist: "We’re available to assist!",
-        officeAssistClosed: "Our office is closed. Please try again tomorrow.",
-        service:
-          "PT Emran Ghanim Asahi specializes in high-quality printing services, including offset printing, digital printing, and large-format printing for brochures, banners, and more.",
-        type: "We offer offset printing for high-volume jobs, digital printing for quick turnarounds, and large-format printing for banners and posters.",
-        quote:
-          "Please provide details (e.g., quantity, size), and we’ll send a tailored quote to info@emranghanimasahi.com.",
-        order:
-          "To place an order, email orders@emranghanimasahi.com with your requirements or visit www.emranghanimasahi.com.",
-        default:
-          "I can assist with PT Emran Ghanim Asahi’s printing services. Try asking about our services, types of printing, quotes, or orders!",
-      },
-      id: {
-        officeStatus: "Kantor kami buka dari pukul 08.00 hingga 17.00 WIB.",
-        officeOpen: "Hubungi kami sekarang!",
-        officeClosed: "Kantor kami tutup. Silakan email kami besok.",
-        officeAssist: "Kami siap membantu!",
-        officeAssistClosed: "Kantor kami tutup. Silakan coba lagi besok.",
-        service:
-          "PT Emran Ghanim Asahi mengkhususkan diri dalam layanan percetakan berkualitas tinggi, termasuk percetakan offset, digital, dan format besar untuk brosur, spanduk, dan lainnya.",
-        type: "Kami menawarkan percetakan offset untuk pekerjaan volume tinggi, percetakan digital untuk waktu penyelesaian cepat, dan percetakan format besar untuk spanduk dan poster.",
-        quote:
-          "Silakan berikan detail (misalnya, jumlah, ukuran), dan kami akan mengirimkan penawaran khusus ke info@emranghanimasahi.com.",
-        order:
-          "Untuk memesan, email orders@emranghanimasahi.com dengan kebutuhan Anda atau kunjungi www.emranghanimasahi.com.",
-        default:
-          "Saya bisa membantu dengan layanan percetakan PT Emran Ghanim Asahi. Coba tanyakan tentang layanan kami, jenis percetakan, penawaran, atau pemesanan!",
-      },
-    };
-
-    // Select the appropriate language for responses
-    const r = responses[language];
-
-    // Simulate bot response based on user input
-    let botResponse = "";
-    if (
-      text.toLowerCase().includes("service") ||
-      text.toLowerCase().includes("layanan")
-    ) {
-      botResponse = `${r.service} ${r.officeStatus}`;
-    } else if (
-      text.toLowerCase().includes("type") ||
-      text.toLowerCase().includes("jenis")
-    ) {
-      botResponse = `${r.type} ${r.officeStatus}`;
-    } else if (
-      text.toLowerCase().includes("quote") ||
-      text.toLowerCase().includes("penawaran")
-    ) {
-      botResponse = `${r.quote} ${
-        hours >= 8 && hours < 17 ? r.officeOpen : r.officeClosed
-      }`;
-    } else if (
-      text.toLowerCase().includes("order") ||
-      text.toLowerCase().includes("pesan")
-    ) {
-      botResponse = `${r.order} ${
-        hours >= 8 && hours < 17 ? r.officeAssist : r.officeAssistClosed
-      }`;
-    } else {
-      botResponse = `${r.default} ${r.officeStatus}`;
-    }
-
-    setTimeout(() => {
       const botMessage: Message = {
         id: uuidv4(),
         sender: "bot",
         text: botResponse,
-        timestamp: currentTime,
+        timestamp: new Date(),
       };
-      setMessages((prev) => [...prev, botMessage]);
+
+      setMessages((prev) => [
+        ...prev.map((msg) =>
+          msg.id === userMessage.id ? { ...msg, status: "delivered" } : msg
+        ),
+        botMessage,
+      ]);
       setIsTyping(false);
 
-      // Update suggestions based on response and language
+      // Update suggestions based on language
       if (language === "en") {
         setSuggestions([
           { id: uuidv4(), text: "Tell me more about your printing process" },
@@ -580,7 +519,19 @@ const Chatbot: React.FC = () => {
           { id: uuidv4(), text: "Seberapa cepat Anda bisa mengirim?" },
         ]);
       }
-    }, 1000); // Simulate typing delay
+    } catch (err: any) {
+      setIsTyping(false);
+      setMessages((prev) =>
+        prev.map((msg) =>
+          msg.id === userMessage.id ? { ...msg, status: "sent" } : msg
+        )
+      );
+      setError(
+        language === "id"
+          ? "Maaf, terjadi kesalahan saat menghubungi server AI. Silakan coba lagi."
+          : "Sorry, there was an error connecting to the AI server. Please try again."
+      );
+    }
   };
 
   const handleSendMessage = async (e: React.FormEvent) => {
@@ -592,8 +543,14 @@ const Chatbot: React.FC = () => {
     await processUserMessage(text);
   };
 
-  const handleRetry = () => {
-    setError(null);
+  const handleRetry = async () => {
+    const lastUserMessage = messages
+      .slice()
+      .reverse()
+      .find((msg) => msg.sender === "user");
+    if (lastUserMessage) {
+      await processUserMessage(lastUserMessage.text);
+    }
   };
 
   const chatWindowVariants = {
