@@ -11,6 +11,7 @@ const Contact: React.FC = () => {
   const t = translations[language];
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -23,14 +24,28 @@ const Contact: React.FC = () => {
 
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
+    setError(null);
+    
     try {
-      // Here you would typically send the data to your backend
-      await new Promise(resolve => setTimeout(resolve, 1500)); // Simulated API call
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
       setSubmitted(true);
       reset();
       setTimeout(() => setSubmitted(false), 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
+    } catch (err) {
+      setError(t.errorSending || 'Error sending message. Please try again.');
+      console.error('Error submitting form:', err);
     } finally {
       setIsSubmitting(false);
     }
@@ -100,6 +115,12 @@ const Contact: React.FC = () => {
               <div className="bg-green-100 dark:bg-green-900/30 border-l-4 border-green-500 text-green-700 dark:text-green-300 p-4 mb-6 rounded">
                 <p className="font-semibold">{t.messageSent}</p>
                 <p>{t.messageConfirmation}</p>
+              </div>
+            )}
+
+            {error && (
+              <div className="bg-red-100 dark:bg-red-900/30 border-l-4 border-red-500 text-red-700 dark:text-red-300 p-4 mb-6 rounded">
+                <p>{error}</p>
               </div>
             )}
             
