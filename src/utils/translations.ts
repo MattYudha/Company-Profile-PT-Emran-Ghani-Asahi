@@ -1258,8 +1258,7 @@ export const translations: { [key: string]: Translation } = {
     customDesign: "定制设计",
     customDesignDesc: "根据品牌需求定制的设计",
     highQuality
-
-Print: "高质量印刷",
+  }
     highQualityPrintDesc: "具有准确色彩的优质印刷效果",
     variousSizes: "多种尺寸",
     variousSizesDesc: "灵活的尺寸选择以满足您的需求",
