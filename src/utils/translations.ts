@@ -1257,13 +1257,13 @@ export const translations: { [key: string]: Translation } = {
     brochuresDesc: "用吸引人且信息丰富的宣传册传达您的信息",
     customDesign: "定制设计",
     customDesignDesc: "根据品牌需求定制的设计",
-    highQualityPrint: "高质量印刷",
+    highQuality
+
+Print: "高质量印刷",
     highQualityPrintDesc: "具有准确色彩的优质印刷效果",
     variousSizes: "多种尺寸",
     variousSizesDesc: "灵活的尺寸选择以满足您的需求",
-    finish
-
-ingOptions: "装订选项",
+    finishingOptions: "装订选项",
     finishingOptionsDesc: "各种装订选项以获得完美效果",
 
     // Flyers Page
