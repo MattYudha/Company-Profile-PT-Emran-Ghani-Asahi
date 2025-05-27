@@ -4,11 +4,8 @@ import { translations } from "../utils/translations.ts";
 import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  contactFormSchema,
-  type ContactFormData,
-} from "../utils/validation.ts";
-import emailjs from "@emailjs/browser"; // Tambahkan impor EmailJS
+import { contactFormSchema, type ContactFormData } from "../utils/validation.ts";
+import emailjs from "@emailjs/browser";
 
 const Contact: React.FC = () => {
   const { language } = useLanguage();
@@ -16,26 +13,6 @@ const Contact: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  // Log untuk debugging variabel lingkungan
-  console.log("VITE_SUPABASE_URL:", import.meta.env.VITE_SUPABASE_URL);
-  console.log(
-    "VITE_SUPABASE_ANON_KEY:",
-    import.meta.env.VITE_SUPABASE_ANON_KEY
-  );
-  console.log(
-    "VITE_EMAILJS_SERVICE_ID:",
-    import.meta.env.VITE_EMAILJS_SERVICE_ID
-  );
-  console.log(
-    "VITE_EMAILJS_TEMPLATE_ID:",
-    import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-  );
-  console.log(
-    "VITE_EMAILJS_PUBLIC_KEY:",
-    import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-  );
-  console.log("VITE_EMAILJS_TO_EMAIL:", import.meta.env.VITE_EMAILJS_TO_EMAIL);
 
   const {
     register,
@@ -50,82 +27,40 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
     setError(null);
 
-    // Log data yang dikirim
-    console.log("Submitting data:", { ...data, lang: language });
-
-    // Validasi variabel lingkungan Supabase
-    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-    const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
-    // Validasi variabel lingkungan EmailJS
-    const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const emailjsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-    const emailjsToEmail = import.meta.env.VITE_EMAILJS_TO_EMAIL;
-
-    // Validasi Supabase
-    if (!supabaseUrl || !supabaseAnonKey) {
-      setError(
-        t.errorSending ||
-          "Configuration error: Missing Supabase URL or Anon Key"
-      );
-      console.error("Missing Supabase environment variables:", {
-        VITE_SUPABASE_URL: supabaseUrl,
-        VITE_SUPABASE_ANON_KEY: supabaseAnonKey,
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
-    // Validasi EmailJS
-    if (
-      !emailjsServiceId ||
-      !emailjsTemplateId ||
-      !emailjsPublicKey ||
-      !emailjsToEmail
-    ) {
-      setError(
-        t.errorSending || "Configuration error: Missing EmailJS credentials"
-      );
-      console.error("Missing EmailJS environment variables:", {
-        VITE_EMAILJS_SERVICE_ID: emailjsServiceId,
-        VITE_EMAILJS_TEMPLATE_ID: emailjsTemplateId,
-        VITE_EMAILJS_PUBLIC_KEY: emailjsPublicKey,
-        VITE_EMAILJS_TO_EMAIL: emailjsToEmail,
-      });
-      setIsSubmitting(false);
-      return;
-    }
-
-    // Buat endpoint untuk Supabase Functions
-    const endpoint = `${supabaseUrl}/functions/v1/send-email`;
-    console.log("Request URL:", endpoint);
-
     try {
-      // Kirim data ke Supabase Functions untuk disimpan ke tabel
-      const response = await fetch(endpoint, {
+      // Get environment variables
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+      const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+      const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const emailjsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+      const emailjsToEmail = import.meta.env.VITE_EMAILJS_TO_EMAIL;
+
+      // Validate environment variables
+      if (!supabaseUrl || !supabaseAnonKey) {
+        throw new Error("Missing Supabase configuration");
+      }
+
+      if (!emailjsServiceId || !emailjsTemplateId || !emailjsPublicKey || !emailjsToEmail) {
+        throw new Error("Missing EmailJS configuration");
+      }
+
+      // Send data to Supabase Edge Function
+      const response = await fetch(`${supabaseUrl}/functions/v1/send-email`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${supabaseAnonKey}`,
+          "Authorization": `Bearer ${supabaseAnonKey}`,
         },
         body: JSON.stringify({ ...data, lang: language }),
       });
 
       if (!response.ok) {
-        let errorData;
-        try {
-          errorData = await response.json();
-          console.error("Response server error:", errorData);
-        } catch {
-          errorData = { error: `HTTP error ${response.status}` };
-        }
+        const errorData = await response.json();
         throw new Error(errorData.error || "Failed to save message");
       }
 
-      const result = await response.json();
-      console.log("Response from backend:", result);
-
-      // Kirim email menggunakan EmailJS dari frontend
+      // Send email via EmailJS
       await emailjs.send(
         emailjsServiceId,
         emailjsTemplateId,
@@ -139,19 +74,12 @@ const Contact: React.FC = () => {
         emailjsPublicKey
       );
 
-      console.log("Email sent successfully via EmailJS");
-
-      // Jika berhasil, set status submitted
       setSubmitted(true);
       reset();
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err: any) {
-      const errorMessage =
-        err.message ||
-        t.errorSending ||
-        "Error sending message. Please try again.";
-      setError(errorMessage);
       console.error("Error submitting form:", err);
+      setError(err.message || t.errorSending || "Error sending message. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -383,4 +311,4 @@ const Contact: React.FC = () => {
   );
 };
 
-export default Contact; // Export default sudah ada
+export default Contact;

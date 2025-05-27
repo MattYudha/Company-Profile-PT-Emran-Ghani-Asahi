@@ -3,69 +3,82 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.43.2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
+  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
 
 serve(async (req: Request) => {
+  // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
-  if (req.method !== "POST") {
-    return new Response(JSON.stringify({ error: "Method not allowed" }), {
-      status: 405,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
-  }
-
   try {
+    // Get auth token from request header
+    const authHeader = req.headers.get('Authorization');
+    if (!authHeader) {
+      throw new Error('Missing Authorization header');
+    }
+
+    const supabaseClient = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_ANON_KEY') ?? '',
+      {
+        auth: {
+          persistSession: false
+        }
+      }
+    );
+
+    const { data: { user }, error: authError } = await supabaseClient.auth.getUser(
+      authHeader.replace('Bearer ', '')
+    );
+
+    if (authError) {
+      throw new Error('Invalid authentication');
+    }
+
+    // Parse request body
     const { name, email, subject, message, lang } = await req.json();
 
     if (!name || !email || !subject || !message) {
       return new Response(
-        JSON.stringify({ error: "All fields are required" }),
-        {
+        JSON.stringify({ error: "All fields are required" }), 
+        { 
           status: 400,
-          headers: { "Content-Type": "application/json", ...corsHeaders },
+          headers: { ...corsHeaders, "Content-Type": "application/json" }
         }
       );
     }
 
-    const supabaseUrl = Deno.env.get("SUPABASE_URL");
-    const supabaseAnonKey = Deno.env.get("SUPABASE_ANON_KEY");
-
-    if (!supabaseUrl || !supabaseAnonKey) {
-      throw new Error("Missing Supabase environment variables");
-    }
-
-    const supabase = createClient(supabaseUrl, supabaseAnonKey);
-
-    const { error: dbError } = await supabase
-      .from("contact_submissions")
-      .insert({ name, email, subject, message, lang });
+    // Insert into database
+    const { error: dbError } = await supabaseClient
+      .from('contact_submissions')
+      .insert([{ name, email, subject, message, lang }]);
 
     if (dbError) {
-      throw new Error(`Supabase insert failed: ${dbError.message}`);
+      throw new Error(`Database error: ${dbError.message}`);
     }
 
-    const responseMessage =
-      lang === "en"
-        ? "Your message has been successfully sent!"
-        : "Pesan Anda telah berhasil dikirim!";
+    return new Response(
+      JSON.stringify({ 
+        message: lang === "id" ? "Pesan berhasil dikirim!" : "Message sent successfully!" 
+      }),
+      { 
+        status: 200,
+        headers: { ...corsHeaders, "Content-Type": "application/json" }
+      }
+    );
 
-    return new Response(JSON.stringify({ message: responseMessage }), {
-      status: 200,
-      headers: { "Content-Type": "application/json", ...corsHeaders },
-    });
   } catch (error) {
     console.error("Error:", error);
     return new Response(
-      JSON.stringify({ error: error.message || "Internal server error" }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json", ...corsHeaders },
+      JSON.stringify({ 
+        error: error instanceof Error ? error.message : "An unknown error occurred" 
+      }),
+      { 
+        status: error.message.includes('auth') ? 401 : 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" }
       }
     );
   }
