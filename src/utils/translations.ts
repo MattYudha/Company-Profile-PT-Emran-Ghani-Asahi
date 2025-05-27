@@ -117,6 +117,7 @@ interface Translation {
   lamination: string;
   embossing: string;
   foiling: string;
+  finishingServices: string;
   newsletter: string;
   newsletterText: string;
   allRightsReserved: string;
@@ -129,6 +130,13 @@ interface Translation {
   typeMessage: string;
   chatbotWelcome: string;
   chatbotResponse: string;
+
+  // Form Validation and Errors
+  allFieldsRequired: string;
+  invalidEmail: string;
+  smtpError: string;
+  dbError: string;
+  serverError: string;
 }
 
 export const translations: { [key: string]: Translation } = {
@@ -265,6 +273,7 @@ export const translations: { [key: string]: Translation } = {
     lamination: "Laminasi",
     embossing: "Emboss",
     foiling: "Foil",
+    finishingServices: "Layanan Finishing",
     newsletter: "Newsletter",
     newsletterText:
       "Berlangganan newsletter kami untuk mendapatkan update terbaru",
@@ -279,9 +288,16 @@ export const translations: { [key: string]: Translation } = {
     chatbotWelcome: "Halo! Ada yang bisa kami bantu?",
     chatbotResponse:
       "Terima kasih atas pesan Anda. Tim kami akan segera menghubungi Anda.",
+
+    // Form Validation and Errors
+    allFieldsRequired: "Semua field harus diisi",
+    invalidEmail: "Format email tidak valid",
+    smtpError: "Gagal mengirim email",
+    dbError: "Gagal menyimpan data",
+    serverError: "Kesalahan konfigurasi server",
   },
   en: {
-    // Navbar
+    // Navigation
     home: "Home",
     about: "About",
     services: "Services",
@@ -289,26 +305,9 @@ export const translations: { [key: string]: Translation } = {
     portfolio: "Portfolio",
     contact: "Contact",
     allServices: "All Services",
+    selectLanguage: "Select Language",
 
-    // Mega menu
-    printingServices: "Printing Services",
-    businessCards: "Business Cards",
-    brochures: "Brochures",
-    flyers: "Flyers",
-    banners: "Banners",
-    posters: "Posters",
-    designServices: "Design Services",
-    logoDesign: "Logo Design",
-    brandIdentity: "Brand Identity",
-    packaging: "Packaging Design",
-    illustrationService: "Illustration",
-    finishingServices: "Finishing Services",
-    binding: "Binding",
-    lamination: "Lamination",
-    embossing: "Embossing",
-    foiling: "Foiling",
-
-    // Hero
+    // Hero Section
     heroTitle: "Premium Quality Commercial",
     printing: "Printing",
     heroSubtitle:
@@ -317,7 +316,7 @@ export const translations: { [key: string]: Translation } = {
     contactUs: "Contact Us",
     scrollDown: "Scroll Down",
 
-    // Services
+    // Services Section
     ourServices: "Our Services",
     servicesSubtitle:
       "We offer a comprehensive range of printing and design services to meet your business needs.",
@@ -333,24 +332,25 @@ export const translations: { [key: string]: Translation } = {
     packagingSolutions: "Packaging Solutions",
     packagingSolutionsDesc:
       "Custom packaging design and production to showcase and protect your products.",
+    designServices: "Design Services",
     designServicesDesc:
       "Creative design services from concept to completion, including branding and marketing materials.",
 
-    // About
+    // About Section
     aboutTitle: "Emran Ghani Asahi Printing",
     aboutDescription1:
       "Established in 2005, Emran Ghani Asahi Printing has grown to become a leading provider of premium printing solutions in Tokyo and across Japan.",
     aboutDescription2:
       "We combine traditional Japanese craftsmanship with cutting-edge technology to deliver exceptional quality and service to our clients.",
-    yearsExperience: "20+ Years",
-    inPrinting: "in printing excellence",
     feature1: "Eco-friendly printing options",
     feature2: "State-of-the-art technology",
     feature3: "Expert design consultants",
     feature4: "On-time delivery guarantee",
+    yearsExperience: "20+ Years",
+    inPrinting: "in printing excellence",
     learnMore: "Learn More",
 
-    // Team
+    // Team Section
     ourTeam: "Our Expert Team",
     teamSubtitle: "Meet the talented professionals behind our success.",
     founderCEO: "Founder & CEO",
@@ -366,7 +366,7 @@ export const translations: { [key: string]: Translation } = {
     salesDirectorBio:
       "Michael builds lasting relationships with our clients, understanding their needs and providing tailored solutions.",
 
-    // Portfolio
+    // Portfolio Section
     ourPortfolio: "Our Portfolio",
     portfolioSubtitle:
       "Explore some of our finest work for clients across various industries.",
@@ -381,7 +381,7 @@ export const translations: { [key: string]: Translation } = {
     corporateBrochure: "Corporate Brochure",
     brandStationery: "Brand Stationery Set",
 
-    // Testimonials
+    // Testimonials Section
     ourClients: "What Our Clients Say",
     clientsSubtitle:
       "Hear from some of our satisfied customers about their experience working with us.",
@@ -392,7 +392,7 @@ export const translations: { [key: string]: Translation } = {
     testimonial3:
       "The team at Emran Ghani Asahi helped us bring our packaging vision to life. Their innovative approach and commitment to quality sets them apart.",
 
-    // Contact
+    // Contact Section
     getInTouch: "Get In Touch",
     contactSubtitle: "Have a question or project in mind? Reach out to us.",
     address: "Address",
@@ -422,6 +422,20 @@ export const translations: { [key: string]: Translation } = {
     footerAbout:
       "Emran Ghani Asahi Printing is committed to delivering exceptional quality printing services with innovation and excellence.",
     quickLinks: "Quick Links",
+    printingServices: "Printing Services",
+    businessCards: "Business Cards",
+    brochures: "Brochures",
+    flyers: "Flyers",
+    banners: "Banners",
+    posters: "Posters",
+    logoDesign: "Logo Design",
+    brandIdentity: "Brand Identity",
+    illustrationService: "Illustration",
+    binding: "Binding",
+    lamination: "Lamination",
+    embossing: "Embossing",
+    foiling: "Foiling",
+    finishingServices: "Finishing Services",
     newsletter: "Newsletter",
     newsletterText:
       "Subscribe to our newsletter for the latest updates and offers.",
@@ -430,9 +444,6 @@ export const translations: { [key: string]: Translation } = {
     termsOfService: "Terms of Service",
     cookiePolicy: "Cookie Policy",
 
-    // Language
-    selectLanguage: "Select Language",
-
     // Chatbot
     chatWithUs: "Chat with Us",
     typeMessage: "Type your message...",
@@ -440,10 +451,16 @@ export const translations: { [key: string]: Translation } = {
       "Hello! Welcome to Emran Ghani Asahi Printing. How can I assist you today?",
     chatbotResponse:
       "Thank you for your message. One of our representatives will get back to you shortly. For immediate assistance, please call our customer service line.",
-  },
 
+    // Form Validation and Errors
+    allFieldsRequired: "All fields are required",
+    invalidEmail: "Invalid email format",
+    smtpError: "Failed to send email",
+    dbError: "Failed to save submission",
+    serverError: "Server configuration error",
+  },
   ja: {
-    // Navbar
+    // Navigation
     home: "ホーム",
     about: "会社概要",
     services: "サービス",
@@ -451,26 +468,9 @@ export const translations: { [key: string]: Translation } = {
     portfolio: "作品集",
     contact: "お問い合わせ",
     allServices: "全てのサービス",
+    selectLanguage: "言語を選択",
 
-    // Mega menu
-    printingServices: "印刷サービス",
-    businessCards: "名刺",
-    brochures: "パンフレット",
-    flyers: "チラシ",
-    banners: "バナー",
-    posters: "ポスター",
-    designServices: "デザインサービス",
-    logoDesign: "ロゴデザイン",
-    brandIdentity: "ブランドアイデンティティ",
-    packaging: "パッケージデザイン",
-    illustrationService: "イラスト",
-    finishingServices: "仕上げサービス",
-    binding: "製本",
-    lamination: "ラミネート加工",
-    embossing: "エンボス加工",
-    foiling: "箔押し",
-
-    // Hero
+    // Hero Section
     heroTitle: "高品質な商業",
     printing: "印刷",
     heroSubtitle:
@@ -479,7 +479,7 @@ export const translations: { [key: string]: Translation } = {
     contactUs: "お問い合わせ",
     scrollDown: "スクロールダウン",
 
-    // Services
+    // Services Section
     ourServices: "私たちのサービス",
     servicesSubtitle:
       "ビジネスニーズに応える総合的な印刷・デザインサービスを提供しています。",
@@ -495,41 +495,42 @@ export const translations: { [key: string]: Translation } = {
     packagingSolutions: "パッケージソリューション",
     packagingSolutionsDesc:
       "製品を魅せ、保護するためのカスタムパッケージデザインと製造。",
+    designServices: "デザインサービス",
     designServicesDesc:
       "ブランディングやマーケティング資料など、コンセプトから完成までのクリエイティブなデザインサービス。",
 
-    // About
+    // About Section
     aboutTitle: "エムラン・ガニ旭印刷",
     aboutDescription1:
       "2005年に設立されたエムラン・ガニ旭印刷は、東京を中心に日本全国でプレミアム印刷ソリューションを提供するリーディングカンパニーに成長しました。",
     aboutDescription2:
       "日本の伝統的な職人技と最先端の技術を組み合わせ、お客様に卓越した品質とサービスを提供しています。",
-    yearsExperience: "20年以上",
-    inPrinting: "の印刷業界での実績",
     feature1: "環境に優しい印刷オプション",
     feature2: "最先端の技術",
     feature3: "専門デザインコンサルタント",
     feature4: "納期保証",
+    yearsExperience: "20年以上",
+    inPrinting: "の印刷業界での実績",
     learnMore: "詳細を見る",
 
-    // Team
+    // Team Section
     ourTeam: "専門家チーム",
     teamSubtitle:
-      "私たちの成功を支える talented professionals をご紹介します。",
+      "私たちの成功を支える才能あるプロフェッショナルをご紹介します。",
     founderCEO: "創業者 & CEO",
     founderBio:
       "印刷業界で20年以上の経験を持つエムランは、ビジョンと情熱をもってチームを率いています。",
     designDirector: "デザインディレクター",
     designDirectorBio:
       "サラは全てのプロジェクトに創造的な専門知識を活かし、クライアントに視覚的に魅力的な結果を提供します。",
-    productionManager: "製作マネージャーー",
+    productionManager: "製作マネージャー",
     productionManagerBio:
       "アキラは全ての製作プロセスを監督し、最高品質の基準が維持されるよう確保しています。",
     salesDirector: "営業ディレクター",
     salesDirectorBio:
       "マイケルはクライアントとの永続的な関係を構築し、ニーズを理解して適切なソリューションを提供します。",
 
-    // Portfolio
+    // Portfolio Section
     ourPortfolio: "作品集",
     portfolioSubtitle:
       "様々な業界のクライアントのために手がけた最高の作品をご覧ください。",
@@ -544,7 +545,7 @@ export const translations: { [key: string]: Translation } = {
     corporateBrochure: "企業パンフレット",
     brandStationery: "ブランド文具セット",
 
-    // Testimonials
+    // Testimonials Section
     ourClients: "お客様の声",
     clientsSubtitle:
       "私たちとの仕事の経験について、満足いただいているお客様からの声をご紹介します。",
@@ -555,7 +556,7 @@ export const translations: { [key: string]: Translation } = {
     testimonial3:
       "エムラン・ガニ旭印刷のチームは、私たちのパッケージングビジョンを実現するのを手伝ってくれました。彼らの革新的なアプローチと品質へのこだわりが他社と一線を画しています。",
 
-    // Contact
+    // Contact Section
     getInTouch: "お問い合わせ",
     contactSubtitle:
       "ご質問やプロジェクトについてお気軽にお問い合わせください。",
@@ -586,6 +587,20 @@ export const translations: { [key: string]: Translation } = {
     footerAbout:
       "エムラン・ガニ旭印刷は、革新と卓越性を持って例外的な品質の印刷サービスを提供することに取り組んでいます。",
     quickLinks: "クイックリンク",
+    printingServices: "印刷サービス",
+    businessCards: "名刺",
+    brochures: "パンフレット",
+    flyers: "チラシ",
+    banners: "バナー",
+    posters: "ポスター",
+    logoDesign: "ロゴデザイン",
+    brandIdentity: "ブランドアイデンティティ",
+    illustrationService: "イラスト",
+    binding: "製本",
+    lamination: "ラミネート加工",
+    embossing: "エンボス加工",
+    foiling: "箔押し",
+    finishingServices: "仕上げサービス",
     newsletter: "ニュースレター",
     newsletterText:
       "最新情報やお得な情報を受け取るには、ニュースレターにご登録ください。",
@@ -594,9 +609,6 @@ export const translations: { [key: string]: Translation } = {
     termsOfService: "利用規約",
     cookiePolicy: "クッキーポリシー",
 
-    // Language
-    selectLanguage: "言語を選択",
-
     // Chatbot
     chatWithUs: "チャットでお問い合わせ",
     typeMessage: "メッセージを入力...",
@@ -604,10 +616,16 @@ export const translations: { [key: string]: Translation } = {
       "こんにちは！エムラン・ガニ旭印刷へようこそ。どのようにお手伝いできますか？",
     chatbotResponse:
       "メッセージをいただきありがとうございます。担当者が速やかにご連絡いたします。緊急のご用件は、カスタマーサービスまでお電話ください。",
-  },
 
+    // Form Validation and Errors
+    allFieldsRequired: "すべてのフィールドが必要です",
+    invalidEmail: "メールアドレスの形式が無効です",
+    smtpError: "メールの送信に失敗しました",
+    dbError: "データの保存に失敗しました",
+    serverError: "サーバー構成エラー",
+  },
   zh: {
-    // Navbar
+    // Navigation
     home: "首页",
     about: "关于我们",
     services: "服务",
@@ -615,63 +633,46 @@ export const translations: { [key: string]: Translation } = {
     portfolio: "作品集",
     contact: "联系我们",
     allServices: "所有服务",
+    selectLanguage: "选择语言",
 
-    // Mega menu
-    printingServices: "印刷服务",
-    businessCards: "名片",
-    brochures: "宣传册",
-    flyers: "传单",
-    banners: "横幅",
-    posters: "海报",
-    designServices: "设计服务",
-    logoDesign: "标志设计",
-    brandIdentity: "品牌标识",
-    packaging: "包装设计",
-    illustrationService: "插图",
-    finishingServices: "后期加工服务",
-    binding: "装订",
-    lamination: "覆膜",
-    embossing: "压纹",
-    foiling: "烫金",
-
-    // Hero
+    // Hero Section
     heroTitle: "高品质商业",
     printing: "印刷",
     heroSubtitle:
-      "适用于各种规模企业的专业印刷解决方案，提供卓越品质和创新服务。",
+      "为各种规模的企业提供专业的印刷解决方案，带来卓越的品质和创新。",
     exploreServices: "探索服务",
     contactUs: "联系我们",
     scrollDown: "向下滚动",
 
-    // Services
+    // Services Section
     ourServices: "我们的服务",
     servicesSubtitle: "我们提供全面的印刷和设计服务，以满足您的业务需求。",
     digitalPrinting: "数字印刷",
-    digitalPrintingDesc: "高质量按需印刷，快速周转时间，适合中小型印刷量。",
+    digitalPrintingDesc: "高质量按需印刷，适合中小批量，快速交付。",
     offsetPrinting: "胶印",
     offsetPrintingDesc: "为大批量印刷提供卓越品质和色彩精准度的传统印刷方法。",
     largeFormat: "大幅面印刷",
-    largeFormatDesc:
-      "引人注目的横幅、海报和展示物，为活动和促销提供最大的视觉冲击力。",
+    largeFormatDesc: "为活动和促销提供引人注目的横幅、海报和展示物。",
     packagingSolutions: "包装解决方案",
-    packagingSolutionsDesc: "定制包装设计和生产，以展示和保护您的产品。",
+    packagingSolutionsDesc: "定制包装设计和生产，展示并保护您的产品。",
+    designServices: "设计服务",
     designServicesDesc: "从概念到完成的创意设计服务，包括品牌和营销材料。",
 
-    // About
+    // About Section
     aboutTitle: "艾姆兰·加尼旭日印刷",
     aboutDescription1:
-      "成立于2005年，艾姆兰·加尼旭日印刷已发展成为东京及全日本领先的高端印刷解决方案提供商。",
+      "成立于2005年，艾姆兰·加尼旭日印刷已成为东京及日本全国领先的高端印刷解决方案提供商。",
     aboutDescription2:
       "我们结合传统日本工艺与尖端技术，为客户提供卓越的品质和服务。",
-    yearsExperience: "20多年",
-    inPrinting: "印刷行业经验",
     feature1: "环保印刷选项",
     feature2: "最先进的技术",
     feature3: "专业设计顾问",
     feature4: "准时交付保证",
+    yearsExperience: "20多年",
+    inPrinting: "印刷行业经验",
     learnMore: "了解更多",
 
-    // Team
+    // Team Section
     ourTeam: "专家团队",
     teamSubtitle: "认识支持我们成功的才华横溢的专业人士。",
     founderCEO: "创始人兼首席执行官",
@@ -685,7 +686,7 @@ export const translations: { [key: string]: Translation } = {
     salesDirectorBio:
       "迈克尔与客户建立持久关系，了解他们的需求并提供量身定制的解决方案。",
 
-    // Portfolio
+    // Portfolio Section
     ourPortfolio: "作品集",
     portfolioSubtitle: "探索我们为各行业客户完成的精美作品。",
     all: "全部",
@@ -699,17 +700,17 @@ export const translations: { [key: string]: Translation } = {
     corporateBrochure: "企业宣传册",
     brandStationery: "品牌文具套装",
 
-    // Testimonials
+    // Testimonials Section
     ourClients: "客户评价",
     clientsSubtitle: "听听一些满意客户分享他们与我们合作的经验。",
     testimonial1:
-      "艾姆兰·加尼旭日印刷为我们的企业品牌重塑提供了卓越品质的印刷材料。他们对细节的关注和专业服务超出了我们的期望。",
+      "艾姆兰·加尼旭日印刷为我们的企业品牌重塑提供了卓越品质的印刷材料。他们的专业服务超出了我们的期望。",
     testimonial2:
-      "我们曾与多家印刷公司合作，但没有一家能与艾姆兰·加尼旭日提供的质量和服务相媲美。他们现在是我们的独家印刷合作伙伴。",
+      "我们曾与多家印刷公司合作，但艾姆兰·加尼旭日的质量和服务无人能及。他们现在是我们的独家印刷合作伙伴。",
     testimonial3:
-      "艾姆兰·加尼旭日的团队帮助我们实现了包装愿景。他们创新的方法和对质量的承诺使他们脱颖而出。",
+      "艾姆兰·加尼旭日的团队帮助我们实现了包装愿景。他们的创新方法和对质量的承诺使他们脱颖而出。",
 
-    // Contact
+    // Contact Section
     getInTouch: "联系我们",
     contactSubtitle: "有问题或项目想法？请与我们联系。",
     address: "地址",
@@ -718,16 +719,16 @@ export const translations: { [key: string]: Translation } = {
     hours: "营业时间",
     businessHours: "周一至周五: 9点-18点, 周六: 10点-14点",
     yourName: "您的姓名",
-    namePlaceholder: "输入您的姓名",
     yourEmail: "您的电子邮件",
-    emailPlaceholder: "输入您的电子邮件",
     subject: "主题",
+    message: "留言",
+    namePlaceholder: "输入您的姓名",
+    emailPlaceholder: "输入您的电子邮件",
     selectSubject: "选择主题",
     requestQuote: "请求报价",
     generalInquiry: "一般咨询",
     supportRequest: "支持请求",
     partnership: "合作机会",
-    message: "留言",
     messagePlaceholder: "我们如何帮助您？",
     sendMessage: "发送消息",
     sending: "发送中...",
@@ -737,6 +738,20 @@ export const translations: { [key: string]: Translation } = {
     // Footer
     footerAbout: "艾姆兰·加尼旭日印刷致力于以创新和卓越提供优质印刷服务。",
     quickLinks: "快速链接",
+    printingServices: "印刷服务",
+    businessCards: "名片",
+    brochures: "宣传册",
+    flyers: "传单",
+    banners: "横幅",
+    posters: "海报",
+    logoDesign: "标志设计",
+    brandIdentity: "品牌标识",
+    illustrationService: "插图",
+    binding: "装订",
+    lamination: "覆膜",
+    embossing: "压纹",
+    foiling: "烫金",
+    finishingServices: "后期加工服务",
     newsletter: "新闻通讯",
     newsletterText: "订阅我们的新闻通讯，获取最新更新和优惠。",
     allRightsReserved: "版权所有",
@@ -744,19 +759,21 @@ export const translations: { [key: string]: Translation } = {
     termsOfService: "服务条款",
     cookiePolicy: "Cookie政策",
 
-    // Language
-    selectLanguage: "选择语言",
-
     // Chatbot
     chatWithUs: "与我们聊天",
-    typeMessage: "输入您的消息...",
-    chatbotWelcome: "您好！欢迎来到艾姆兰·加尼旭日印刷。今天我能帮您什么？",
-    chatbotResponse:
-      "感谢您的留言。我们的代表将很快与您联系。如需立即协助，请致电我们的客户服务热线。",
-  },
+    typeMessage: "输入您的留言...",
+    chatbotWelcome: "您好！欢迎来到艾姆兰·加尼旭日印刷。今天我们能帮您什么？",
+    chatbotResponse: "感谢您的留言。我们的团队将尽快联系您。",
 
+    // Form Validation and Errors
+    allFieldsRequired: "所有字段均为必填",
+    invalidEmail: "电子邮件格式无效",
+    smtpError: "发送电子邮件失败",
+    dbError: "保存数据失败",
+    serverError: "服务器配置错误",
+  },
   ar: {
-    // Navbar
+    // Navigation
     home: "الرئيسية",
     about: "حول",
     services: "الخدمات",
@@ -764,26 +781,9 @@ export const translations: { [key: string]: Translation } = {
     portfolio: "الأعمال",
     contact: "اتصل بنا",
     allServices: "جميع الخدمات",
+    selectLanguage: "اختر اللغة",
 
-    // Mega menu
-    printingServices: "خدمات الطباعة",
-    businessCards: "بطاقات العمل",
-    brochures: "البروشورات",
-    flyers: "المنشورات",
-    banners: "اللافتات",
-    posters: "الملصقات",
-    designServices: "خدمات التصميم",
-    logoDesign: "تصميم الشعار",
-    brandIdentity: "هوية العلامة التجارية",
-    packaging: "تصميم العبوات",
-    illustrationService: "الرسوم التوضيحية",
-    finishingServices: "خدمات التشطيب",
-    binding: "التجليد",
-    lamination: "التغليف",
-    embossing: "النقش البارز",
-    foiling: "التذهيب",
-
-    // Hero
+    // Hero Section
     heroTitle: "طباعة تجارية",
     printing: "عالية الجودة",
     heroSubtitle:
@@ -792,7 +792,7 @@ export const translations: { [key: string]: Translation } = {
     contactUs: "اتصل بنا",
     scrollDown: "مرر لأسفل",
 
-    // Services
+    // Services Section
     ourServices: "خدماتنا",
     servicesSubtitle:
       "نقدم مجموعة شاملة من خدمات الطباعة والتصميم لتلبية احتياجات عملك.",
@@ -807,24 +807,25 @@ export const translations: { [key: string]: Translation } = {
       "لافتات وملصقات وعروض ملفتة للنظر لتحقيق أقصى تأثير مرئي في الفعاليات والعروض الترويجية.",
     packagingSolutions: "حلول التعبئة والتغليف",
     packagingSolutionsDesc: "تصميم وإنتاج عبوات مخصصة لعرض منتجاتك وحمايتها.",
+    designServices: "خدمات التصميم",
     designServicesDesc:
       "خدمات تصميم إبداعية من المفهوم إلى الإنجاز، بما في ذلك العلامات التجارية ومواد التسويق.",
 
-    // About
+    // About Section
     aboutTitle: "إمران غاني أساهي للطباعة",
     aboutDescription1:
       "تأسست شركة إمران غاني أساهي للطباعة في عام 2005، ونمت لتصبح مزودًا رائدًا لحلول الطباعة المتميزة في طوكيو وجميع أنحاء اليابان.",
     aboutDescription2:
       "نحن نجمع بين الحرفية اليابانية التقليدية والتكنولوجيا المتطورة لتقديم جودة وخدمة استثنائية لعملائنا.",
-    yearsExperience: "+20 عامًا",
-    inPrinting: "من التميز في الطباعة",
     feature1: "خيارات طباعة صديقة للبيئة",
     feature2: "تكنولوجيا متطورة",
     feature3: "مستشارو تصميم خبراء",
     feature4: "ضمان التسليم في الموعد المحدد",
+    yearsExperience: "+20 عامًا",
+    inPrinting: "من التميز في الطباعة",
     learnMore: "معرفة المزيد",
 
-    // Team
+    // Team Section
     ourTeam: "فريقنا من الخبراء",
     teamSubtitle: "تعرف على المحترفين الموهوبين وراء نجاحنا.",
     founderCEO: "المؤسس والرئيس التنفيذي",
@@ -840,7 +841,7 @@ export const translations: { [key: string]: Translation } = {
     salesDirectorBio:
       "يبني مايكل علاقات دائمة مع عملائنا، ويفهم احتياجاتهم ويقدم حلولاً مخصصة.",
 
-    // Portfolio
+    // Portfolio Section
     ourPortfolio: "أعمالنا",
     portfolioSubtitle:
       "استكشف بعضًا من أفضل أعمالنا للعملاء عبر مختلف الصناعات.",
@@ -855,7 +856,7 @@ export const translations: { [key: string]: Translation } = {
     corporateBrochure: "بروشور الشركة",
     brandStationery: "مجموعة القرطاسية للعلامة التجارية",
 
-    // Testimonials
+    // Testimonials Section
     ourClients: "ما يقوله عملاؤنا",
     clientsSubtitle: "اسمع من بعض عملائنا الراضين عن تجربتهم في العمل معنا.",
     testimonial1:
@@ -865,7 +866,7 @@ export const translations: { [key: string]: Translation } = {
     testimonial3:
       "ساعدنا فريق إمران غاني أساهي في تحقيق رؤيتنا للتعبئة والتغليف. نهجهم المبتكر والتزامهم بالجودة يميزهم عن غيرهم.",
 
-    // Contact
+    // Contact Section
     getInTouch: "تواصل معنا",
     contactSubtitle: "هل لديك سؤال أو مشروع في ذهنك؟ تواصل معنا.",
     address: "العنوان",
@@ -894,6 +895,20 @@ export const translations: { [key: string]: Translation } = {
     footerAbout:
       "تلتزم شركة إمران غاني أساهي للطباعة بتقديم خدمات طباعة استثنائية الجودة مع الابتكار والتميز.",
     quickLinks: "روابط سريعة",
+    printingServices: "خدمات الطباعة",
+    businessCards: "بطاقات العمل",
+    brochures: "البروشورات",
+    flyers: "المنشورات",
+    banners: "اللافتات",
+    posters: "الملصقات",
+    logoDesign: "تصميم الشعار",
+    brandIdentity: "هوية العلامة التجارية",
+    illustrationService: "الرسوم التوضيحية",
+    binding: "التجليد",
+    lamination: "التغليف",
+    embossing: "النقش البارز",
+    foiling: "التذهيب",
+    finishingServices: "خدمات التشطيب",
     newsletter: "النشرة الإخبارية",
     newsletterText:
       "اشترك في نشرتنا الإخبارية للحصول على أحدث التحديثات والعروض.",
@@ -902,9 +917,6 @@ export const translations: { [key: string]: Translation } = {
     termsOfService: "شروط الخدمة",
     cookiePolicy: "سياسة ملفات تعريف الارتباط",
 
-    // Language
-    selectLanguage: "اختر اللغة",
-
     // Chatbot
     chatWithUs: "تحدث معنا",
     typeMessage: "اكتب رسالتك...",
@@ -912,5 +924,12 @@ export const translations: { [key: string]: Translation } = {
       "مرحبًا! أهلاً بك في إمران غاني أساهي للطباعة. كيف يمكنني مساعدتك اليوم؟",
     chatbotResponse:
       "شكرًا لرسالتك. سيرد عليك أحد ممثلينا قريبًا. للحصول على مساعدة فورية، يرجى الاتصال بخط خدمة العملاء.",
+
+    // Form Validation and Errors
+    allFieldsRequired: "جميع الحقول مطلوبة",
+    invalidEmail: "تنسيق البريد الإلكتروني غير صالح",
+    smtpError: "فشل إرسال البريد الإلكتروني",
+    dbError: "فشل حفظ البيانات",
+    serverError: "خطأ في تكوين الخادم",
   },
 };
