@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
-import { translations } from '../utils/translations';
+import { useLanguage } from '../contexts/LanguageContext.tsx';
+import { translations } from '../utils/translations.ts';
 import { Facebook, Twitter, Instagram, Linkedin, Send } from 'lucide-react';
-import Logo from './Logo';
+import Logo from './Logo.tsx';
 
 const Footer: React.FC = () => {
   const { language } = useLanguage();

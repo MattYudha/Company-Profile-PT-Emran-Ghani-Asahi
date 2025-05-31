@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import Navbar from "../components/Navbar";
-import Chatbot from "../components/Chatbot";
-import { useLanguage } from "../contexts/LanguageContext";
-import { translations } from "../utils/translations";
+import Navbar from "../components/Navbar.tsx";
+import Chatbot from "../components/Chatbot.tsx";
+import { useLanguage } from "../contexts/LanguageContext.tsx";
+import { translations } from "../utils/translations.ts";
 import {
   FileText,
   CheckCircle,

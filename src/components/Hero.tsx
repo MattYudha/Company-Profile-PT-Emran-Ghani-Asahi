@@ -1,6 +1,6 @@
 import React from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
-import { translations } from '../utils/translations';
+import { useLanguage } from '../contexts/LanguageContext.tsx';
+import { translations } from '../utils/translations.ts';
 import { ArrowDown } from 'lucide-react';
 
 const Hero: React.FC = () => {

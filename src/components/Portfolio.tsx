@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useLanguage } from '../contexts/LanguageContext';
-import { translations } from '../utils/translations';
+import { useLanguage } from '../contexts/LanguageContext.tsx';
+import { translations } from '../utils/translations.ts';
 import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 
 interface PortfolioItemProps {

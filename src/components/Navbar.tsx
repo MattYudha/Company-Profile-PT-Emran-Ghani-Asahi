@@ -9,11 +9,11 @@ import {
   ChevronUp,
 } from "lucide-react";
 import { Link } from "react-router-dom"; // Import Link untuk navigasi
-import { useTheme } from "../contexts/ThemeContext";
-import { useLanguage } from "../contexts/LanguageContext";
-import { translations } from "../utils/translations";
-import Logo from "./Logo";
-import LanguageDropdown from "./LanguageDropdown";
+import { useTheme } from "../contexts/ThemeContext.tsx";
+import { useLanguage } from "../contexts/LanguageContext.tsx";
+import { translations } from "../utils/translations.ts";
+import Logo from "./Logo.tsx";
+import LanguageDropdown from "./LanguageDropdown.tsx";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

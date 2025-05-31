@@ -1,9 +1,9 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Chatbot from "../components/Chatbot";
-import { useLanguage } from "../contexts/LanguageContext";
-import { translations } from "../utils/translations";
-import { IdCard, CheckCircle } from "lucide-react";
+import Navbar from "../components/Navbar.tsx";
+import Chatbot from "../components/Chatbot.tsx";
+import { useLanguage } from "../contexts/LanguageContext.tsx";
+import { translations } from "../utils/translations.ts";
+import { IdCard, CheckCircle } from "lucide-react.";
 
 const BusinessCards: React.FC = () => {
   const { language } = useLanguage();

@@ -1,96 +1,81 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { VitePWA } from "vite-plugin-pwa";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
 
+// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate",
-      includeAssets: [
-        "/assets/logo.png",
-        "/apple-touch-icon.png",
-        "robots.txt",
-        "/images/background.jpg", // Tambahkan gambar latar belakang jika ada
-        "/icon-192.png",
-        "/icon-512.png",
-      ],
-      devOptions: {
-        enabled: true, // Untuk debugging di mode development
-      },
-      workbox: {
-        // Strategi caching untuk offline mode
-        globPatterns: ["**/*.{js,css,html,png,jpg,svg}"], // Cache semua file JS, CSS, HTML, dan gambar
-        runtimeCaching: [
-          {
-            urlPattern: /\.(?:png|jpg|jpeg|svg|gif)$/,
-            handler: "CacheFirst", // Cache gambar dengan strategi CacheFirst
-            options: {
-              cacheName: "images",
-              expiration: {
-                maxEntries: 50, // Batas cache untuk gambar
-                maxAgeSeconds: 30 * 24 * 60 * 60, // 30 hari
-              },
-            },
-          },
-          {
-            urlPattern: /\.(?:js|css)$/,
-            handler: "StaleWhileRevalidate", // Cache JS dan CSS, tapi perbarui di background
-            options: {
-              cacheName: "static-resources",
-            },
-          },
-          {
-            urlPattern: /^https:\/\/emranghanisahi\.netlify\.app\/.*/,
-            handler: "NetworkFirst", // Prioritaskan jaringan untuk halaman, fallback ke cache
-            options: {
-              cacheName: "pages",
-              networkTimeoutSeconds: 3,
-              expiration: {
-                maxEntries: 10,
-                maxAgeSeconds: 7 * 24 * 60 * 60, // 7 hari
-              },
-            },
-          },
-        ],
-      },
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: "Emran Ghani Asahi Printing",
-        short_name: "EG Asahi",
-        description: "Premium printing solutions for businesses",
-        theme_color: "#16a34a",
+        name: 'Smart Health Monitoring',
+        short_name: 'HealthMonitor',
+        description: 'Track and improve your mental well-being',
+        theme_color: '#0d9488',
+        background_color: '#ffffff',
+        display: 'standalone',
         icons: [
           {
-            src: "/icon-192.png",
-            sizes: "192x192",
-            type: "image/png",
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
           },
           {
-            src: "/icon-512.png",
-            sizes: "512x512",
-            type: "image/png",
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
           },
           {
-            src: "/icon-192.png",
-            sizes: "192x192",
-            type: "image/png",
-            purpose: "maskable",
-          },
-        ],
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any maskable'
+          }
+        ]
       },
-    }),
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        runtimeCaching: [
+          {
+            urlPattern: ({url}) => url.pathname.startsWith('/api/users/profile'),
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'user-profile-cache',
+              expiration: {
+                maxEntries: 10,
+                maxAgeSeconds: 60 * 60 * 24 * 7, // 7 days
+              },
+            },
+          },
+          {
+            urlPattern: ({url}) => url.pathname.startsWith('/api/dashboard'),
+            handler: 'StaleWhileRevalidate',
+            options: {
+              cacheName: 'dashboard-data-cache',
+              expiration: {
+                maxEntries: 5,
+                maxAgeSeconds: 60 * 60 * 24, // 1 day
+              },
+            },
+          },
+          {
+            urlPattern: ({url}) => url.pathname.startsWith('/api/notifications'),
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'notifications-cache',
+              expiration: {
+                maxEntries: 20,
+                maxAgeSeconds: 60 * 60 * 12, // 12 hours
+              },
+            },
+          }
+        ]
+      }
+    })
   ],
   optimizeDeps: {
-    exclude: ["lucide-react"],
-  },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ["react", "react-dom"],
-          ui: ["@headlessui/react", "framer-motion"],
-        },
-      },
-    },
+    exclude: ['lucide-react'],
   },
 });

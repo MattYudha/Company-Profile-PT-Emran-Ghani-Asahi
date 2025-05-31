@@ -1,7 +1,7 @@
 import React from 'react';
 import { Printer, PenTool, Palette, Package, Award } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
-import { translations } from '../utils/translations';
+import { useLanguage } from '../contexts/LanguageContext.tsx';
+import { translations } from '../utils/translations.ts';
 
 interface ServiceCardProps {
   icon: React.ReactNode;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Printer } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../contexts/ThemeContext.tsx';
 
 const Logo: React.FC = () => {
   const { isDarkMode } = useTheme();
