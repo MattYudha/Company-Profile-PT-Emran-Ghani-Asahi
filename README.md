@@ -1,322 +1,290 @@
-# PT. EMRAN GHANIM ASAHI - Company Profile Website
+# PT. EMRAN GHANIM ASAHI - Situs Web Profil Perusahaan
 
-![Company Logo](./assets/logo.png)
+![Logo Perusahaan](./assets/logo.png)
 
-## Overview
+## Gambaran Umum
 
-Welcome to the official company profile website for PT. EMRAN GHANIM ASAHI. This repository contains the source code for our modern, responsive, and interactive web presence, built using React, TypeScript, and Vite. The website showcases our premium printing and labeling services, company information, portfolio, and contact details, catering to clients in the retail, fashion, and logistics sectors.
+Selamat datang di situs web profil resmi PT. EMRAN GHANIM ASAHI. Repositori ini berisi kode sumber untuk kehadiran web kami yang modern, responsif, dan interaktif, yang dibangun menggunakan React, TypeScript, dan Vite. Situs web ini menampilkan layanan cetak dan pelabelan premium kami, informasi perusahaan, portofolio, dan detail kontak, melayani klien di sektor ritel, fesyen, dan logistik.
 
-Our aim is to provide a seamless and informative experience for our prospective and existing clients, highlighting our commitment to quality, innovation, and customer satisfaction.
+Tujuan kami adalah untuk menyediakan pengalaman yang mulus dan informatif bagi calon klien dan klien kami yang sudah ada, menyoroti komitmen kami terhadap kualitas, inovasi, dan kepuasan pelanggan.
 
-## Features
+## Fitur
 
-### Core Features
-* **Responsive Design**: Optimized for various devices, from desktops to mobile phones, ensuring a consistent user experience.
-* **Multi-language Support**: Available in multiple languages (English, Indonesian, Japanese, Chinese, Arabic) to cater to our diverse global clientele.
-* **Progressive Web App (PWA)**: Enhances user experience with offline capabilities and faster loading times.
-* **SEO Friendly**: Configured with meta tags and sitemap generation for better search engine visibility.
+### Fitur Inti
+* **Desain Responsif**: Dioptimalkan untuk berbagai perangkat, dari desktop hingga ponsel, memastikan pengalaman pengguna yang konsisten.
+* **Dukungan Multi-bahasa**: Tersedia dalam berbagai bahasa (Inggris, Indonesia, Jepang, Mandarin, Arab) untuk melayani beragam klien global kami.
+* **Aplikasi Web Progresif (PWA)**: Meningkatkan pengalaman pengguna dengan kemampuan offline dan waktu muat yang lebih cepat.
+* **Ramah SEO**: Dikonfigurasi dengan meta tag dan pembuatan sitemap untuk visibilitas mesin pencari yang lebih baik.
 
-### Enhanced AI Chatbot - "Emran Chatbot"
-* **Intelligent Assistant**: AI-powered chatbot named "Emran Chatbot" provides instant answers to common queries about our printing services.
-* **Image Recognition**: Revolutionary feature allowing users to upload images for AI-powered analysis and printing recommendations.
-* **Dynamic Suggestions**: Context-aware suggestion system that adapts based on conversation flow and user queries.
-* **Multi-language Support**: Responds in the user's preferred language with professional, company-specific information.
-* **Professional Branding**: Consistent with PT. EMRAN GHANIM ASAHI's brand identity and values.
-* **Real-time Analysis**: Instant feedback on uploaded images with tailored printing service recommendations.
+### Chatbot AI yang Ditingkatkan - "Emran Chatbot"
+* **Asisten Cerdas**: Chatbot bertenaga AI bernama "Emran Chatbot" memberikan jawaban instan untuk pertanyaan umum tentang layanan cetak kami.
+* **Pengenalan Gambar**: Fitur revolusioner yang memungkinkan pengguna mengunggah gambar untuk analisis bertenaga AI dan rekomendasi pencetakan.
+* **Saran Dinamis**: Sistem saran peka konteks yang beradaptasi berdasarkan alur percakapan dan pertanyaan pengguna.
+* **Dukungan Multi-bahasa**: Menanggapi dalam bahasa pilihan pengguna dengan informasi profesional dan spesifik perusahaan.
+* **Branding Profesional**: Konsisten dengan identitas merek dan nilai-nilai PT. EMRAN GHANIM ASAHI.
+* **Analisis Real-time**: Umpan balik instan pada gambar yang diunggah dengan rekomendasi layanan pencetakan yang disesuaikan.
 
-### Business Features
-* **Service Showcase**: Detailed sections for our wide range of services, including digital printing, offset printing, large format, packaging solutions, and design services.
-* **Dynamic Portfolio**: A curated display of our past projects, demonstrating our expertise and quality.
-* **Contact Form**: Easy-to-use contact form integrated with email services for direct inquiries.
-* **Dark Mode**: User-friendly toggle for light and dark themes.
+### Fitur Bisnis
+* **Pameran Layanan**: Bagian terperinci untuk berbagai layanan kami, termasuk pencetakan digital, pencetakan offset, format besar, solusi pengemasan, dan layanan desain.
+* **Portofolio Dinamis**: Tampilan portofolio proyek kami yang dikurasi, menunjukkan keahlian dan kualitas kami.
+* **Formulir Kontak**: Formulir kontak yang mudah digunakan terintegrasi dengan layanan email untuk pertanyaan langsung.
+* **Mode Gelap**: Tombol yang ramah pengguna untuk tema terang dan gelap.
 
-## Technologies Used
+## Teknologi yang Digunakan
 
 ### Frontend
-* **React**: A JavaScript library for building user interfaces.
-* **TypeScript**: A typed superset of JavaScript that compiles to plain JavaScript.
-* **Vite**: A fast build tool that provides a lightning-fast development experience.
-* **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
-* **Framer Motion**: A production-ready motion library for React.
-* **Lucide React**: A library of customizable SVG icons.
+* **React**: Sebuah pustaka JavaScript untuk membangun antarmuka pengguna.
+* **TypeScript**: Superser JavaScript yang diketik yang dikompilasi ke JavaScript biasa.
+* **Vite**: Alat build cepat yang menyediakan pengalaman pengembangan secepat kilat.
+* **Tailwind CSS**: Kerangka kerja CSS berbasis utilitas untuk membangun desain kustom dengan cepat.
+* **Framer Motion**: Pustaka gerak siap produksi untuk React.
+* **Lucide React**: Pustaka ikon SVG yang dapat disesuaikan.
 
-### Form Management
-* **react-hook-form**: A performant, flexible and extensible forms library for React.
-* **zod**: A TypeScript-first schema declaration and validation library.
-* **@hookform/resolvers**: Integration for Zod with React Hook Form.
+### Manajemen Formulir
+* **react-hook-form**: Pustaka formulir yang berkinerja, fleksibel, dan dapat diperluas untuk React.
+* **zod**: Pustaka deklarasi dan validasi skema yang mengutamakan TypeScript.
+* **@hookform/resolvers**: Integrasi untuk Zod dengan React Hook Form.
 
-### Email Services
-* **@emailjs/browser**: Send emails directly from the client-side using EmailJS.
-* **Supabase Edge Functions**: Used as a backend to securely handle contact form submissions and integrate with EmailJS.
+### Layanan Email
+* **@emailjs/browser**: Mengirim email langsung dari sisi klien menggunakan EmailJS.
+* **Supabase Edge Functions**: Digunakan sebagai backend untuk menangani pengiriman formulir kontak dengan aman dan terintegrasi dengan EmailJS.
 
-### AI Integration
-* **Google Gemini API**: Powers the "Emran Chatbot" for intelligent, context-aware responses about our printing services.
-* **Image Recognition**: Advanced AI capabilities for analyzing uploaded images and providing printing recommendations.
+### Integrasi AI
+* **Google Gemini API**: Menggerakkan "Emran Chatbot" untuk tanggapan cerdas dan peka konteks tentang layanan cetak kami.
+* **Pengenalan Gambar**: Kemampuan AI canggih untuk menganalisis gambar yang diunggah dan memberikan rekomendasi pencetakan.
 
-### Analytics
-* **@vercel/analytics**: For performance and usage monitoring.
+### Analisis
+* **@vercel/analytics**: Untuk pemantauan kinerja dan penggunaan.
 
-## Getting Started
+## Memulai
 
-Follow these instructions to set up and run the project locally for development and testing purposes.
+Ikuti petunjuk ini untuk mengatur dan menjalankan proyek secara lokal untuk tujuan pengembangan dan pengujian.
 
-### Prerequisites
+### Prasyarat
 
-Before you begin, ensure you have the following installed on your system:
+Sebelum memulai, pastikan Anda memiliki yang berikut ini yang terinstal di sistem Anda:
 
-* Node.js (LTS version recommended, e.g., v18.x or v20.x)
-* npm or Yarn (npm is used in the commands below)
+* Node.js (versi LTS direkomendasikan, misal, v18.x atau v20.x)
+* npm atau Yarn (npm digunakan dalam perintah di bawah ini)
 
-### Installation
+### Instalasi
 
-1.  **Clone the repository**:
+1.  **Kloning repositori**:
 
     ```bash
-    git clone https://github.com/mattyudha/company-profile-pt-emran-ghani-asahi.git
+    git clone [https://github.com/mattyudha/company-profile-pt-emran-ghani-asahi.git](https://github.com/mattyudha/company-profile-pt-emran-ghani-asahi.git)
     cd company-profile-pt-emran-ghani-asahi
     ```
 
-2.  **Install dependencies**:
+2.  **Instal dependensi**:
 
     ```bash
     npm install
-    # or if you use yarn
+    # atau jika Anda menggunakan yarn
     # yarn install
     ```
 
-### Environment Variables
+### Variabel Lingkungan
 
-This project uses environment variables, especially for the AI Chatbot and Contact Form functionality. You need to create a `.env` file in the root directory of the project and add the following variables:
+Proyek ini menggunakan variabel lingkungan, terutama untuk fungsionalitas Chatbot AI dan Formulir Kontak. Anda perlu membuat file `.env` di direktori root proyek dan menambahkan variabel berikut:
 
 ```dotenv
-# Gemini AI Configuration (Required for Emran Chatbot with Image Recognition)
+# Konfigurasi Gemini AI (Diperlukan untuk Emran Chatbot dengan Pengenalan Gambar)
 VITE_GEMINI_API_KEY=YOUR_GOOGLE_GEMINI_API_KEY
 
-# Supabase Configuration (Required for contact form and data storage)
+# Konfigurasi Supabase (Diperlukan untuk formulir kontak dan penyimpanan data)
 VITE_SUPABASE_URL=YOUR_SUPABASE_PROJECT_URL
 VITE_SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
 
-# EmailJS Configuration (Required for contact form email notifications)
+# Konfigurasi EmailJS (Diperlukan untuk notifikasi email formulir kontak)
 VITE_EMAILJS_SERVICE_ID=YOUR_EMAILJS_SERVICE_ID
 VITE_EMAILJS_TEMPLATE_ID=YOUR_EMAILJS_TEMPLATE_ID
 VITE_EMAILJS_PUBLIC_KEY=YOUR_EMAILJS_PUBLIC_KEY
 VITE_EMAILJS_TO_EMAIL=YOUR_COMPANY_EMAIL_FOR_NOTIFICATIONS
-```
+Cara mendapatkan kunci ini:
+VITE_GEMINI_API_KEY:
 
-#### How to obtain these keys:
+Dapatkan ini dari Google AI Studio atau Google Cloud Console.
+Kunjungi Google AI Studio untuk membuat kunci API Anda.
+Penting: Pastikan kunci API Anda memiliki izin untuk kemampuan pemrosesan teks dan gambar.
+VITE_SUPABASE_URL dan VITE_SUPABASE_ANON_KEY:
 
-**VITE_GEMINI_API_KEY**: 
-- Obtain this from the Google AI Studio or Google Cloud Console.
-- Visit [Google AI Studio](https://makersuite.google.com/app/apikey) to create your API key.
-- **Important**: Ensure your API key has permissions for both text and image processing capabilities.
+Ini adalah URL proyek Anda dan kunci publik anon dari pengaturan proyek Supabase Anda (bagian API).
+Kunjungi Supabase untuk membuat proyek dan mendapatkan kredensial ini.
+VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY:
 
-**VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY**: 
-- These are your project URL and anon public key from your Supabase project settings (API section).
-- Visit [Supabase](https://supabase.com) to create a project and get these credentials.
+Ini diperoleh dari akun EmailJS Anda. Anda perlu menyiapkan layanan dan template untuk mengirim email.
+Kunjungi EmailJS untuk mengatur layanan email Anda.
+VITE_EMAILJS_TO_EMAIL:
 
-**VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY**: 
-- These are obtained from your EmailJS account. You will need to set up a service and a template for sending emails.
-- Visit [EmailJS](https://www.emailjs.com/) to set up your email service.
+Ini adalah alamat email tempat Anda ingin menerima pengiriman formulir kontak.
+Penyiapan Fungsi Edge Supabase:
+Formulir kontak juga menggunakan Supabase Edge Function untuk menyimpan pengiriman ke database dan memicu EmailJS.
 
-**VITE_EMAILJS_TO_EMAIL**: 
-- This should be the email address where you want to receive contact form submissions.
+File supabase/functions/send-email/index.ts berisi logika untuk ini.
+Pastikan proyek Supabase Anda memiliki tabel contacts dengan skema yang ditentukan dalam supabase/migrations/20250526104834_late_oasis.sql dan variabel lingkungan yang diperlukan disiapkan di Supabase untuk Fungsi Edge.
+File supabase/config.toml menyediakan konfigurasi lokal untuk Supabase.
+Menjalankan Proyek
+Mulai server pengembangan:
 
-#### Supabase Edge Function Setup:
+Bash
 
-The contact form also utilizes a Supabase Edge Function to save submissions to a database and trigger EmailJS.
-- The `supabase/functions/send-email/index.ts` file contains the logic for this. 
-- Ensure your Supabase project has a `contacts` table with the schema defined in `supabase/migrations/20250526104834_late_oasis.sql` and the necessary environment variables set up in Supabase for the Edge Function. 
-- The `supabase/config.toml` file provides local configuration for Supabase.
-
-### Running the Project
-
-**Start the development server:**
-
-```bash
 npm run dev
-# or if you use yarn
+# atau jika Anda menggunakan yarn
 # yarn dev
-```
+Ini akan memulai server pengembangan Vite, biasanya di http://localhost:5173.
 
-This will start the Vite development server, usually at http://localhost:5173.
+Buka di browser Anda:
+Navigasikan ke alamat yang ditampilkan di terminal Anda (misalnya, http://localhost:5173) untuk melihat situs web.
 
-**Open in your browser:**
-Navigate to the address displayed in your terminal (e.g., http://localhost:5173) to view the website.
+Membangun untuk Produksi
+Untuk membuat build produksi yang dioptimalkan dari situs web:
 
-### Building for Production
+Bash
 
-To create an optimized production build of the website:
-
-```bash
 npm run build
-# or if you use yarn
+# atau jika Anda menggunakan yarn
 # yarn build
-```
+Perintah ini akan mengkompilasi proyek ke direktori dist/, siap untuk deployment.
 
-This command will compile the project into the `dist/` directory, ready for deployment.
+Linting
+Untuk memeriksa kode dari kesalahan linting:
 
-### Linting
+Bash
 
-To check the code for linting errors:
-
-```bash
 npm run lint
-```
+Membuat Sitemap
+Proyek ini menyertakan skrip untuk membuat sitemap.xml untuk tujuan SEO.
 
-### Generating Sitemap
+Bash
 
-This project includes a script to generate sitemap.xml for SEO purposes.
-
-```bash
 npm run generate-sitemap
-```
-
-## Project Structure
-
-```
+Struktur Proyek
 .
-├── public/                    # Static assets (images, manifest.json, robots.txt)
+├── public/                    # Aset statis (gambar, manifest.json, robots.txt)
 │   ├── assets/
 │   ├── icon-192.png
 │   ├── icon-512.png
 │   └── manifest.json
-│   └── robots.txt             # Sitemap reference included here
-├── src/                       # Source code
-│   ├── components/            # Reusable UI components
-│   │   ├── Chatbot.tsx        # Enhanced Emran Chatbot with image recognition
-│   │   ├── Services.tsx       # Services showcase with proper links
-│   │   └── ...                # Other components
-│   ├── contexts/              # React Contexts for global state (Theme, Language)
-│   ├── pages/                 # Individual pages for services and main sections
-│   ├── utils/                 # Utility functions (translations, Gemini API integration, validation)
-│   │   ├── gemini.ts          # Enhanced Gemini API integration with image recognition
-│   │   ├── translations.ts    # Multi-language support with image-related translations
-│   │   └── validation.ts      # Form validation schemas
-│   ├── App.tsx                # Main application component
-│   ├── index.css              # Global CSS, TailwindCSS imports
-│   └── main.tsx               # Entry point for React app
-├── supabase/                  # Supabase related configurations and functions
-│   ├── functions/send-email/  # Edge function for sending emails
-│   ├── migrations/            # Database migration files (e.g., table creation)
-│   └── config.toml            # Supabase CLI configuration
-├── .env.example               # Example for environment variables
-├── .gitignore                 # Files and directories to ignore in Git
-├── index.html                 # Main HTML file
-├── package.json               # Project dependencies and scripts
-├── package-lock.json          # Dependency tree lock file
-├── postcss.config.js          # PostCSS configuration for Tailwind CSS
-├── README.md                  # Project README (this file)
-├── tailwind.config.js         # Tailwind CSS configuration
-├── tsconfig.json              # TypeScript configuration
-├── vite.config.ts             # Vite build tool configuration (PWA setup)
-└── ... other config files
-```
+│   └── robots.txt             # Referensi Sitemap disertakan di sini
+├── src/                       # Kode sumber
+│   ├── components/            # Komponen UI yang dapat digunakan kembali
+│   │   ├── Chatbot.tsx        # Emran Chatbot yang ditingkatkan dengan pengenalan gambar
+│   │   ├── Services.tsx       # Tampilan layanan dengan tautan yang tepat
+│   │   └── ...                # Komponen lainnya
+│   ├── contexts/              # React Contexts untuk status global (Tema, Bahasa)
+│   ├── pages/                 # Halaman individual untuk layanan dan bagian utama
+│   ├── utils/                 # Fungsi utilitas (terjemahan, integrasi Gemini API, validasi)
+│   │   ├── gemini.ts          # Integrasi Gemini API yang ditingkatkan dengan pengenalan gambar
+│   │   ├── translations.ts    # Dukungan multi-bahasa dengan terjemahan terkait gambar
+│   │   └── validation.ts      # Skema validasi formulir
+│   ├── App.tsx                # Komponen aplikasi utama
+│   ├── index.css              # CSS global, impor TailwindCSS
+│   └── main.tsx               # Titik masuk untuk aplikasi React
+├── supabase/                  # Konfigurasi dan fungsi terkait Supabase
+│   ├── functions/send-email/  # Fungsi Edge untuk mengirim email
+│   ├── migrations/            # File migrasi database (misalnya, pembuatan tabel)
+│   └── config.toml            # Konfigurasi Supabase CLI
+├── .env.example               # Contoh untuk variabel lingkungan
+├── .gitignore                 # File dan direktori yang akan diabaikan di Git
+├── index.html                 # File HTML utama
+├── package.json               # Dependensi dan skrip proyek
+├── package-lock.json          # File kunci pohon dependensi
+├── postcss.config.js          # Konfigurasi PostCSS untuk Tailwind CSS
+├── README.md                  # README Proyek (file ini)
+├── tailwind.config.js         # Konfigurasi Tailwind CSS
+├── tsconfig.json              # Konfigurasi TypeScript
+├── vite.config.ts             # Konfigurasi alat build Vite (penyiapan PWA)
+└── ... file konfigurasi lainnya
+Fitur yang Ditingkatkan
+Kemampuan Emran Chatbot
+Chatbot AI telah ditingkatkan secara signifikan dengan fitur-fitur berikut:
 
-## Enhanced Features
+Identitas Profesional: Dinamai "Emran Chatbot" dan diberi merek sebagai asisten resmi untuk PT. EMRAN GHANIM ASAHI.
 
-### Emran Chatbot Capabilities
+Pengenalan & Analisis Gambar:
 
-The AI chatbot has been significantly enhanced with the following features:
+Unggah gambar (JPG, PNG, WebP) hingga 5MB.
+Analisis bertenaga AI terhadap elemen desain, persyaratan pencetakan, dan penilaian kualitas.
+Rekomendasi layanan pencetakan yang disesuaikan berdasarkan konten gambar.
+Umpan balik waktu nyata dengan pratinjau visual gambar yang diunggah.
+Sistem Saran Dinamis:
 
-1. **Professional Identity**: Named "Emran Chatbot" and branded as the official assistant for PT. EMRAN GHANIM ASAHI.
+Saran peka konteks yang berubah berdasarkan alur percakapan.
+Saran khusus gambar saat gambar diunggah.
+Mencegah pengulangan saran yang sudah digunakan.
+Saran berbasis kategori (pencetakan, layanan, harga, kontak, umum, analisis gambar).
+Basis Pengetahuan yang Ditingkatkan:
 
-2. **Image Recognition & Analysis**: 
-   - Upload images (JPG, PNG, WebP) up to 5MB
-   - AI-powered analysis of design elements, printing requirements, and quality assessment
-   - Tailored recommendations for printing services based on image content
-   - Real-time feedback with visual preview of uploaded images
+Informasi perusahaan yang komprehensif termasuk layanan, detail kontak, kemampuan peralatan.
+Dukungan multibahasa dengan terjemahan yang akurat.
+Respons profesional yang disesuaikan dengan terminologi industri percetakan.
+Penanganan Kesalahan Tingkat Lanjut:
 
-3. **Dynamic Suggestion System**: 
-   - Context-aware suggestions that change based on conversation flow
-   - Image-specific suggestions when images are uploaded
-   - Prevents repetition of used suggestions
-   - Category-based suggestions (printing, services, pricing, contact, general, image analysis)
+Pesan kesalahan yang mudah digunakan untuk kegagalan unggah gambar.
+Validasi jenis file dan ukuran.
+Mekanisme coba lagi untuk permintaan AI yang gagal.
+Fallback yang anggun untuk masalah jaringan.
+Optimalisasi Kinerja
+Penanganan Kesalahan yang Ditingkatkan: Pesan kesalahan yang mudah digunakan dengan panduan yang dapat ditindaklanjuti.
+Integrasi API yang Ditingkatkan: Integrasi Gemini API yang kuat dengan mekanisme coba lagi dan pemrosesan gambar.
+Terjemahan yang Dioptimalkan: Sistem terjemahan yang komprehensif dengan lokalisasi pesan kesalahan terkait gambar.
+Validasi File: Validasi komprehensif untuk unggahan gambar dengan umpan balik pengguna yang jelas.
+Pemuatan Malas (Lazy Loading): Diterapkan pada semua gambar di bawah lipatan untuk kinerja yang lebih baik.
+Optimalisasi Font: Google Font dimuat dengan font-display: swap untuk kinerja yang lebih baik.
+Peningkatan di Masa Depan
+Fitur yang Direncanakan
+Analisis Gambar Tingkat Lanjut:
 
-4. **Enhanced Knowledge Base**: 
-   - Comprehensive company information including services, contact details, equipment capabilities
-   - Multilingual support with accurate translations
-   - Professional responses tailored to printing industry terminology
+Unggah dan perbandingan banyak gambar.
+Pemrosesan batch untuk beberapa file desain.
+Integrasi dengan API perangkat lunak desain.
+Pembuatan kutipan otomatis berdasarkan spesifikasi gambar.
+Fitur Chatbot yang Ditingkatkan:
 
-5. **Advanced Error Handling**: 
-   - User-friendly error messages for image upload failures
-   - File type and size validation
-   - Retry mechanisms for failed AI requests
-   - Graceful fallbacks for network issues
+Dukungan pesan suara.
+Unggah file untuk spesifikasi cetak (file PDF, AI, PSD).
+Integrasi dengan sistem manajemen pesanan.
+Eskalasi obrolan langsung ke agen manusia.
+Pengalaman Pengguna yang Ditingkatkan:
 
-### Performance Optimizations
+Pelacakan pesanan waktu nyata.
+Portal pelanggan untuk klien berulang.
+Pemfilteran dan pencarian portofolio tingkat lanjut.
+Alat desain interaktif.
+Fitur Pengenalan Gambar
+Format yang Didukung
+JPEG/JPG: Format gambar standar untuk foto dan gambar kompleks.
+PNG: Terbaik untuk gambar dengan transparansi dan grafik sederhana.
+WebP: Format modern yang menawarkan kompresi dan kualitas superior.
+Batas Ukuran File
+Ukuran Maksimum: 5MB per gambar.
+Ukuran yang Direkomendasikan: 1-3MB untuk kecepatan pemrosesan optimal.
+Resolusi Minimum: 100x100 piksel untuk analisis yang efektif.
+Kemampuan Analisis
+Pengenalan Elemen Desain: Mengidentifikasi warna, tipografi, elemen tata letak.
+Penilaian Kualitas Cetak: Mengevaluasi resolusi dan kesiapan cetak.
+Rekomendasi Bahan: Menyarankan jenis kertas dan hasil akhir yang sesuai.
+Pencocokan Layanan: Merekomendasikan layanan PT. EMRAN GHANIM ASAHI yang relevan.
+Estimasi Biaya: Memberikan panduan harga awal.
+Tips Penggunaan
+Gambar Berkualitas Tinggi: Unggah gambar yang jelas dan terang untuk hasil analisis terbaik.
+Beberapa Sudut: Pertimbangkan untuk mengunggah berbagai tampilan desain atau produk Anda.
+Informasi Konteks: Berikan detail tambahan dalam pesan Anda untuk rekomendasi yang lebih akurat.
+Persiapan File: Pastikan gambar dipotong dengan benar dan fokus pada konten yang relevan.
+Kontribusi
+Kami menyambut kontribusi untuk meningkatkan proyek ini! Jika Anda memiliki saran atau menemukan masalah, silakan buka issue atau kirimkan pull request.
 
-- **Improved Error Handling**: User-friendly error messages with actionable guidance
-- **Enhanced API Integration**: Robust Gemini API integration with retry mechanisms and image processing
-- **Optimized Translations**: Comprehensive translation system with image-related error message localization
-- **File Validation**: Comprehensive validation for image uploads with clear user feedback
-- **Lazy Loading**: Applied to all images below the fold for improved performance
-- **Font Optimization**: Google Fonts loaded with font-display: swap for better performance
+Pedoman Pengembangan
+Ikuti struktur kode dan konvensi penamaan yang sudah ada.
+Pastikan semua fitur baru diketik dengan benar menggunakan TypeScript.
+Tambahkan penanganan kesalahan dan umpan balik pengguna yang sesuai.
+Uji secara menyeluruh di berbagai perangkat dan browser.
+Perbarui dokumentasi untuk fitur baru apa pun.
+Uji fungsionalitas unggah gambar dengan berbagai jenis dan ukuran file.
+Lisensi
+Proyek ini dilisensikan di bawah Lisensi MIT.
 
-## Future Enhancements
-
-### Planned Features
-
-1. **Advanced Image Analysis**: 
-   - Multi-image upload and comparison
-   - Batch processing for multiple design files
-   - Integration with design software APIs
-   - Automated quote generation based on image specifications
-
-2. **Enhanced Chatbot Features**:
-   - Voice message support
-   - File upload for print specifications (PDF, AI, PSD files)
-   - Integration with order management system
-   - Live chat escalation to human agents
-
-3. **Enhanced User Experience**:
-   - Real-time order tracking
-   - Customer portal for repeat clients
-   - Advanced portfolio filtering and search
-   - Interactive design tools
-
-## Image Recognition Feature
-
-### Supported Formats
-- **JPEG/JPG**: Standard image format for photographs and complex images
-- **PNG**: Best for images with transparency and simple graphics
-- **WebP**: Modern format offering superior compression and quality
-
-### File Size Limits
-- **Maximum Size**: 5MB per image
-- **Recommended Size**: 1-3MB for optimal processing speed
-- **Minimum Resolution**: 100x100 pixels for effective analysis
-
-### Analysis Capabilities
-- **Design Element Recognition**: Identifies colors, typography, layout elements
-- **Print Quality Assessment**: Evaluates resolution and print readiness
-- **Material Recommendations**: Suggests appropriate paper types and finishes
-- **Service Matching**: Recommends relevant PT. EMRAN GHANIM ASAHI services
-- **Cost Estimation**: Provides preliminary pricing guidance
-
-### Usage Tips
-1. **High Quality Images**: Upload clear, well-lit images for best analysis results
-2. **Multiple Angles**: Consider uploading different views of your design or product
-3. **Context Information**: Provide additional details in your message for more accurate recommendations
-4. **File Preparation**: Ensure images are properly cropped and focused on the relevant content
-
-## Contributing
-
-We welcome contributions to improve this project! If you have suggestions or find issues, please open an issue or submit a pull request.
-
-### Development Guidelines
-
-1. Follow the existing code structure and naming conventions
-2. Ensure all new features are properly typed with TypeScript
-3. Add appropriate error handling and user feedback
-4. Test thoroughly across different devices and browsers
-5. Update documentation for any new features
-6. Test image upload functionality with various file types and sizes
-
-## License
-
-This project is licensed under the MIT License.
-
-```
 MIT License
 
 Copyright (c) 2023 PT. EMRAN GHANIM ASAHI
@@ -338,28 +306,24 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```
+Dukungan
+Untuk dukungan teknis atau pertanyaan tentang proyek ini, silakan hubungi tim pengembangan kami atau buat issue di repositori.
 
-## Support
+Untuk pertanyaan bisnis, silakan hubungi PT. EMRAN GHANIM ASAHI secara langsung:
 
-For technical support or questions about this project, please contact our development team or create an issue in the repository.
-
-For business inquiries, please contact PT. EMRAN GHANIM ASAHI directly:
-- **Email**: sales@emranghanimasahi.net
-- **Phone**: (021) 89088260
-- **Direct Contact**: Mr. Darmawan at 0813-9831-8839
-- **Address**: The Avenue Block Z 06/36, Citra Raya, Cikupa, Tangerang
-
-## Changelog
-
-### Version 3.0.0 - Enhanced AI & Performance Optimization
-- ✅ **NEW**: Complete image recognition and analysis in Emran Chatbot
-- ✅ **ENHANCED**: Advanced dynamic suggestion system with context awareness
-- ✅ **IMPROVED**: Comprehensive error handling and user feedback mechanisms
-- ✅ **UPDATED**: Full translations for all image-related features across 5 languages
-- ✅ **FIXED**: Service links now properly route using React Router
-- ✅ **OPTIMIZED**: Chatbot performance with enhanced AI integration
-- ✅ **ADDED**: Lazy loading for all images below the fold
-- ✅ **IMPROVED**: Font loading optimization with display: swap
-- ✅ **ENHANCED**: Professional branding consistency throughout
-```
+Email: sales@emranghanimasahi.net
+Telepon: (021) 89088260
+Kontak Langsung: Bapak Darmawan di 0813-9831-8839
+Alamat: The Avenue Blok Z 06/36, Citra Raya, Cikupa, Tangerang
+Catatan Perubahan (Changelog)
+Versi 3.0.0 - Optimalisasi AI & Performa yang Ditingkatkan
+✅ BARU: Pengenalan dan analisis gambar lengkap di Emran Chatbot
+✅ DITINGKATKAN: Sistem saran dinamis canggih dengan kesadaran konteks
+✅ DITINGKATKAN: Penanganan kesalahan komprehensif dan mekanisme umpan balik pengguna
+✅ DIPERBARUI: Terjemahan lengkap untuk semua fitur terkait gambar di 5 bahasa
+✅ DIPERBAIKI: Tautan layanan sekarang merutekan dengan benar menggunakan React Router
+✅ DIOPTIMALKAN: Kinerja chatbot dengan integrasi AI yang ditingkatkan
+✅ DITAMBAHKAN: Pemuatan malas (lazy loading) untuk semua gambar di bawah lipatan
+✅ DITINGKATKAN: Optimalisasi pemuatan font dengan display: swap
+✅ DITINGKATKAN: Konsistensi branding profesional di seluruh bagian
+<!-- end list -->
