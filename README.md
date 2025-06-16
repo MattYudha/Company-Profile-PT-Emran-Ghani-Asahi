@@ -1,6 +1,6 @@
 # PT. EMRAN GHANIM ASAHI - Situs Web Profil Perusahaan
 
-![Logo Perusahaan](./assets/logo.png)
+![Logo Perusahaan](../assets/logo.png)
 
 ## Gambaran Umum
 
