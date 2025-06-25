@@ -56,7 +56,8 @@ const Navbar: React.FC = () => {
     { name: t.home, href: "/#home" },
     { name: t.services, href: "/#services" },
     { name: t.about, href: "/#about" },
-    { name: t.team, href: "/#team" },
+    // BARIS YANG DIUBAH HANYA TEKSNYA SAJA:
+    { name: "Sample", href: "/#team" }, // Teksnya "Sample", tapi linknya tetap "/#team"
     { name: t.portfolio, href: "/#portfolio" },
     { name: t.contact, href: "/#contact" },
   ];
